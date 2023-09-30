@@ -1,0 +1,4 @@
+_: Hackage 软件仓库
+block:
+- cabal
+- stack

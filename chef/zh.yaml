@@ -1,0 +1,23 @@
+_: Chef 软件仓库
+block:
+- intro
+- deb
+- rpm
+input:
+  release:
+    _: 操作系统版本
+    option:
+      bullseye:
+        _: Debian 11 (bullseye)
+      buster:
+        _: Debian 10 (buster)
+      stretch:
+        _: Debian 9 (stretch) (EOL)
+      jessie:
+        _: Debian 8 (jessie) (EOL)
+      focal:
+        _: Ubuntu 20.04 LTS (focal)
+      bionic:
+        _: Ubuntu 18.04 LTS (bionic)
+      xenial:
+        _: Ubuntu 16.04 LTS (xenial) (EOL)

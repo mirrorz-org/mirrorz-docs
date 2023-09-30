@@ -1,0 +1,30 @@
+_: GitLab Runner 软件仓库
+block:
+- cover
+- deb
+- rpm
+input:
+  release:
+    _: 操作系统版本
+    option:
+      bullseye:
+        _: Debian 11 (bullseye)
+        os: debian
+      buster:
+        _: Debian 10 (buster)
+        os: debian
+      stretch:
+        _: Debian 9 (stretch) (EOL)
+        os: debian
+      jessie:
+        _: Debian 8 (jessie) (EOL)
+        os: debian
+      focal:
+        _: Ubuntu 20.04 LTS (focal)
+        os: ubuntu
+      bionic:
+        _: Ubuntu 18.04 LTS (bionic)
+        os: ubuntu
+      xenial:
+        _: Ubuntu 16.04 LTS (xenial) (EOL)
+        os: ubuntu

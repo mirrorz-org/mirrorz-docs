@@ -1,0 +1,19 @@
+_: Linux Mint 软件仓库
+block:
+- linuxmint
+input:
+  release:
+    _: Linux Mint 版本
+    option:
+      victoria:
+        _: 21.2 (victoria)
+      vera:
+        _: 21.1 (vera)
+      vanessa:
+        _: 21 (vanessa)
+      una:
+        _: 20.3 (una)
+      uma:
+        _: 20.2 (uma)
+      ulyssa:
+        _: 20.1 (ulyssa)

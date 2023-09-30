@@ -1,0 +1,17 @@
+_: Mageia 软件仓库
+block:
+- mageia
+input:
+  version:
+    _: 版本
+    option:
+      '8':
+      '9':
+      '7.1':
+      '7':
+  arch:
+    _: 架构
+    option:
+      x86_64:
+      aarch64:
+      armv7hl:

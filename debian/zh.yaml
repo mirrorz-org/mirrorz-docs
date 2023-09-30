@@ -1,0 +1,40 @@
+_: Debian 软件源
+block:
+- usage
+- omv
+- nginx
+input:
+  release:
+    _: Debian 版本
+    option:
+      bookworm:
+        _: Debian 12 (bookworm)
+        security: -security
+        nonfree: ' non-free non-free-firmware'
+      bullseye:
+        _: Debian 11 (bullseye)
+        security: -security
+        nonfree: ' non-free'
+      buster:
+        _: Debian 10 (buster)
+        security: /updates
+        nonfree: ' non-free'
+      testing:
+        security: -security
+        nonfree: ' non-free non-free-firmware'
+      sid:
+        sid: true
+        nonfree: ' non-free non-free-firmware'
+  src:
+    _: 启用源码源
+    note: 源码源通常用于构建和调试，开启后影响更新速度
+    true: ''
+    false: '# '
+  nf:
+    _: 使用非自由软件源
+    default: true
+    true:
+  mirror_security:
+    _: 强制安全更新使用镜像
+    note: 为了更及时地获得安全更新，不推荐使用镜像站安全更新软件源
+    true:

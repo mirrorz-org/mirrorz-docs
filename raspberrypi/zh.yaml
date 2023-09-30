@@ -1,0 +1,13 @@
+_: Raspberrypi 软件仓库
+block:
+- raspberrypi
+input:
+  release:
+    _: 选择你的 Raspbian 对应的 Debian 版本
+    option:
+      bullseye:
+        _: Debian 11 (bullseye)
+      buster:
+        _: Debian 10 (buster)
+      stretch:
+        _: Debian 9 (stretch) (EOL)

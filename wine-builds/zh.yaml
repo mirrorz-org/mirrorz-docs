@@ -1,0 +1,25 @@
+_: Wine builds 软件仓库
+block:
+- wine-builds
+input:
+  release:
+    _: 发行版
+    option:
+      bookworm:
+        _: Debian 12 (bookworm)
+        os: debian
+      bullseye:
+        _: Debian 11 (bullseye)
+        os: debian
+      buster:
+        _: Debian 10 (buster)
+        os: debian
+      jammy:
+        _: Ubuntu 22.04 LTS (jammy)
+        os: ubuntu
+      focal:
+        _: Ubuntu 20.04 LTS (focal)
+        os: ubuntu
+      bionic:
+        _: Ubuntu 18.04 LTS (bionic)
+        os: ubuntu

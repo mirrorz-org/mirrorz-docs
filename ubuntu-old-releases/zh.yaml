@@ -1,0 +1,79 @@
+_: Ubuntu 旧版本软件仓库
+block:
+- ubuntu-old-releases
+input:
+  release:
+    _: Ubuntu 版本
+    option:
+      impish:
+        _: Ubuntu 21.10 (impish)
+      hirsute:
+        _: Ubuntu 21.04 (hirsute)
+      groovy:
+        _: Ubuntu 20.10 (groovy)
+      eoan:
+        _: Ubuntu 19.10 (eoan)
+      disco:
+        _: Ubuntu 19.04 (disco)
+      cosmic:
+        _: Ubuntu 18.10 (cosmic)
+      artful:
+        _: Ubuntu 17.10 (artful)
+      zesty:
+        _: Ubuntu 17.04 (zesty)
+      yakkety:
+        _: Ubuntu 16.10 (yakkety)
+      wily:
+        _: Ubuntu 15.10 (wily)
+      vivid:
+        _: Ubuntu 15.04 (vivid)
+      utopic:
+        _: Ubuntu 14.10 (utopic)
+      saucy:
+        _: Ubuntu 13.10 (saucy)
+      raring:
+        _: Ubuntu 13.04 (raring)
+      quantal:
+        _: Ubuntu 12.10 (quantal)
+      precise:
+        _: Ubuntu 12.04 LTS (precise)
+      oneiric:
+        _: Ubuntu 11.10 (oneiric)
+      natty:
+        _: Ubuntu 11.04 (natty)
+      maverick:
+        _: Ubuntu 10.10 (maverick)
+      lucid:
+        _: Ubuntu 10.04 LTS (lucid)
+      karmic:
+        _: Ubuntu 9.10 (karmic)
+      jaunty:
+        _: Ubuntu 9.04 (jaunty)
+      intrepid:
+        _: Ubuntu 8.10 (intrepid)
+      hardy:
+        _: Ubuntu 8.04 LTS (hardy)
+      gutsy:
+        _: Ubuntu 7.10 (gutsy)
+      feisty:
+        _: Ubuntu 7.04 (feisty)
+      edgy:
+        _: Ubuntu 6.10 (edgy)
+      dapper:
+        _: Ubuntu 6.06 LTS (dapper)
+      breezy:
+        _: Ubuntu 5.10 (breezy)
+      hoary:
+        _: Ubuntu 5.04 (hoary)
+      warty:
+        _: Ubuntu 4.10 (warty)
+  src:
+    _: 启用源码源
+    note: 源码源通常用于构建和调试，开启后影响更新速度
+    true: ''
+    false: '# '
+  proposed:
+    _: 启用 proposed
+    true: ''
+    false: '# '
+

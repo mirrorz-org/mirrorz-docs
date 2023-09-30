@@ -1,0 +1,12 @@
+_: FreeBSD pkg
+block:
+- cover
+- usage
+input:
+  channel:
+    _: 使用滚动更新版本
+    option:
+      quarterly:
+        _: 季度更新
+      latest:
+        _: 滚动更新

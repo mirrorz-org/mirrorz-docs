@@ -1,0 +1,8 @@
+_: CentOS Vault 软件仓库
+block:
+- cover
+- usage
+input:
+  minorver:
+    _: 使用的小版本
+    default: '6.10'

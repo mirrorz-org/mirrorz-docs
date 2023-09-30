@@ -1,0 +1,9 @@
+_: Scientific Linux 软件仓库
+block:
+- scientificlinux
+input:
+  release:
+    _: SL 版本
+    option:
+      '7':
+        _: SL7

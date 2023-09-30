@@ -1,0 +1,10 @@
+%YAML 1.2
+---
+_: AOSP Monthly
+block:
+- aosp-monthly
+input:
+  checksum:
+    _: 检查校验和
+    default: true
+    true:

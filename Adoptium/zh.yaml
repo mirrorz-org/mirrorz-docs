@@ -1,0 +1,25 @@
+_: Adoptium 软件仓库
+block:
+- win
+- deb
+- rpm
+input:
+  release:
+    _: 操作系统版本
+    option:
+      bookworm:
+        _: Debian 12 (bookworm)
+      bullseye:
+        _: Debian 11 (bullseye)
+      buster:
+        _: Debian 10 (buster)
+      stretch:
+        _: Debian 9 (stretch) (EOL)
+      jammy:
+        _: Ubuntu 22.04 LTS (jammy)
+      focal:
+        _: Ubuntu 20.04 LTS (focal)
+      bionic:
+        _: Ubuntu 18.04 LTS (bionic)
+      xenial:
+        _: Ubuntu 16.04 LTS (xenial) (EOL)

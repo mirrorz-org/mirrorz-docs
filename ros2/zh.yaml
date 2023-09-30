@@ -1,0 +1,19 @@
+_: ROS2 软件仓库
+block:
+- ros2
+input:
+  release:
+    _: 发行版
+    option:
+      jammy:
+        _: Ubuntu 22.04 LTS (jammy)
+      focal:
+        _: Ubuntu 20.04 LTS (focal)
+      bionic:
+        _: Ubuntu 18.04 LTS (bionic)
+      bookworm:
+        _: Debian 12 (bookworm)
+      bullseye:
+        _: Debian 11 (bullseye)
+      buster:
+        _: Debian 10 (buster)

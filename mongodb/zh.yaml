@@ -1,0 +1,46 @@
+_: MongoDB 软件仓库
+block:
+- mongodb
+input:
+  version:
+    _: 'MongoDB 版本号'
+    option:
+      '6.0':
+      '5.0':
+      '4.4':
+      '4.2':
+  release:
+    _: 发行版
+    option:
+      bullseye:
+        _: Debian 11 (bullseye)
+        os: debian
+        repo: main
+      buster:
+        _: Debian 10 (buster)
+        os: debian
+        repo: main
+      stretch:
+        _: Debian 9 (stretch) (EOL)
+        os: debian
+        repo: main
+      jessie:
+        _: Debian 8 (jessie) (EOL)
+        os: debian
+        repo: main
+      jammy:
+        _: Ubuntu 22.04 LTS (jammy)
+        os: ubuntu
+        repo: multiverse
+      focal:
+        _: Ubuntu 20.04 LTS (focal)
+        os: ubuntu
+        repo: multiverse
+      bionic:
+        _: Ubuntu 18.04 LTS (bionic)
+        os: ubuntu
+        repo: multiverse
+      xenial:
+        _: Ubuntu 16.04 LTS (xenial) (EOL)
+        os: ubuntu
+        repo: multiverse

@@ -1,0 +1,4 @@
+_: Cygwin 软件仓库
+block:
+- usage
+- pkgsrc

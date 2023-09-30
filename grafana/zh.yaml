@@ -1,0 +1,13 @@
+_: Grafana 软件仓库
+block:
+- deb
+- rpm
+input:
+  version:
+    _: Grafana 版本
+    option:
+      stable:
+        _: Stable 稳定版本
+      beta:
+        _: Beta 测试版本
+        beta: true

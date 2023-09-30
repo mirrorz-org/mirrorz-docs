@@ -1,0 +1,6 @@
+_: CTAN
+block:
+- intro
+- texlive
+- miktex
+- pkgsrc

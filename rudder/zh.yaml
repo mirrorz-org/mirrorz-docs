@@ -1,0 +1,27 @@
+_: Rudder 软件仓库
+block:
+- rudder
+input:
+  release:
+    _: 发行版
+    option:
+      buster:
+        _: Debian 10 (buster)
+      stretch:
+        _: Debian 9 (stretch) (EOL)
+      jessie:
+        _: Debian 8 (jessie) (EOL)
+      focal:
+        _: Ubuntu 20.04 LTS (focal)
+      bionic:
+        _: Ubuntu 18.04 LTS (bionic)
+      xenial:
+        _: Ubuntu 16.04 LTS (xenial) (EOL)
+      trusty:
+        _: Ubuntu 14.04 LTS (trusty) (EOL)
+  version:
+    _: Rudder 版本号
+    option:
+      '6.0':
+      '5.0':
+      '4.3':

@@ -1,0 +1,5 @@
+_: PyPI 软件仓库
+block:
+- pypi
+filter:
+  scheme: https

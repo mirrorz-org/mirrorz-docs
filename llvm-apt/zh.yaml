@@ -1,0 +1,43 @@
+_: LLVM APT 软件仓库
+block:
+- llvm-apt
+input:
+  ver:
+    _: LLVM 版本
+    option:
+      '':
+        _: 默认
+      '15':
+      '14':
+      '13':
+      '12':
+      '11':
+  release:
+    _: 发行版
+    option:
+      bullseye:
+        _: Debian 11 (bullseye)
+      buster:
+        _: Debian 10 (buster)
+      jammy:
+        _: Ubuntu 22.04 LTS (jammy)
+      focal:
+        _: Ubuntu 20.04 LTS (focal)
+      bionic:
+        _: Ubuntu 18.04 LTS (bionic)
+  ver2:
+    _: LLVM 版本
+    option:
+      '':
+        _: 默认
+      '16':
+      '15':
+      '14':
+      '13':
+      '12':
+      '11':
+  src:
+    _: 启用源码源
+    note: 源码源通常用于构建和调试，开启后影响更新速度
+    true: ''
+    false: '# '
