@@ -33,7 +33,7 @@ fnm install <version>
             "template": "{{endpoint}}/index.json"
         },
         "distro": {
-            "template": "{{endpoint}}/v{{version}}/node-v{{version}}-{{os}}-{{arch}}.tar.gz"
+            "template": "{{endpoint}}/v{{=<% %>=}}{{version}}/{{filename}}"
         }
     }
 }

@@ -5,6 +5,8 @@ input:
   release:
     _: 选择你的 Raspbian 对应的 Debian 版本
     option:
+      bookworm:
+        _: Debian 12 (bookworm)
       bullseye:
         _: Debian 11 (bullseye)
       buster:
