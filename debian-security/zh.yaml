@@ -1,0 +1,32 @@
+_: Debian Security 软件仓库
+block:
+- intro
+- usage
+input:
+  release:
+    _: Debian 版本
+    option:
+      bookworm:
+        _: Debian 12 (bookworm)
+        security: -security
+        nonfree: ' non-free non-free-firmware'
+      bullseye:
+        _: Debian 11 (bullseye)
+        security: -security
+        nonfree: ' non-free'
+      buster:
+        _: Debian 10 (buster)
+        security: /updates
+        nonfree: ' non-free'
+      testing:
+        security: -security
+        nonfree: ' non-free non-free-firmware'
+  src:
+    _: 启用源码源
+    note: 源码源通常用于构建和调试，开启后影响更新速度
+    true: ''
+    false: '# '
+  nf:
+    _: 使用非自由软件源
+    default: true
+    true:

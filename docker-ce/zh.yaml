@@ -1,0 +1,25 @@
+_: Docker CE 软件仓库
+block:
+- intro
+- auto
+- debian
+- fedora
+- centos
+- omv
+input:
+  deb_release:
+    _: 发行版
+    option:
+      debian:
+        _: Debian
+      ubuntu:
+        _: Ubuntu
+      raspbian:
+        _: Raspbian
+  rh_release:
+    _: 发行版
+    option:
+      centos:
+        _: CentOS
+      rhel:
+        _: RHEL

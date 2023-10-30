@@ -1,0 +1,4 @@
+_: GHCup
+block:
+- intro
+- ghcup

@@ -1,0 +1,34 @@
+_: Ubuntu 软件仓库
+block:
+- ubuntu
+input:
+  release:
+    _: Ubuntu 版本
+    option:
+      jammy:
+        _: Ubuntu 22.04 LTS (jammy)
+      lunar:
+        _: Ubuntu 23.04 (lunar)
+      kinetic:
+        _: Ubuntu 22.10 (kinetic)
+      focal:
+        _: Ubuntu 20.04 LTS (focal)
+      bionic:
+        _: Ubuntu 18.04 LTS (bionic)
+      xenial:
+        _: Ubuntu 16.04 LTS (xenial) (EOL)
+      trusty:
+        _: Ubuntu 14.04 LTS (trusty) (EOL)
+  src:
+    _: 启用源码源
+    note: 源码源通常用于构建和调试，开启后影响更新速度
+    true: ''
+    false: '# '
+  proposed:
+    _: 启用 proposed
+    true: ''
+    false: '# '
+  mirror_security:
+    _: 强制安全更新使用镜像
+    note: 为了更及时地获得安全更新，不推荐使用镜像站安全更新软件源
+    true:

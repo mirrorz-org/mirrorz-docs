@@ -1,0 +1,29 @@
+_: Deb Multimedia 软件仓库
+block:
+- intro
+- usage
+input:
+  release:
+    _: Debian 系统版本
+    option:
+      bookworm:
+        _: Debian 12 (bookworm)
+      bullseye:
+        _: Debian 11 (bullseye)
+        backports: true
+      buster:
+        _: Debian 10 (buster)
+        backports: true
+      stretch:
+        _: Debian 9 (stretch)
+        backports: true
+      jessie:
+        _: Debian 8 (jessie)
+        backports: true
+      testing:
+      sid:
+  src:
+    _: 启用源码源
+    note: 源码源通常用于构建和调试，开启后影响更新速度
+    true: ''
+    false: '# '

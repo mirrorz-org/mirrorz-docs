@@ -1,0 +1,8 @@
+_: Anaconda Extra 软件仓库
+block:
+- anaconda-extra
+input:
+  channel:
+    _: 第三方源
+    option:
+      nvidia:

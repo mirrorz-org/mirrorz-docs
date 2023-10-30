@@ -1,0 +1,13 @@
+_: Linux Lite 软件仓库
+block:
+- linuxliteos
+input:
+  release:
+    _: Linux Lite 版本
+    option:
+      fluorite:
+        _: '6.x (fluorite)'
+      emerald:
+        _: '5.x (emerald)'
+      diamond:
+        _: '4.x (diamond)'

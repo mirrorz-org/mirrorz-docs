@@ -1,0 +1,5 @@
+_: Rust crates.io 稀疏索引
+block:
+- usage
+filter:
+  scheme: https

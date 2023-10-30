@@ -1,0 +1,24 @@
+name: build
+
+on: [workflow_dispatch, push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11"]
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install markdown pyyaml beautifulsoup4
+    - name: Build all documentation
+      run: |
+        mkdir .empty
+        python compile.py -g . -l .empty -o $(mktemp -d) -C dom -v

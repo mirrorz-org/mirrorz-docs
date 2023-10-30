@@ -1,0 +1,11 @@
+_: Elastic Stack 软件仓库
+block:
+- intro
+- usage
+input:
+  version:
+    _: 版本
+    option:
+      8.x:
+      7.x:
+      6.x:

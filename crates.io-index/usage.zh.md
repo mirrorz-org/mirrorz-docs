@@ -1,0 +1,33 @@
+## 使用方法
+
+编辑 `$CARGO_HOME/config` 文件，添加以下内容：
+
+<tmpl z-lang="toml">
+[source.crates-io]
+replace-with = 'mirror'
+
+[source.mirror]
+registry = "sparse+{{endpoint}}/"
+</tmpl>
+
+注：`sparse+` 表示在使用稀疏索引，链接末尾的 `/` 不能缺少。
+
+注：`$CARGO_HOME`：在 Windows 系统默认为：`%USERPROFILE%\.cargo`，在类 Unix 系统默认为：`$HOME/.cargo`
+
+在 Linux 环境可以使用下面的命令完成：
+
+<tmpl z-lang="bash">
+mkdir -vp ${CARGO_HOME:-$HOME/.cargo}
+
+cat << EOF | tee -a ${CARGO_HOME:-$HOME/.cargo}/config
+[source.crates-io]
+replace-with = 'mirror'
+
+[source.mirror]
+registry = "sparse+{{endpoint}}/"
+EOF
+</tmpl>
+
+截至目前，可以通过 `cargo +nightly -Z sparse-registry update` 使用稀疏索引。
+
+cargo 1.68 版本开始支持稀疏索引：不再需要完整克隆 crates.io-index 仓库，可以加快获取包的速度。如果您的 cargo 版本大于等于 1.68，可以直接使用而不需要开启 nightly。

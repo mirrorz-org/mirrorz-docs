@@ -1,0 +1,19 @@
+_: OpenMediaVault 软件仓库
+block:
+- OpenMediaVault
+input:
+  release:
+    _: 版本
+    option:
+      shaitan:
+        _: 6.0 (shaitan)
+      usul:
+        _: 5.0 (usul)
+  proposed:
+    _: 启用 proposed
+    true: ''
+    false: '# '
+  partner:
+    _: 启用 partner
+    true: ''
+    false: '# '

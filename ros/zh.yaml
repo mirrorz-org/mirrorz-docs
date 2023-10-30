@@ -1,0 +1,21 @@
+_: ROS 软件仓库
+block:
+- ros
+input:
+  release:
+    _: 发行版
+    option:
+      focal:
+        _: Ubuntu 20.04 LTS (focal)
+      bionic:
+        _: Ubuntu 18.04 LTS (bionic)
+      xenial:
+        _: Ubuntu 16.04 LTS (xenial) (EOL)
+      trusty:
+        _: Ubuntu 14.04 LTS (trusty) (EOL)
+      buster:
+        _: Debian 10 (buster)
+      stretch:
+        _: Debian 9 (stretch) (EOL)
+      jessie:
+        _: Debian 8 (jessie) (EOL)

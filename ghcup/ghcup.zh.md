@@ -1,0 +1,98 @@
+## USTC
+
+该节内容仅适用于 USTC 及通过类似方式同步 GHCup 的站点。
+
+### 使用方法
+
+参考如下步骤可安装完整的 Haskell 工具链。
+
+注意，以下命令会安装并配置 GHCup 0.0.7 版本的元数据。
+可查看以下目录的内容，并选择需要安装的 GHCup 版本的 yaml 文件替换以下命令中的 URL。
+
+<tmpl>
+{{endpoint}}/ghcup-metadata/
+</tmpl>
+
+
+**第一步（可选）** ：使用镜像源安装 GHCup 本体。如已经安装 GHCup，可跳到下一步。
+
+
+* Linux, FreeBSD, macOS 用户：在终端中运行如下命令
+
+<tmpl z-lang="bash">
+curl --proto '=https' --tlsv1.2 -sSf https://{{host}}{{path}}/sh/bootstrap-haskell | BOOTSTRAP_HASKELL_YAML={{endpoint}}/ghcup-metadata/ghcup-0.0.7.yaml sh
+</tmpl>
+
+* Windows 用户：以非管理员身份在 PowerShell 中运行如下命令
+
+<tmpl z-lang="powershell">
+$env:BOOTSTRAP_HASKELL_YAML = '{{endpoint}}/ghcup-metadata/ghcup-0.0.7.yaml'
+Set-ExecutionPolicy Bypass -Scope Process -Force;[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;Invoke-Command -ScriptBlock ([ScriptBlock]::Create((Invoke-WebRequest {{endpoint}}/sh/bootstrap-haskell.ps1 -UseBasicParsing))) -ArgumentList $true
+</tmpl>
+
+**第二步** ：配置 GHCup 使用科大源。编辑 `~/.ghcup/config.yaml` 增加如下配置：
+
+<tmpl z-lang="yaml">
+url-source:
+    OwnSource: {{endpoint}}/ghcup/ghcup-metadata/ghcup-0.0.7.yaml
+</tmpl>
+
+**第三步（可选）** ：配置 Cabal 和 Stack 使用镜像源，请参考文档 [Hackage 帮助](../hackage/) 和 [Stackage 帮助](../stackage/) 。
+
+镜像站 GHCup 源仅支持较新的 GHCup 版本（元数据格式版本仅支持 0.0.6 及以上）。如果你使用的 GHCup 版本比较旧，请参考上述步骤安装新版本 GHCup。
+
+### 预发布版本
+
+使用预发布频道可以安装尚未正式发布的测试版本。要启用预发布源，将 `~/.ghcup/config.yaml` 文件中 `url-source` 一节修改如下：
+
+<tmpl z-lang="yaml">
+url-source:
+    OwnSource:
+    - {{endpoint}}/ghcup-metadata/ghcup-0.0.7.yaml
+    - {{endpoint}}/ghcup-metadata/ghcup-prereleases-0.0.7.yaml
+</tmpl>
+
+## SJTUG
+
+该节内容仅适用于 SJTUG 及通过类似方式同步 GHCup 的站点。
+
+### 使用说明
+
+创建 `~/.ghcup/config.yaml` 并输入以下内容
+
+<tmpl z-lang="yaml">
+url-source:
+    OwnSource: "{{endpoint}}/yaml/ghcup/data/ghcup-0.0.6.yaml"
+</tmpl>
+
+如果您尚未安装 ghcup，请在完成以上步骤后，于终端中执行以下指令（请不要以 root 用户执行），随后跟随屏幕上的指引完成安装。
+
+- 如果您运行的是 Linux, macOS (Intel), FreeBSD 或 WSL，请执行
+
+<tmpl z-lang="bash">
+curl --proto '=https' --tlsv1.2 -LsSf https://{{host}}{{path}}/script/install.sh | sh
+</tmpl>
+
+- 如果您运行的是 macOS (Apple 芯片) 请执行
+
+<tmpl z-lang="bash">
+curl --proto '=https' --tlsv1.2 -LsSf https://{{host}}{{path}}/script/install.sh | arch -x86_64 /bin/bash
+</tmpl>
+
+**故障排除**
+
+1. ghcup 出现形如 `[ Error ] JSON decoding failed with: AesonException` 的错误
+
+这可能是由于本机 ghcup 版本与配置文件版本不匹配造成。
+ghcup 于 0.1.15.1 版本前使用 0.0.4 版本的配置文件，此版本及之后的版本使用 0.0.5+ 版本的配置文件。
+请尝试将 `config.yaml` 中的 `ghcup-0.0.6.yaml` 改为 `ghcup-0.0.4.yaml` （抑或反之）后重试。
+
+请注意，ghcup 上游倾向于仅更新最新版本配置文件中的内容，当版本发生变化后请及时更新配置文件版本。
+
+2. 通过 ghcup 安装软件包时出现 `Error: Download failed ...` 错误
+
+这一错误可能是由于您的 ghcup 版本过老，使用的配置文件已经长久未更新，其中包含的软件包版本过旧所致。我们将尽力保留旧版本的软件包，但当存储空间不足时，可能随时删除旧文件。本镜像站仅保证同步最新版本配置文件中包含的软件包。
+
+当出现上述现象时，请首先尝试更新 ghcup 的版本，并根据 `故障排除 1` 的指示修改配置文件。若 ghcup 已无法更新，可以尝试删除 `~/.ghcup` 整个文件夹（这一操作将删除 ghcup 以及所有通过 ghcup 安装的软件），并根据 `使用说明` 重新安装最新版本的 ghcup。
+
+若完成以上步骤后问题仍未解决，请至 [此处](https://github.com/sjtug/mirror-requests) 向 SJTUG 反馈 BUG。

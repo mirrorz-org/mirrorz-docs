@@ -1,0 +1,5 @@
+_: PyBOMBS 软件仓库
+block:
+- pybombs
+filter:
+  scheme: https

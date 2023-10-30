@@ -1,0 +1,3 @@
+_: Nixpkgs
+block:
+- nixpkgs.git
