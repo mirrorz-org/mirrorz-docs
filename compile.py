@@ -59,10 +59,12 @@ def read_conf(project: str, lang: str) -> dict:
 def read_block(project: str, lang: str, block: str) -> str:
     """Read a content block, local version takes precedence"""
     global_block, local_block = read_file(project, f'{block}.{lang}.md')
-    if global_block is None and local_block is None:
-        log.warning(f'block {block}.{lang} not found for project {project}')
-    # use local doc, or global as fallback, or empty
-    return local_block or global_block or ''
+    if local_block is not None:
+        return local_block
+    if global_block is not None:
+        return global_block
+    log.warning(f'block {block}.{lang} not found for project {project}')
+    return ''
 
 
 def produce_markdown(project: str, lang: str, conf: dict | None) -> str:
