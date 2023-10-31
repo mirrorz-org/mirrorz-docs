@@ -3,14 +3,17 @@
 import sys
 import json
 import base64
-import secrets
+import random
+import string
 
 import bs4
 
 
-def process(html: str, *_) -> str:
+def process(html: str, _config: dict, project: str, *_) -> str:
     doc = bs4.BeautifulSoup(html, 'html.parser')
     config = json.loads(base64.b64decode(doc.find(id="z-config").string))  # type: ignore
+    random.seed(project)
+    random_id = lambda: ''.join(random.choices(string.ascii_letters + string.digits, k=8))
 
     for tmpl in doc.find_all('tmpl'):
         # prepare attrs
@@ -51,7 +54,7 @@ def process(html: str, *_) -> str:
             label = doc.new_tag('label')
             input = doc.new_tag('select' if var_type == 'select' else 'input')
             input['name'] = x
-            label['for'] = input['id'] = secrets.token_hex(4)
+            label['for'] = input['id'] = random_id()
             label['title'] = input['title'] = var_conf.get('note')
             label.string = var_conf.get('_', x)
             if var_type == 'select':
