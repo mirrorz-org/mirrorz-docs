@@ -13,7 +13,7 @@ def process(html: str, _config: dict, project: str, *_) -> str:
     doc = bs4.BeautifulSoup(html, 'html.parser')
     config = json.loads(base64.b64decode(doc.find(id="z-config").string))  # type: ignore
     random.seed(project)
-    random_id = lambda: ''.join(random.choices(string.ascii_letters + string.digits, k=8))
+    random_id = lambda: ''.join(random.choices(string.ascii_letters, k=8))
 
     for tmpl in doc.find_all('tmpl'):
         # prepare attrs
