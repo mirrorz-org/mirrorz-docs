@@ -5,6 +5,9 @@ input:
   deb_release:
     _: 发行版
     option:
+      bookworm:
+        _: Debian 12 (bookworm)
+        os: debian
       bullseye:
         _: Debian 11 (bullseye)
         os: debian
@@ -34,7 +37,6 @@ input:
     option:
       '8.0':
       '5.7':
-      '5.6':
   rh_release:
     _: 发行版
     option:
