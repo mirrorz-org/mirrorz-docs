@@ -8,14 +8,14 @@
 {{sudo}}yum install epel-release
 </tmpl>
 
-用如下命令自动替换：（来自 [https://github.com/tuna/issues/issues/687](https://github.com/tuna/issues/issues/687)）
+用如下命令自动替换：（修改自 [https://github.com/tuna/issues/issues/687](https://github.com/tuna/issues/issues/687)）
 
 <tmpl z-lang="bash">
 {{sudo}}sed -e 's!^metalink=!#metalink=!g' \
     -e 's!^#baseurl=!baseurl=!g' \
     -e 's!https\?://download\.fedoraproject\.org/pub/epel!{{endpoint}}!g' \
     -e 's!https\?://download\.example/pub/epel!{{endpoint}}!g' \
-    -i /etc/yum.repos.d/epel*.repo
+    -i /etc/yum.repos.d/epel{,-testing}.repo
 </tmpl>
 
 修改结果如下：（仅供参考，不同版本可能不同）
