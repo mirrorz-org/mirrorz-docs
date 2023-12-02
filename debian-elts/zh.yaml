@@ -1,0 +1,18 @@
+_: Debian 扩展长期支持（Extended LTS）软件仓库
+block:
+- intro
+- usage
+input:
+  release:
+    _: Debian 版本
+    option:
+      jessie:
+        _: Debian 8 (jessie)
+        nonfree: ' non-free'
+      stretch:
+        _: Debian 9 (stretch)
+        nonfree: ' non-free'
+  nf:
+    _: 使用非自由软件源
+    default: true
+    true:
