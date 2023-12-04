@@ -12,7 +12,6 @@ mv /tmp/elts-archive-key.gpg /etc/apt/trusted.gpg.d/freexian-archive-extended-lt
 此后，**删除** `/etc/apt/sources.list` 中的所有的 Debian 源（可能包括 `foo`, `foo-updates`, `foo-backports`, `foo-security` 等多个来源，其中 `foo` 为版本代号），替换为：
 
 <tmpl z-input="release nf">
-# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
 deb {{endpoint}} {{release}} main contrib{{#nf}}{{nonfree}}{{/nf}}
 </tmpl>
 
