@@ -7,10 +7,10 @@ input:
     option:
       jammy:
         _: Ubuntu 22.04 LTS (jammy)
+      mantic:
+        _: Ubuntu 23.10 (mantic)
       lunar:
         _: Ubuntu 23.04 (lunar)
-      kinetic:
-        _: Ubuntu 22.10 (kinetic)
       focal:
         _: Ubuntu 20.04 LTS (focal)
       bionic:
