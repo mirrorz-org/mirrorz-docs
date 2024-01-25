@@ -2,3 +2,4 @@ _: Arch Linux CN 软件仓库
 block:
 - intro
 - usage
+- farseerfc
