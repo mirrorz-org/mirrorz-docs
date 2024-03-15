@@ -80,7 +80,7 @@ def compile_html(project: str, lang: str, conf: dict, md: str) -> str:
     md = re.subn(r'(<tmpl[^>]*>)([\s\S]*?)(</tmpl>)', lambda match: (
         match[1] + escape(unescape(match[2])) + match[3]
     ), md)[0]  # TODO: escape content of <tmpl> cleanly
-    parser = markdown.Markdown(extensions=['admonition', 'nl2br', 'tables'])
+    parser = markdown.Markdown(extensions=['admonition', 'nl2br', 'tables', 'fenced_code'])
     # preserve templates w/o altering
     parser.block_level_elements.append('tmpl')
     html = (
