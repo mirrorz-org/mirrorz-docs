@@ -8,9 +8,9 @@ error: archlinuxcn-keyring: Signature from "Jiachen YANG (Arch Linux Packager Si
 
 需要在本地信任 farseerfc 的 GPG key：
 
-```bash
-sudo pacman-key --lsign-key "farseerfc@archlinux.org"
-```
+<tmpl z-lang="bash">
+{{sudo}}pacman-key --lsign-key "farseerfc@archlinux.org"
+</tmpl>
 
 然后重试安装。详情参见 [新系统中安装 archlinuxcn-keyring 包前需要手动信任 farseerfc 的 key](https://www.archlinuxcn.org/archlinuxcn-keyring-manually-trust-farseerfc-key/)。
 
