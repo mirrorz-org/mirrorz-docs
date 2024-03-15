@@ -1,4 +1,4 @@
-#!/use/bin/env python3
+#!/usr/bin/env python3
 # pylint: disable=logging-fstring-interpolation, invalid-name, C0114
 
 import re
