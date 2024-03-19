@@ -10,7 +10,7 @@ Docker 提供了一个自动配置与安装的脚本，支持 Debian、RHEL、SU
 <tmpl z-lang="bash">
 export DOWNLOAD_URL="{{endpoint}}"
 # 如您使用 curl
-curl -fsSL https://get.docker.com/ | {{#sudo}}sudo -E{{/sudo}}sh
+curl -fsSL https://get.docker.com/ | {{#sudo}}sudo -E {{/sudo}}sh
 # 如您使用 wget
-wget -O- https://get.docker.com/ | {{#sudo}}sudo -E{{/sudo}}sh
+wget -O- https://get.docker.com/ | {{#sudo}}sudo -E {{/sudo}}sh
 </tmpl>
