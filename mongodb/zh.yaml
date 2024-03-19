@@ -5,6 +5,7 @@ input:
   version:
     _: 'MongoDB 版本号'
     option:
+      '7.0':
       '6.0':
       '5.0':
       '4.4':
@@ -12,6 +13,10 @@ input:
   release:
     _: 发行版
     option:
+      bookworm:
+        _: Debian 12 (bookworm)
+        os: debian
+        repo: main
       bullseye:
         _: Debian 11 (bullseye)
         os: debian
