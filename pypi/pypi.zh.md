@@ -52,16 +52,16 @@ pdm config pypi.url {{endpoint}}/web/simple
 
 ### Poetry
 
-通过以下命令为单个项目设置默认镜像：
+通过以下命令为单个项目设置首选镜像：
 
 <tmpl z-lang="bash">
-poetry source add --default mirrors {{endpoint}}/web/simple/
+poetry source add --priority=primary mirrors {{endpoint}}/web/simple/
 </tmpl>
 
-通过以下命令为单个项目设置次级镜像：
+通过以下命令为单个项目设置补充镜像：
 
 <tmpl z-lang="bash">
-poetry source add --secondary mirrors {{endpoint}}/web/simple/
+poetry source add --priority=supplemental mirrors {{endpoint}}/web/simple/
 </tmpl>
 
 Poetry 尚未支持全局设置镜像。参考 [issue 1632](https://github.com/python-poetry/poetry/issues/1632)。
