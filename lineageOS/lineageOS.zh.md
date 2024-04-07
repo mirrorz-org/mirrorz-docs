@@ -23,10 +23,10 @@ cd WORKING_DIRECTORY
 初始化仓库：
 
 <tmpl z-lang="bash">
-repo init -u {{endpoint}}/LineageOS/android.git -b cm-14.1
+repo init -u {{endpoint}}/LineageOS/android.git -b lineage-21.0 --git-lfs
 </tmpl>
 
-（如果已经有从 github 同步的 lineageOS 源代码，可以从这里直接开始）
+（如果已经有从 GitHub 同步的 lineageOS 源代码，可以从这里直接开始）
 
 打开`.repo/manifests/default.xml`，将
 
@@ -71,4 +71,4 @@ repo sync
 
 ### 异常处理
 	
-1. 部分仓库例如`Lineage_framework_base`同步的时候会出现 bundle 错误，这时候可以使用命令`repo sync --no-clone-bundle`进行同步就没有问题了
+1. 部分仓库例如 `Lineage_framework_base` 同步的时候会出现 bundle 错误，这时候可以使用命令 `repo sync --no-clone-bundle` 进行同步。
