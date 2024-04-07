@@ -1,6 +1,8 @@
-### CentOS 用户
+### CentOS / Rocky Linux 用户
 
-首先信任 erlang-solutions 的 GPG 公钥：
+官方目前没有提供软件仓库，请前往[官网](https://www.erlang-solutions.com/downloads/) 下载。
+
+<!-- 首先信任 erlang-solutions 的 GPG 公钥：
 
 <tmpl z-lang="bash">
 {{sudo}}rpm --import https://packages.erlang-solutions.com/rpm/erlang_solutions.asc
@@ -22,4 +24,4 @@ enabled=1
 <tmpl z-lang="bash">
 {{sudo}}yum makecache
 {{sudo}}yum install erlang
-</tmpl>
+</tmpl> -->

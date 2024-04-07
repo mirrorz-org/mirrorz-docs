@@ -12,18 +12,35 @@ input:
       buster:
         _: Debian 10 (buster)
         os: debian
-      stretch:
-        _: Debian 9 (stretch) (EOL)
-        os: debian
-      jessie:
-        _: Debian 8 (jessie) (EOL)
-        os: debian
+      jammy:
+        _: Ubuntu 22.04 LTS (jammy)
+        os: ubuntu
       focal:
         _: Ubuntu 20.04 LTS (focal)
         os: ubuntu
       bionic:
         _: Ubuntu 18.04 LTS (bionic)
         os: ubuntu
-      xenial:
-        _: Ubuntu 16.04 LTS (xenial) (EOL)
-        os: ubuntu
+  mongooseim-version:
+    _: MongooseIM 版本
+    option:
+      mongooseim-5:
+        _: MongooseIM 5
+      mongooseim-6:
+        _: MongooseIM 6
+  erlang-version:
+    _: Erlang/OTP 版本
+    option:
+      esl-erlang-24:
+        _: Erlang/OTP 24
+      esl-erlang-25:
+        _: Erlang/OTP 25
+      esl-erlang-26:
+        _: Erlang/OTP 26
+  elixir-version:
+    _: Elixir 版本
+    option:
+      elixir-1.14:
+        _: Elixir 1.14
+      elixir-1.15:
+        _: Elixir 1.15
