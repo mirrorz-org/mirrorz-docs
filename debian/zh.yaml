@@ -25,6 +25,14 @@ input:
       sid:
         sid: true
         nonfree: ' non-free non-free-firmware'
+  release_deb822:
+    _: Debian 版本
+    options:
+      bookworm:
+        _: Debian 12 (bookworm)
+      testing:
+      sid:
+        sid: true
   src:
     _: 启用源码源
     note: 源码源通常用于构建和调试，开启后影响更新速度
