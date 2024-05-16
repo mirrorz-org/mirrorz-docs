@@ -1,3 +1,8 @@
 _: Kubernetes 软件仓库
 block:
 - kubernetes
+input:
+  cri_o:
+    _: 使用 CRI-O
+    true: ''
+    false: '# '
