@@ -27,7 +27,7 @@ input:
         nonfree: ' non-free non-free-firmware'
   release_deb822:
     _: Debian 版本
-    options:
+    option:
       bookworm:
         _: Debian 12 (bookworm)
       testing:
