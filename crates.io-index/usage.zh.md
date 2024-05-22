@@ -1,6 +1,6 @@
 ## 使用方法
 
-编辑 `$CARGO_HOME/config` 文件，添加以下内容：
+编辑 `$CARGO_HOME/config.toml` 文件，添加以下内容：
 
 <tmpl z-lang="toml">
 [source.crates-io]
@@ -19,7 +19,7 @@ registry = "sparse+{{endpoint}}/"
 <tmpl z-lang="bash">
 mkdir -vp ${CARGO_HOME:-$HOME/.cargo}
 
-cat << EOF | tee -a ${CARGO_HOME:-$HOME/.cargo}/config
+cat << EOF | tee -a ${CARGO_HOME:-$HOME/.cargo}/config.toml
 [source.crates-io]
 replace-with = 'mirror'
 
