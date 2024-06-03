@@ -1,8 +1,61 @@
-openSUSE 项目是一个由 Novell 赞助的社区项目。该项目旨在推进 Linux 的广泛应用，提供自由、易于入手和美观实用的 openSUSE Linux 发行版。openSUSE 使用 `zypper` 作为包管理器。
+openSUSE 项目是一个由 SUSE 赞助的社区项目。该项目旨在推进 Linux 的广泛应用，提供自由、易于入手和美观实用的 openSUSE Linux 发行版。openSUSE 使用 `zypper` 作为包管理器，与 SUSE Linux Enterprise 保持了一致。
 
-openSUSE 默认使用 [MirrorBrain](https://zh.opensuse.org/MirrorBrain) 技术统一镜像入口，通过在下载时自动分配镜像站点，从而给用户提供更好的安全性，通常情况下使用默认配置即可。
+此发行版现在默认提供包括 [Leap](https://get.opensuse.org/leap/)，[Tumbleweed](https://get.opensuse.org/tumbleweed/)，[Slowroll](https://en.opensuse.org/openSUSE:Slowroll)，[leap micro](https://get.opensuse.org/leapmicro) 和 [Micro OS](https://get.opensuse.org/microos/) 在内的五个发行版变体。
 
-由于使用 MirrorBrain 需要从位于德国的 openSUSE 主服务器上获取元信息，所以若在使用默认软件源时获取元信息较慢，可以使用镜像软件源替换默认软件源。
+openSUSE 默认使用 [MirrorCache](https://zh.opensuse.org/MirrorCache) 替换旧的 [MirrorBrain](https://zh.opensuse.org/MirrorBrain) 作为技术统一镜像入口进行镜像站点的监测和管理以及下载时的镜像源分配服务，免去用户需要手动更换镜像的不确定性和困难，并从 2023.07 开始一并使用 fastly CDN (cdn.opensuse.org) 进行分发，从而给用户提供更好的便利性和安全性，通常情况下使用默认配置即可。MirrorBrain 和 MirrorCache 的具体区别可参见此[链接](https://opensuse.github.io/MirrorCache/mb_compare/)。
+
+### 关于统一镜像分发
+
+openSUSE 默认启用了 [RIS](https://en.opensuse.org/openSUSE:Standards_Repository_Index_Service) 和 MirrorCache 技术用于统一分发软件仓库更改和镜像，通常情况下**无需更改镜像**，但可以通过禁用官方源并启用更高优先级的其他镜像来实现更换镜像源的操作。
+
+由于 RIS 的存在，手工关闭单个官方源仓库的刷新，将在下次执行更新操作时被重新启用，在执行更新时 `zypper` 仍需要和官方源（download.opensuse.org）进行同步，因此在不更改 `openSUSE` 服务的前提下，所有针对官方源的修改将在下次仓库或软件更新时被覆盖或重置。
+
+下面提供了三种方法以供用户选择来保留或使用 RIS。无论是否禁用 RIS，都可以使用高优先级的软件源替代官方源进行使用。
+
+#### 1 完全启用 RIS
+
+在此目标下，通常无需对系统软件源进行任何更改，更新时会被自动分流至任意[注册到 MirrorCache](https://mirrors.opensuse.org) 的镜像站。这也是官方最推荐的做法。
+
+#### 2 临时禁用 RIS
+
+下面流程提供了一种通过修改配置文件半永久性禁用 RIS 的方法，但同时保留了 `zypper` 的 `RIS` 特性满足官方的推荐更新方式，来实现临时禁用 RIS 自动刷新。
+
+1. 使用任意编辑器打开并编辑文件 `/etc/zypp/services.d/openSUSE.service`;
+2. 修改 `enabled` 值为 `0`;
+3. 修改 `autorefresh` 值为 `0`;
+4. 保存并退出;
+
+更改后可以指定更高优先级的软件源，并同时可以免去使用第三方软件源但仍和官方服务器通信的不便。
+
+请注意：这种方法的更改会在软件包 `openSUSE-repos-*` 所包含的多个软件包更新后被覆盖，需要重新执行更改。对于希望方便维护系统，但又不需要定期和官方主服务器通信的用户，我们推荐这种方式。
+
+#### 3 完全禁用 RIS
+
+完全禁用 RIS 意味着用户需要手工管理软件源，除非清楚这么做的目的和意义，否则通常情况下不推荐此方法。
+
+如需还原为传统镜像源管理方式，确保在 `bash` 或 `zsh` 下执行：
+
+<tmpl z-lang="bash">
+{{sudo}}zypper remove openSUSE-repos-*
+</tmpl>
+
+请注意，这可能会移除安装的包含 NVIDIA 等相关的使用 RIS 管理的第三方软件源。
+
+查看需要恢复的 repo 文件：
+
+```shell
+ls -la /etc/zypp/repos.d/*.rpmsave 
+```
+
+还原 repo 文件：
+
+<tmpl z-lang="bash">
+{{sudo}}for file in /etc/zypp/repos.d/*.rpmsave; do mv $file `echo $file | sed -s "s/\.rpmsave//"`; done
+</tmpl>
+
+执行后需要刷新缓存。
+
+请注意：该方法目前仍然可以使用，但如果官方给出了明确的路线图认为不再需要此种方法管理镜像源，则该方法失效。目前暂不明确不再提供还原的时间表。
 
 ### openSUSE Leap 15.2 或更新版本使用方法
 
@@ -12,23 +65,23 @@ openSUSE 默认使用 [MirrorBrain](https://zh.opensuse.org/MirrorBrain) 技术�
 {{sudo}}zypper mr -da
 </tmpl>
 
-添加镜像源
+添加镜像源，并启用更高优先级用以覆盖官方镜像（可更改 `98` 为更小的数字，越小优先级越高）
 
 <tmpl z-lang="bash">
-{{sudo}}zypper ar -cfg '{{endpoint}}/distribution/leap/$releasever/repo/oss/' mirror-oss
-{{sudo}}zypper ar -cfg '{{endpoint}}/distribution/leap/$releasever/repo/non-oss/' mirror-non-oss
-{{sudo}}zypper ar -cfg '{{endpoint}}/update/leap/$releasever/oss/' mirror-update
-{{sudo}}zypper ar -cfg '{{endpoint}}/update/leap/$releasever/non-oss/' mirror-update-non-oss
+{{sudo}}zypper ar -p 98 -cfg '{{endpoint}}/distribution/leap/$releasever/repo/oss/' mirror-oss
+{{sudo}}zypper ar -p 98 -cfg '{{endpoint}}/distribution/leap/$releasever/repo/non-oss/' mirror-non-oss
+{{sudo}}zypper ar -p 98 -cfg '{{endpoint}}/update/leap/$releasever/oss/' mirror-update
+{{sudo}}zypper ar -p 98 -cfg '{{endpoint}}/update/leap/$releasever/non-oss/' mirror-update-non-oss
 </tmpl>
 
-Leap 15.3 用户还需添加 sle 和 backports 源
+Leap 15.3 或更新版本还需添加 sle 和 backports 源
 
 <tmpl z-lang="bash">
-{{sudo}}zypper ar -cfg '{{endpoint}}/update/leap/$releasever/sle/' mirror-sle-update
-{{sudo}}zypper ar -cfg '{{endpoint}}/update/leap/$releasever/backports/' mirror-backports-update
+{{sudo}}zypper ar -p 98 -cfg '{{endpoint}}/update/leap/$releasever/sle/' mirror-sle-update
+{{sudo}}zypper ar -p 98 -cfg '{{endpoint}}/update/leap/$releasever/backports/' mirror-backports-update
 </tmpl>
 
-Leap 15.3 注：若在安装时**没有**启用在线软件源，sle 源和 backports 源将在系统首次更新后引入，请确保系统在更新后仅启用了**六个**所需软件源。可使用 `zypper lr` 检查软件源状态，并使用 `zypper mr -d` 禁用多余的软件源。
+Leap 15.3 或更新版本注：若在安装时**没有**启用在线软件源，sle 源和 backports 源将在系统首次更新后引入，请确保系统在更新后仅启用了**六个**所需软件源。可使用 `zypper lr` 检查软件源状态，并使用 `zypper mr -d` 禁用多余的软件源。
 
 ### openSUSE Tumbleweed 使用方法
 
@@ -38,11 +91,12 @@ Leap 15.3 注：若在安装时**没有**启用在线软件源，sle 源和 back
 {{sudo}}zypper mr -da
 </tmpl>
 
-添加镜像源
+添加镜像源，并启用更高优先级用以覆盖官方镜像（可更改 `98` 为更小的数字，越小优先级越高）
 
 <tmpl z-lang="bash">
-{{sudo}}zypper ar -cfg '{{endpoint}}/tumbleweed/repo/oss/' mirror-oss
-{{sudo}}zypper ar -cfg '{{endpoint}}/tumbleweed/repo/non-oss/' mirror-non-oss
+{{sudo}}zypper ar -p 98 -cfg '{{endpoint}}/tumbleweed/repo/oss/' mirror-oss
+{{sudo}}zypper ar -p 98 -cfg '{{endpoint}}/tumbleweed/repo/non-oss/' mirror-non-oss
+{{sudo}}zypper ar -p 98 -cfg '{{endpoint}}/update/tumbleweed/' mirror-factory-update
 </tmpl>
 
 刷新软件源
@@ -53,17 +107,63 @@ Leap 15.3 注：若在安装时**没有**启用在线软件源，sle 源和 back
 
 Tumbleweed 注：Tumbleweed 安装后默认会启用 oss, non-oss, update, 3 个官方软件源，
 其中 oss 及 non-oss 源用于发布 Tumbleweed 的每日构建快照，快照中已包含系统所需的全部软件包及更新。
-update 源仅用于推送临时安全补丁，如当日快照已发布但仍有临时安全补丁时，会首先推送至 update 源，并在次日合入下一版快照。
-由于 update 源存在较强的时效性，上游镜像并未同步 update 源，镜像源亦无法提供该源的镜像。
-禁用 update 源并不会使系统缺失任何功能或安全更新，仅会导致极少数更新晚些推送，如有需求可以重新启用官方 update 源。
+update 源用于推送工厂源 [Factory](https://build.opensuse.org/project/show/openSUSE:Factory) 中安全和紧急更新，通常情况下分发 opensuse 镜像会完整同步该仓库。
+禁用 update 源并不会使系统缺失任何功能，仅会导致极少数更新晚些推送，如有需求可以重新启用 update 源。
+
+### openSUSE Slowroll 使用方法
+
+Slowroll 目前仍未正式发行，此发行版以 Tumbleweed 作为基础，但不可混用软件源。
+
+部分镜像站可能并未同步或排除了此发行版。
+
+禁用官方软件源
+
+<tmpl z-lang="bash">
+{{sudo}}zypper mr -da
+</tmpl>
+
+添加镜像源，并启用更高优先级用以覆盖官方镜像（可更改 `98` 为更小的数字，越小优先级越高）
+
+<tmpl z-lang="bash">
+{{sudo}}zypper ar -p 98 -cfg '{{endpoint}}/slowroll/repo/oss/' mirror-oss
+{{sudo}}zypper ar -p 98 -cfg '{{endpoint}}/slowroll/repo/non-oss/' mirror-non-oss
+{{sudo}}zypper ar -p 98 -cfg '{{endpoint}}/update/slowroll/repo/oss/' mirror-oss-factory-update
+</tmpl>
+
+刷新软件源
+
+<tmpl z-lang="bash">
+{{sudo}}zypper ref
+</tmpl>
 
 ## 图形界面下配置方法
 
-以 openSUSE Leap 15.3 为例：
+以 openSUSE Leap 15.5 为例：
 
-1. 打开 YaST；
-2. 点击 Software 分组中的 Software Repositories；
-3. 在打开的窗口上方的列表中点击 Main Repository，点击 Edit；
-4. 将 download.opensuse.org 替换为 <tmpl z-inline>{{host}}{{path}}</tmpl> 点 OK；
-5. 再用同样的方法编辑 Non-OSS Repository, Main Update Repository, Update Repository (Non-Oss) 和 Update repository with updates from SUSE Linux Enterprise 15。
+1. 打开 `YaST控制中心`；
+2. 点击 `软件`（Software）分组中的 `软件源`（Software Repositories）；
+3. 在打开的窗口中找到 `服务`（Service）列为 `openSUSE` 的条目，选择并取消勾选 `已启用(E)`（enabled(E)）。此流程需要保留 `名称`（Name）列为 `repo-openh264` 的仓库保持勾选;
+4. 点击 `添加(A)`（Add(A)），类型选择为 `指定 URL`，并点击下一步;
+5. `软件源名称`（Repository Name）和 `URL` 填写为上文 Leap 或 Tumbleweed 中的仓库和对应连接，如：
 
+    - `软件源名称`（Repository Name）：`mirror-oss`
+    - `URL`：`{{endpoint}}/distribution/leap/15.5/repo/oss/`
+
+    点击 `下一步` 保存并刷新仓库缓存。
+
+    此处给出通常情况下需要手工添加的仓库和发行版分支对应关系：
+
+    |发行版 | 仓库名称|URL|备注|
+    |:-:|:-:|:-:|:-:|
+    |Leap|OSS|<tmpl z-inline>{{endpoint}}/distribution/leap/$releasever/repo/oss/</tmpl>|-|
+    |Leap|NON-OSS|<tmpl z-inline>{{endpoint}}/distribution/leap/$releasever/repo/non-oss/</tmpl>|-|
+    |Leap|UPDATE|<tmpl z-inline>{{endpoint}}/update/leap/$releasever/oss/</tmpl>|-|
+    |Leap|UPDATE-NON-OSS|<tmpl z-inline>{{endpoint}}/update/leap/$releasever/non-oss/</tmpl>|-|
+    |Leap|SLE-UPDATE|<tmpl z-inline>{{endpoint}}/update/leap/$releasever/sle/</tmpl>|仅使用 Backport 时需要添加|
+    |Leap|SLE-BACKPORT-UPDATE|<tmpl z-inline>{{endpoint}}/update/leap/$releasever/backports/</tmpl>|仅使用 Backport 时需要添加|
+    |Tumbleweed|OSS|<tmpl z-inline>{{endpoint}}/tumbleweed/repo/oss/</tmpl>|-|
+    |Tumbleweed|NON-OSS|<tmpl z-inline>{{endpoint}}/tumbleweed/repo/non-oss/</tmpl>|-|
+    |Tumbleweed|UPDATE|<tmpl z-inline>{{endpoint}}/update/tumbleweed/</tmpl>|-|
+    |Slowroll|OSS|<tmpl z-inline>{{endpoint}}/slowroll/repo/oss/</tmpl>|-|
+    |Slowroll|NON-OSS|<tmpl z-inline>{{endpoint}}/slowroll/repo/non-oss/</tmpl>|-|
+    |Slowroll|UPDATE|<tmpl z-inline>{{endpoint}}/update/slowroll/repo/oss/</tmpl>|-|
