@@ -45,7 +45,7 @@ nixos-rebuild --option substituters "{{endpoint}}/store"
 临时关闭可以通过清空 substituters 实现：
 
 <tmpl z-lang="bash">
-nixos-rebuild --options substituters ""
+nixos-rebuild --option substituters ""
 </tmpl>
 
 ### Nixpkgs channel
