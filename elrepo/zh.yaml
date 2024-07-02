@@ -5,12 +5,9 @@ input:
   release:
     _: 发行版
     option:
-      el7:
-        _: RHEL-7, SL-7, CentOS-7
-        version: '7'
+      el9:
+        _: RHEL-9, SL-9, CentOS-9
+        version: '9'
       el8:
         _: RHEL-8, SL-8, CentOS-8
         version: '8'
-      el6:
-        _: RHEL-6, SL-6, CentOS-6
-        version: '6'

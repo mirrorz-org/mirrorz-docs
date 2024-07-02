@@ -11,9 +11,6 @@ input:
       bullseye:
         _: Debian 11 (bullseye)
         os: debian
-      buster:
-        _: Debian 10 (buster)
-        os: debian
       jammy:
         _: Ubuntu 22.04 LTS (jammy)
         os: ubuntu

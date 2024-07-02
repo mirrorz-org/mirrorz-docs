@@ -11,15 +11,6 @@ input:
       bullseye:
         _: Debian 11 (bullseye)
         os: debian
-      buster:
-        _: Debian 10 (buster)
-        os: debian
-      stretch:
-        _: Debian 9 (stretch) (EOL)
-        os: debian
-      jessie:
-        _: Debian 8 (jessie) (EOL)
-        os: debian
       jammy:
         _: Ubuntu 22.04 LTS (jammy)
         os: ubuntu
@@ -44,5 +35,3 @@ input:
         _: CentOS/RHEL 7
       el8:
         _: CentOS/RHEL 8
-      el6:
-        _: CentOS/RHEL 6

@@ -14,10 +14,6 @@ input:
         _: Debian 11 (bullseye)
         security: -security
         nonfree: ' non-free'
-      buster:
-        _: Debian 10 (buster)
-        security: /updates
-        nonfree: ' non-free'
       testing:
         security: -security
         nonfree: ' non-free non-free-firmware'

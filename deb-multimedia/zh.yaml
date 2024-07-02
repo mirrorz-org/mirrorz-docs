@@ -11,15 +11,6 @@ input:
       bullseye:
         _: Debian 11 (bullseye)
         backports: true
-      buster:
-        _: Debian 10 (buster)
-        backports: true
-      stretch:
-        _: Debian 9 (stretch)
-        backports: true
-      jessie:
-        _: Debian 8 (jessie)
-        backports: true
       testing:
       sid:
   src:

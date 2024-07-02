@@ -9,7 +9,3 @@ input:
         _: Debian 12 (bookworm)
       bullseye:
         _: Debian 11 (bullseye)
-      buster:
-        _: Debian 10 (buster)
-      stretch:
-        _: Debian 9 (stretch) (EOL)

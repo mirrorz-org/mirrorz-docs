@@ -5,12 +5,10 @@ input:
   release:
     _: 选择你的 Raspbian 对应的 Debian 版本
     option:
+      bookworm:
+        _: Debian 12 (bookworm)
       bullseye:
         _: Debian 11 (bullseye)
-      buster:
-        _: Debian 10 (buster)
-      stretch:
-        _: Debian 9 (stretch) (EOL)
   src:
     _: 启用源码源
     note: 源码源通常用于构建和调试，开启后影响更新速度

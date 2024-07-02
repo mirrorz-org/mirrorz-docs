@@ -21,18 +21,6 @@ input:
         _: Debian 11 (bullseye)
         os: debian
         repo: main
-      buster:
-        _: Debian 10 (buster)
-        os: debian
-        repo: main
-      stretch:
-        _: Debian 9 (stretch) (EOL)
-        os: debian
-        repo: main
-      jessie:
-        _: Debian 8 (jessie) (EOL)
-        os: debian
-        repo: main
       jammy:
         _: Ubuntu 22.04 LTS (jammy)
         os: ubuntu

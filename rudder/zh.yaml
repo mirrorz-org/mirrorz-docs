@@ -5,12 +5,10 @@ input:
   release:
     _: 发行版
     option:
-      buster:
-        _: Debian 10 (buster)
-      stretch:
-        _: Debian 9 (stretch) (EOL)
-      jessie:
-        _: Debian 8 (jessie) (EOL)
+      bookworm:
+        _: Debian 12 (bookworm)
+      bullseye:
+        _: Debian 11 (bullseye)
       focal:
         _: Ubuntu 20.04 LTS (focal)
       bionic:

@@ -13,15 +13,6 @@ input:
       bullseye:
         _: Debian 11 (bullseye)
         os: debian
-      buster:
-        _: Debian 10 (buster)
-        os: debian
-      stretch:
-        _: Debian 9 (stretch) (EOL)
-        os: debian
-      jessie:
-        _: Debian 8 (jessie) (EOL)
-        os: debian
       focal:
         _: Ubuntu 20.04 LTS (focal)
         os: ubuntu

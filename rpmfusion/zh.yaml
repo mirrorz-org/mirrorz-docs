@@ -5,10 +5,6 @@ input:
   release:
     _: 发行版
     option:
-      '7':
-        _: CentOS/RHEL 7
-      '6':
-        _: CentOS/RHEL 6
       '8':
         _: CentOS/RHEL 8
       '9':

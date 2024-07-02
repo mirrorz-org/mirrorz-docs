@@ -13,9 +13,3 @@ input:
         _: Ubuntu 16.04 LTS (xenial) (EOL)
       trusty:
         _: Ubuntu 14.04 LTS (trusty) (EOL)
-      buster:
-        _: Debian 10 (buster)
-      stretch:
-        _: Debian 9 (stretch) (EOL)
-      jessie:
-        _: Debian 8 (jessie) (EOL)

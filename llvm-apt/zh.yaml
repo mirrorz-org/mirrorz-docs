@@ -15,10 +15,10 @@ input:
   release:
     _: 发行版
     option:
+      bookworm:
+        _: Debian 12 (bookworm)
       bullseye:
         _: Debian 11 (bullseye)
-      buster:
-        _: Debian 10 (buster)
       jammy:
         _: Ubuntu 22.04 LTS (jammy)
       focal:
