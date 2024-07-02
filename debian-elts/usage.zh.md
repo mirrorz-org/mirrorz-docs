@@ -1,6 +1,6 @@
 ## 使用方法
 
-在使用前，请确保你的系统正在 ELTS 列表中。
+在使用前，请确保你的**系统、架构**都在[受支持的 ELTS 列表](https://www.freexian.com/lts/extended/)中。
 
 首先安装 Freexian 的 APT 源密钥：
 

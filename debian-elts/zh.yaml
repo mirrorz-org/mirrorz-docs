@@ -12,6 +12,9 @@ input:
       stretch:
         _: Debian 9 (stretch)
         nonfree: ' non-free'
+      buster:
+        _: Debian 10 (buster)
+        nonfree: ' non-free'
   nf:
     _: 使用非自由软件源
     default: true
