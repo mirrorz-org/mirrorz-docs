@@ -54,3 +54,8 @@ export NVM_NODEJS_ORG_MIRROR={{endpoint}}/
 nvm install <version>
 </tmpl>
 
+#### nvs
+
+<tmpl z-lang="bash">
+nvs remote node {{endpoint}}/
+</tmpl>
