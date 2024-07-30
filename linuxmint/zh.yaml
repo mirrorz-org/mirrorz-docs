@@ -5,6 +5,8 @@ input:
   release:
     _: Linux Mint 版本
     option:
+      wilma:
+        _: 22 (wilma)
       virginia:
         _: 21.3 (virginia)
       victoria:
