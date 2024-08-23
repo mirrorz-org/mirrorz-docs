@@ -10,6 +10,7 @@
 * LXC/LXD 继续沿用之前体系，并且只能使用 Canonical 公司的镜像库。**LXC/LXD 不能使用本镜像库**。如果强行让 LXC/LXD 使用本镜像库，有些镜像可能可以启动，但是会出现各种各样的兼容性问题，例如虚拟机镜像无法启动 agent，无法进行 "exec"。
 
 参考来源：
+
 * https://discuss.linuxcontainers.org/t/important-notice-for-lxd-users-image-server/18479
 * https://discuss.linuxcontainers.org/t/lxd-is-no-longer-part-of-the-linux-containers-project/17593
 
