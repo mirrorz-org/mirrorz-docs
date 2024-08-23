@@ -7,7 +7,7 @@
 经过 LXD/Incus 项目分叉后，目前差异如下：
 
 * Incus 有自己独立的命令行工具和守护进程（incus/incusd），并且只使用 incus 命令交互，不再暴露 incusd 命令给使用者。**本镜像库（linuxcontainers 镜像）只能用于 Incus 项目**。
-* LXC/LXD 继续沿用之前体系，并且只能使用 Canonical 公司的镜像库。**LXC/LXD 不能使用本镜像库**。如果强行让 LXC/LXD 使用本镜像库，有些镜像可能可以启动，但是会出现各种各样的兼容性问题，例如虚拟机镜像无法启动 agent，无法进行 "exec"
+* LXC/LXD 继续沿用之前体系，并且只能使用 Canonical 公司的镜像库。**LXC/LXD 不能使用本镜像库**。如果强行让 LXC/LXD 使用本镜像库，有些镜像可能可以启动，但是会出现各种各样的兼容性问题，例如虚拟机镜像无法启动 agent，无法进行 "exec"。
 
 参考来源：
 * https://discuss.linuxcontainers.org/t/important-notice-for-lxd-users-image-server/18479
