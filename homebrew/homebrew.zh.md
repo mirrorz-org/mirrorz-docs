@@ -2,11 +2,9 @@
 
 镜像站提供了 https://github.com/Homebrew 组织下的以下 `repo`：`brew`, `homebrew-core`, `homebrew-cask`, `homebrew-cask-fonts`, `homebrew-cask-versions`, `homebrew-command-not-found`, `install`。
 
-_注：自 brew 3.3.0 (2021 年 10 月 25 日) 起，Linuxbrew 核心仓库 `linuxbrew-core` 已被弃用。Linuxbrew 用户应迁移至 `homebrew-core`，并请依本镜像使用帮助重新设置镜像。具体请参阅本帮助 `Linuxbrew 镜像迁移说明` 章节。_
-
 _注：自 brew 4.0.0 (2023 年 2 月 16 日) 起，`HOMEBREW_INSTALL_FROM_API` 会成为默认行为，无需设置。大部分用户无需再克隆 `homebrew-core` 仓库，故无需设置 `HOMEBREW_CORE_GIT_REMOTE` 环境变量；但若需要运行 `brew` 的开发命令或者 `brew` 安装在非官方支持的默认 prefix 位置，则仍需设置 `HOMEBREW_CORE_GIT_REMOTE` 环境变量。如果不想通过 API 安装，可以设置 `HOMEBREW_NO_INSTALL_FROM_API=1`。_
 
-_注：自 brew 4.0.22 (2023 年 6 月 12 日) 起，`homebrew-cask-drivers` 已被弃用，所有 cask 合并至 `homebrew-cask` 仓库。本帮助内已移除克隆 `homebrew-cask-drivers` 仓库的命令。已克隆用户可选择运行 `brew untap homebrew/cask-drivers` 命令移除此仓库。_
+_注：目前，`homebrew-cask-{drivers,versions,fonts}` 已被弃用，所有 cask 合并至 `homebrew-cask` 仓库。本帮助内已移除克隆这些仓库的命令。已克隆用户（`brew tap` 查看）可使用 `brew untap` 移除废弃的仓库。_
 
 ### 首次安装 Homebrew / Linuxbrew
 
@@ -92,14 +90,12 @@ brew tap --custom-remote --force-auto-update homebrew/core {{endpoint}}/homebrew
 brew tap --custom-remote --force-auto-update homebrew/cask {{endpoint}}/homebrew-cask.git
 
 # 除 homebrew/core 和 homebrew/cask 仓库外的 tap 仓库仍然需要设置镜像
-brew tap --custom-remote --force-auto-update homebrew/cask-fonts {{endpoint}}/homebrew-cask-fonts.git
-brew tap --custom-remote --force-auto-update homebrew/cask-versions {{endpoint}}/homebrew-cask-versions.git
 brew tap --custom-remote --force-auto-update homebrew/command-not-found {{endpoint}}/homebrew-command-not-found.git
 brew update
 
 # 或使用下面的几行命令自动设置
 export HOMEBREW_CORE_GIT_REMOTE="{{endpoint}}/homebrew-core.git"
-for tap in core cask{,-fonts,-versions} command-not-found; do
+for tap in core cask command-not-found; do
     brew tap --custom-remote --force-auto-update "homebrew/${tap}" "{{endpoint}}/homebrew-${tap}.git"
 done
 brew update
@@ -134,15 +130,6 @@ test -r ~/.zprofile && echo 'export HOMEBREW_CORE_GIT_REMOTE="{{endpoint}}/homeb
 
 对于 `HOMEBREW_API_DOMAIN` 与其余 bottles 相关环境变量的持久化，可以参考 [Homebrew Bottles 帮助](../homebrew-bottles/)。
 
-### Linuxbrew 镜像迁移说明
-
-Linuxbrew 核心仓库（`linuxbrew-core`）自 2021 年 10 月 25 日（`brew` 版本 3.3.0 起）被弃用，Linuxbrew 用户应迁移至 `homebrew-core`。Linuxbrew 用户请依新版镜像说明重新设置镜像。注意迁移前请先运行 `brew update` 将 `brew` 更新至 3.3.0 或以上版本。迁移过程中若出现任何问题，可使用如下命令重新安装 `homebrew-core`：
-
-<tmpl z-lang="bash">
-export HOMEBREW_CORE_GIT_REMOTE="{{endpoint}}/homebrew-core.git"
-rm -rf "$(brew --repo homebrew/core)"
-brew tap --custom-remote --force-auto-update homebrew/core {{endpoint}}/homebrew-core.git
-</tmpl>
 
 ### 复原仓库上游
 
