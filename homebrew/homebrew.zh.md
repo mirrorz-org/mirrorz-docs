@@ -1,10 +1,10 @@
 **注：该镜像是 Homebrew / Linuxbrew 源程序以及 formula / cask 索引的镜像（即 `brew update` 时所更新内容）。镜像站同时提供相应的二进制预编译包的镜像，请参考 [Homebrew bottles 镜像使用帮助](../homebrew-bottles/)**
 
-镜像站提供了 https://github.com/Homebrew 组织下的以下 `repo`：`brew`, `homebrew-core`, `homebrew-cask`, `homebrew-cask-fonts`, `homebrew-cask-versions`, `homebrew-command-not-found`, `install`。
+镜像站提供了 https://github.com/Homebrew 组织下的以下 `repo`：`brew`, `homebrew-core`, `homebrew-cask`, `homebrew-command-not-found`, `install`。
 
-_注：自 brew 4.0.0 (2023 年 2 月 16 日) 起，`HOMEBREW_INSTALL_FROM_API` 会成为默认行为，无需设置。大部分用户无需再克隆 `homebrew-core` 仓库，故无需设置 `HOMEBREW_CORE_GIT_REMOTE` 环境变量；但若需要运行 `brew` 的开发命令或者 `brew` 安装在非官方支持的默认 prefix 位置，则仍需设置 `HOMEBREW_CORE_GIT_REMOTE` 环境变量。如果不想通过 API 安装，可以设置 `HOMEBREW_NO_INSTALL_FROM_API=1`。_
+**注：自 brew 4.0.0 (2023 年 2 月 16 日) 起，`HOMEBREW_INSTALL_FROM_API` 会成为默认行为，无需设置。大部分用户无需再克隆 `homebrew-core` 仓库，故无需设置 `HOMEBREW_CORE_GIT_REMOTE` 环境变量；但若需要运行 `brew` 的开发命令或者 `brew` 安装在非官方支持的默认 prefix 位置，则仍需设置 `HOMEBREW_CORE_GIT_REMOTE` 环境变量。如果不想通过 API 安装，可以设置 `HOMEBREW_NO_INSTALL_FROM_API=1`。**
 
-_注：目前，`homebrew-cask-{drivers,versions,fonts}` 已被弃用，所有 cask 合并至 `homebrew-cask` 仓库。本帮助内已移除克隆这些仓库的命令。已克隆用户（`brew tap` 查看）可使用 `brew untap` 移除废弃的仓库。_
+**注：目前，`homebrew-cask-{drivers,versions,fonts}` 已被弃用，所有 cask 合并至 `homebrew-cask` 仓库。本帮助内已移除克隆这些仓库的命令。已克隆用户（`brew tap` 查看）可使用 `brew untap` 移除废弃的仓库。**
 
 ### 首次安装 Homebrew / Linuxbrew
 
@@ -44,17 +44,17 @@ rm -rf brew-install
 
 这样在首次安装的时候也可以使用镜像。更多信息请参考 [Homebrew 官方安装文档](https://docs.brew.sh/Installation)。
 
-_* 安装成功后需将 brew 程序的相关路径加入到环境变量中：_
+**安装成功后需将 brew 程序的相关路径加入到环境变量中：**
 
-- _以下针对基于 Apple Silicon CPU 设备上的 macOS 系统（命令行运行 `uname -m` 应输出 `arm64`）上的 Homebrew：_
+- 以下针对基于 Apple Silicon CPU 设备上的 macOS 系统（命令行运行 `uname -m` 应输出 `arm64`）上的 Homebrew：
   <tmpl z-lang="bash">
 test -r ~/.bash_profile && echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bash_profile
 test -r ~/.zprofile && echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 </tmpl>
 
-  _对基于 Intel CPU 设备上的 macOS 系统（命令行运行 `uname -m` 应输出 `x86_64`）的用户可跳过本步。_
+  对基于 Intel CPU 设备上的 macOS 系统（命令行运行 `uname -m` 应输出 `x86_64`）的用户可跳过本步。
 
-- _以下针对 Linux 系统上的 Linuxbrew：_
+- 以下针对 Linux 系统上的 Linuxbrew：
   <tmpl z-lang="bash">
 test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
 test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
@@ -63,7 +63,7 @@ test -r ~/.profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> 
 test -r ~/.zprofile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.zprofile
 </tmpl>
 
-  _参考了 [https://docs.brew.sh/Homebrew-on-Linux](https://docs.brew.sh/Homebrew-on-Linux)。_
+  参考了 [https://docs.brew.sh/Homebrew-on-Linux](https://docs.brew.sh/Homebrew-on-Linux)。
 
 ### 替换现有仓库上游
 
@@ -133,7 +133,7 @@ test -r ~/.zprofile && echo 'export HOMEBREW_CORE_GIT_REMOTE="{{endpoint}}/homeb
 
 ### 复原仓库上游
 
-_(感谢 Snowonion Lee 提供说明)_
+(感谢 Snowonion Lee 提供说明)
 
 - 以下针对 macOS 系统上的 Homebrew
   <tmpl z-lang="bash">
@@ -145,7 +145,7 @@ git -C "$(brew --repo)" remote set-url origin https://github.com/Homebrew/brew
 # 以下针对 macOS 系统上的 Homebrew
 unset HOMEBREW_CORE_GIT_REMOTE
 BREW_TAPS="$(BREW_TAPS="$(brew tap 2>/dev/null)"; echo -n "${BREW_TAPS//$'\n'/:}")"
-for tap in core cask{,-fonts,-drivers,-versions} command-not-found; do
+for tap in core cask command-not-found; do
     if [[ ":${BREW_TAPS}:" == *":homebrew/${tap}:"* ]]; then  # 只复原已安装的 Tap
         brew tap --custom-remote "homebrew/${tap}" "https://github.com/Homebrew/homebrew-${tap}"
     fi
