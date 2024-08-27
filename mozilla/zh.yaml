@@ -2,3 +2,6 @@ _: Mozilla 软件仓库
 block:
 - mozilla
 input:
+  arch:
+    "amd64":
+    "arm64":
