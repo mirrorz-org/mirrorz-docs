@@ -3,5 +3,7 @@ block:
 - mozilla
 input:
   arch:
-    "amd64":
-    "arm64":
+  _: 系统架构
+  option:
+    'amd64':
+    'arm64':
