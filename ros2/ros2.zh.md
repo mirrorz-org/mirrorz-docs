@@ -11,7 +11,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 {{sudo}}apt update
 </tmpl>
 
-Reference: https://docs.ros.org/en/iron/Installation/Ubuntu-Install-Debians.html
+Reference: https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html
 
 ### rosdep
 
