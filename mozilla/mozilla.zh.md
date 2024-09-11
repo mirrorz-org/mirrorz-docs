@@ -16,8 +16,6 @@ gpg -n -q --import --import-options import-show /etc/apt/keyrings/packages.mozil
 
 然后添加 APT 源：
 
-<tmpl z-global z-input="arch"></tmpl>
-
 <tmpl z-input="arch" z-path="/etc/apt/sources.list.d/mozilla.list">
 deb [arch={{arch}} signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] {{endpoint}}/apt mozilla main
 </tmpl>
