@@ -19,12 +19,10 @@ conda config --set custom_channels.{{channel}} {{endpoint}}/cloud/
 * fastai
 * fermi
 * idaholab
-* intel
 * matsci
 * menpo
 * MindSpore
 * mordred-descriptor
-* msys2
 * numba
 * ohmeta
 * omnia
