@@ -12,7 +12,7 @@ wget -qO - https://dl.xanmod.org/archive.key | {{sudo}}gpg --dearmor -vo /usr/sh
 
 新增 APT 源配置：
 
-<tmpl z-input="release" z-path="/etc/apt/sources.list.d/xanmod-release.list">
+<tmpl z-path="/etc/apt/sources.list.d/xanmod-release.list">
 deb [signed-by=/usr/share/keyrings/xanmod-archive-keyring.gpg] {{endpoint}} releases main
 </tmpl>
 
