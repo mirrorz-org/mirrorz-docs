@@ -6,7 +6,7 @@ input:
     _: 版本
     option:
       sandworm:
-        _" 7.0 (sandworm)
+        _: 7.0 (sandworm)
       shaitan:
         _: 6.0 (shaitan)
       usul:
