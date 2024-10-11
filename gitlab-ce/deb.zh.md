@@ -3,13 +3,13 @@
 首先信任 GitLab 的 GPG 公钥：
 
 <tmpl z-lang="bash">
-curl https://packages.gitlab.com/gpg.key 2> /dev/null | {{sudo}}apt-key add - &>/dev/null
+curl -fsSL https://packages.gitlab.com/gpg.key | {{sudo}}gpg --dearmor > /usr/share/keyrings/gitlab_gitlab-ce-archive-keyring.gpg
 </tmpl>
 
 再选择你的 Debian/Ubuntu 版本，将下方内容写入 `/etc/apt/sources.list.d/gitlab-ce.list`
 
 <tmpl z-input="release" z-path="/etc/apt/sources.list.d/gitlab-ce.list">
-deb {{endpoint}}/{{os}} {{release}} main
+deb [signed-by=/usr/share/keyrings/gitlab_gitlab-ce-archive-keyring.gpg] {{endpoint}}/{{os}} {{release}} main
 </tmpl>
 
 安装 gitlab-ce:
