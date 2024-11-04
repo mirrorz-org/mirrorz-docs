@@ -20,9 +20,7 @@ Fedora 的软件源配置文件可以有多个，其中：
     -e 's|^#baseurl=http://download.example/pub/fedora/linux|baseurl={{endpoint}}|g' \
     -i.bak \
     /etc/yum.repos.d/fedora.repo \
-    /etc/yum.repos.d/fedora-modular.repo \
-    /etc/yum.repos.d/fedora-updates.repo \
-    /etc/yum.repos.d/fedora-updates-modular.repo
+    /etc/yum.repos.d/fedora-updates.repo
 </tmpl>
 
 ### 手动替换
@@ -32,9 +30,13 @@ Fedora 的软件源配置文件可以有多个，其中：
 <tmpl z-lang="ini">
 [fedora]
 name=Fedora $releasever - $basearch
-failovermethod=priority
 baseurl={{endpoint}}/releases/$releasever/Everything/$basearch/os/
-metadata_expire=28d
+#metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+enabled=1
+countme=1
+metadata_expire=7d
+repo_gpgcheck=0
+type=rpm
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
 skip_if_unavailable=False
@@ -45,37 +47,12 @@ skip_if_unavailable=False
 <tmpl z-lang="ini">
 [updates]
 name=Fedora $releasever - $basearch - Updates
-failovermethod=priority
 baseurl={{endpoint}}/updates/$releasever/Everything/$basearch/
+#metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
 enabled=1
-gpgcheck=1
-metadata_expire=6h
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
-skip_if_unavailable=False
-</tmpl>
-
-**`fedora-modular` 仓库 (/etc/yum.repos.d/fedora-modular.repo)**
-
-<tmpl z-lang="ini">
-[fedora-modular]
-name=Fedora Modular $releasever - $basearch
-failovermethod=priority
-baseurl={{endpoint}}/releases/$releasever/Modular/$basearch/os/
-enabled=1
-metadata_expire=7d
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
-skip_if_unavailable=False
-</tmpl>
-
-**`updates-modular` 仓库 (/etc/yum.repos.d/fedora-updates-modular.repo)**
-
-<tmpl z-lang="ini">
-[updates-modular]
-name=Fedora Modular $releasever - $basearch - Updates
-failovermethod=priority
-baseurl={{endpoint}}/updates/$releasever/Modular/$basearch/
-enabled=1
+countme=1
+repo_gpgcheck=0
+type=rpm
 gpgcheck=1
 metadata_expire=6h
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
