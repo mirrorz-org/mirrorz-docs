@@ -2,35 +2,19 @@
 
 ### 自动替换
 
-AOSC OS 内置 `apt-gen-list` 工具来切换社区提供的可用镜像源。
-
-列出可用镜像源，执行：
+请使用以下命令交互式开启/关闭镜像源，输入镜像源名称并使用空格启用/禁用镜像源（请注意：`oma mirror` 允许指定多个镜像源，请注意禁用不需要使用的镜像源）：
 
 <tmpl z-lang="bash">
-{{sudo}}apt-gen-list list-mirrors
+{{sudo}}oma mirror
 </tmpl>
 
-要启用某一镜像源，执行：
+关于 `oma mirror` 的更多详细命令和用法，请参考 [oma 的 GitHub 页面](https://github.com/AOSC-Dev/oma?tab=readme-ov-file#command-reference)。
 
-<tmpl z-lang="bash">
-{{sudo}}apt-gen-list add-mirror <mirror>
-</tmpl>
+### 手动修改（不推荐）
 
-其中 `<mirror>` 替换为所列出的简称。
+安同 OS 推荐使用 `oma` 完成对软件源配置的修改，不推荐手动编辑配置文件。
 
-要仅启用某一源，执行：
-
-<tmpl z-lang="bash">
-{{sudo}}apt-gen-list set-mirror <mirror>
-</tmpl>
-
-其中 `<mirror>` 替换为所列出的简称。
-
-关于 `apt-gen-list` 的语义和详细用法，请执行 `apt-gen-list help` 查看帮助。
-
-### 手动修改
-
-修改 `/etc/apt/sources.list`，内容为
+如确实有相关需求，请按下例编辑 `/etc/apt/sources.list` 的内容：
 
 <tmpl z-path="/etc/apt/sources.list">
 deb {{endpoint}}/debs stable main
