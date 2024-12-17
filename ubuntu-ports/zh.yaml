@@ -7,10 +7,8 @@ input:
     option:
       noble:
         _: Ubuntu 24.04 LTS (noble)
-      mantic:
-        _: Ubuntu 23.10 (mantic)
-      lunar:
-        _: Ubuntu 23.04 (lunar)
+      oracular:
+        _: Ubuntu 24.10 (oracular)
       jammy:
         _: Ubuntu 22.04 LTS (jammy)
       focal:
