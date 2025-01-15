@@ -1,5 +1,3 @@
 ## 项目简介
 
-[Debiancn 社区](https://www.debiancn.org)维护的[非官方、第三方社区软件源的镜像](https://repo.debiancn.org/)。
-
-提供了如 WPS Office、网易云音乐、`python-jieba`、`bcloud`、`wine-staging` 等方便国内 Debian 用户使用的补充软件。
+[Debian 中文社区](https://www.debiancn.org)提供了一系列软件，可作为对 Debian 官方仓库的一个补充，其目的之一是改进 Debian 中文用户在 Debian 系统上的使用体验。
