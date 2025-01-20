@@ -3,7 +3,7 @@
 首先下载 GitLab 的 GPG 公钥：
 
 <tmpl z-lang="bash">
-curl -L https://packages.gitlab.com/runner/gitlab-runner/gpgkey | gpg --dearmor > /usr/share/keyrings/gitlab-runner.gpg
+curl -L https://packages.gitlab.com/runner/gitlab-runner/gpgkey | {{sudo}}gpg --dearmor -o /usr/share/keyrings/gitlab-runner.gpg
 </tmpl>
 
 再选择你的 Debian/Ubuntu 版本，将下方内容写入 `/etc/apt/sources.list.d/gitlab-runner.list`

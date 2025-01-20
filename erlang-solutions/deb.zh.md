@@ -23,7 +23,7 @@ Elixir 版本：
 
 <tmpl z-lang="bash">
 {{sudo}}mkdir -m 0755 -p /etc/apt/keyrings/
-curl -s https://binaries2.erlang-solutions.com/GPG-KEY-pmanager.asc | gpg --dearmor | {{sudo}}tee /etc/apt/keyrings/erlang-solutions-archive_compat.gpg > /dev/null
+curl -s https://binaries2.erlang-solutions.com/GPG-KEY-pmanager.asc | {{sudo}}gpg --dearmor -o /etc/apt/keyrings/erlang-solutions-archive_compat.gpg
 </tmpl>
 
 新建 `/etc/apt/sources.list.d/erlang-solutions.list`，填入下列内容（可根据需要选择）：
