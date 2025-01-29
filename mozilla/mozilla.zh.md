@@ -24,7 +24,7 @@ deb [arch={{arch}} signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] {{endpo
 
 <tmpl z-path="/etc/apt/preferences.d/mozilla">
 Package: *
-Pin: origin packages.mozilla.org
+Pin: release a=mozilla
 Pin-Priority: 1000
 </tmpl>
 
