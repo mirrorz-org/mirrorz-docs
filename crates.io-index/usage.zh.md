@@ -8,6 +8,9 @@ replace-with = 'mirror'
 
 [source.mirror]
 registry = "sparse+{{endpoint}}/"
+
+[registries.mirror]
+index = "sparse+{{endpoint}}/"
 </tmpl>
 
 注：`sparse+` 表示在使用稀疏索引，链接末尾的 `/` 不能缺少。
@@ -15,6 +18,8 @@ registry = "sparse+{{endpoint}}/"
 注：`$CARGO_HOME`：在 Windows 系统默认为：`%USERPROFILE%\.cargo`，在类 Unix 系统默认为：`$HOME/.cargo`。
 
 注：cargo 仍会尝试读取不带 `.toml` 扩展名的配置文件（即 `$CARGO_HOME/config`），但从 1.39 版本起，cargo 引入了对 `.toml` 扩展名的支持，并将其设为首选格式。请根据使用的 cargo 版本选择适当的配置文件名。
+
+注：使用 `cargo search`、`cargo info` 等命令时需要添加 `--registry mirror`，例如 `cargo search --registry mirror reqwest`。
 
 在 Linux 环境可以使用下面的命令完成：
 
@@ -27,6 +32,9 @@ replace-with = 'mirror'
 
 [source.mirror]
 registry = "sparse+{{endpoint}}/"
+
+[registries.mirror]
+index = "sparse+{{endpoint}}/"
 EOF
 </tmpl>
 
