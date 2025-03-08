@@ -72,6 +72,18 @@ Poetry 尚未支持全局设置镜像。参考 [issue 1632](https://github.com/p
 poetry config experimental.new-installer false
 </tmpl>
 
+### Astral uv
+
+在 `~/.config/uv/uv.toml` 或者 `/etc/uv/uv.toml` 填写下面的内容：
+
+<tmpl z-lang="toml">
+[[index]]
+url = "{{endpoint}}/web/simple/"
+default = true
+</tmpl>
+
+详情参考[官方配置文件文档](https://docs.astral.sh/uv/configuration/files/)。
+
 ## Homebrew
 
 本节主要供 [Homebrew 帮助](../homebrew/)使用。
