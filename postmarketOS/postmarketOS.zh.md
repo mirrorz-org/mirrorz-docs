@@ -1,6 +1,6 @@
 ### pmbootstrap
 
-通过`pmbootstrap config`更新镜像配置。
+通过 `pmbootstrap config` 更新镜像配置。
 
 <tmpl z-lang="bash">
 pmbootstrap config mirrors.alpine {{endpoint}}/alpine/
