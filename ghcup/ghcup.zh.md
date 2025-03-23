@@ -20,7 +20,7 @@
 * Linux, FreeBSD, macOS 用户：在终端中运行如下命令
 
 <tmpl z-lang="bash">
-curl --proto '=https' --tlsv1.2 -sSf https://{{host}}{{path}}/sh/bootstrap-haskell | BOOTSTRAP_HASKELL_YAML={{endpoint}}/ghcup-metadata/ghcup-0.0.8.yaml sh
+curl --proto '=https' --tlsv1.2 -LsSf https://{{host}}{{path}}/sh/bootstrap-haskell | BOOTSTRAP_HASKELL_YAML={{endpoint}}/ghcup-metadata/ghcup-0.0.8.yaml sh
 </tmpl>
 
 * Windows 用户：以非管理员身份在 PowerShell 中运行如下命令
