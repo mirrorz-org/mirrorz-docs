@@ -5,7 +5,7 @@
 <tmpl z-lang="bash">
 # 手动模拟 rosdep init
 {{sudo}}mkdir -p /etc/ros/rosdep/sources.list.d/
-{{sudo}}curl -o /etc/ros/rosdep/sources.list.d/20-default.list {{endpoint}}/ros/rosdistro/master/rosdep/sources.list.d/20-default.list
+{{sudo}}curl -o /etc/ros/rosdep/sources.list.d/20-default.list -L {{endpoint}}/ros/rosdistro/master/rosdep/sources.list.d/20-default.list
 </tmpl>
 
 ### stackage global-hints-cache.yaml

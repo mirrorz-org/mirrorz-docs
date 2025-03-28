@@ -1,7 +1,7 @@
 ## 下载
 
 <tmpl z-lang="bash">
-curl {{endpoint}} -o repo
+curl -L {{endpoint}} -o repo
 chmod +x repo
 </tmpl>
 

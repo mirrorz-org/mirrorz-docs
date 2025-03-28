@@ -10,12 +10,12 @@
 
 - 单用户安装
     <tmpl z-lang="bash">
-sh <(curl {{endpoint}}/latest/install)
+sh <(curl -L {{endpoint}}/latest/install)
 </tmpl>
 
 - 多用户安装：
     <tmpl z-lang="bash">
-sh <(curl {{endpoint}}/latest/install) --daemon
+sh <(curl -L {{endpoint}}/latest/install) --daemon
 </tmpl>
 
 如果需要，可以在文件列表中手动挑选需要的版本

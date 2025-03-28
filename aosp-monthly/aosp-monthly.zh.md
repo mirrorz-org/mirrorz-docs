@@ -15,10 +15,10 @@
 
 <tmpl z-lang="bash" z-input="checksum">
 # 包含断点续传
-curl -OC - {{endpoint}}/aosp-latest.tar # 下载初始化包
+curl -LOC - {{endpoint}}/aosp-latest.tar # 下载初始化包
 {{#checksum}}
 md5sum aosp-latest.tar
-curl -q {{endpoint}}/aosp-latest.tar.md5
+curl -Lq {{endpoint}}/aosp-latest.tar.md5
 {{/checksum}}
 tar xf aosp-latest.tar
 cd AOSP   # 解压得到的 AOSP 工程目录
