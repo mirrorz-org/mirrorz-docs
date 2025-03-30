@@ -21,7 +21,7 @@
 
 <tmpl z-lang="bash">
 {{sudo}}dnf -y install dnf-plugins-core
-{{sudo}}dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+{{sudo}}dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 {{sudo}}sed -i 's+https://download.docker.com+{{endpoint}}+' /etc/yum.repos.d/docker-ce.repo
 </tmpl>
 
