@@ -11,13 +11,13 @@ MongoDB 镜像自 MongoDB [官方仓库](https://repo.mongodb.org/)，目前有 
 信任 MongoDB 的 GPG 公钥：
 
 <tmpl z-lang="bash">
-wget -qO - https://www.mongodb.org/static/pgp/server-{{version}}.asc | {{sudo}}apt-key add -
+wget -qO - https://www.mongodb.org/static/pgp/server-{{version}}.asc | {{sudo}}gpg -o /etc/apt/keyrings/mongodb-server-{{version}}.gpg --dearmor
 </tmpl>
 
 再选择你的 Debian / Ubuntu 版本，文本框中内容写进 `/etc/apt/sources.list.d/mongodb.list`
 
 <tmpl z-input="release" z-path="/etc/apt/sources.list.d/mongodb.list">
-deb {{endpoint}}/apt/{{os}} {{release}}/mongodb-org/{{version}} {{repo}}
+deb [signed-by=/etc/apt/keyrings/mongodb-server-{{version}}.gpg] {{endpoint}}/apt/{{os}} {{release}}/mongodb-org/{{version}} {{repo}}
 </tmpl>
 
 安装 `mongodb-org` 即可

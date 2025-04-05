@@ -9,7 +9,7 @@
 以 Debian Buster 为例，举例如下：
 
 <tmpl z-lang="bash">
-wget -q -O- 'https://download.ceph.com/keys/release.asc' | {{sudo}}apt-key add -
-{{sudo}}apt-add-repository 'deb {{endpoint}}/debian-octopus/ buster main'
+wget -q -O- 'https://download.ceph.com/keys/release.asc' | {{sudo}}gpg -o /etc/apt/keyrings/ceph.gpg --dearmor
+{{sudo}}apt-add-repository 'deb [signed-by=/etc/apt/keyrings/ceph.gpg] {{endpoint}}/debian-octopus/ buster main'
 {{sudo}}apt update
 </tmpl>
