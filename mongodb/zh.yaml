@@ -5,6 +5,7 @@ input:
   version:
     _: 'MongoDB 版本号'
     option:
+      '8.0':
       '7.0':
       '6.0':
       '5.0':
