@@ -1,5 +1,6 @@
 _: Bioconductor 软件仓库
 block:
 - intro
+- version
 - usage
 - offline
