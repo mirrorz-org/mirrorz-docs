@@ -8,7 +8,8 @@ FreeBSD pkg 包管理器的官方源配置是 `/etc/pkg/FreeBSD.conf` ，请先�
 
 <tmpl z-input="channel">
 FreeBSD: {
-  url: "pkg+{{endpoint}}/${ABI}/{{channel}}",
+  url: "{{endpoint}}/${ABI}/{{channel}}",
+  mirror_type: "none",
 }
 </tmpl>
 
