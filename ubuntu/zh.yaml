@@ -7,6 +7,8 @@ input:
     option:
       noble:
         _: Ubuntu 24.04 LTS (noble)
+      plucky:
+        _: Ubuntu 25.04 (plucky)
       oracular:
         _: Ubuntu 24.10 (oracular)
       jammy:
@@ -17,8 +19,6 @@ input:
         _: Ubuntu 18.04 LTS (bionic)
       xenial:
         _: Ubuntu 16.04 LTS (xenial) (EOL)
-      trusty:
-        _: Ubuntu 14.04 LTS (trusty) (EOL)
   release_deb822:
     _: Ubuntu 版本
     option:

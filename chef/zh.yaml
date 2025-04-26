@@ -11,6 +11,10 @@ input:
         _: Debian 12 (bookworm)
       bullseye:
         _: Debian 11 (bullseye)
+      noble:
+        _: Ubuntu 24.04 LTS (noble)
+      jammy:
+        _: Ubuntu 22.04 LTS (jammy)
       focal:
         _: Ubuntu 20.04 LTS (focal)
       bionic:

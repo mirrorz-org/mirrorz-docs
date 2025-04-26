@@ -5,6 +5,8 @@ input:
   release:
     _: Linux Mint 版本
     option:
+      xia:
+        _: 22.1 (xia)
       wilma:
         _: 22 (wilma)
       virginia:
@@ -15,9 +17,3 @@ input:
         _: 21.1 (vera)
       vanessa:
         _: 21 (vanessa)
-      una:
-        _: 20.3 (una)
-      uma:
-        _: 20.2 (uma)
-      ulyssa:
-        _: 20.1 (ulyssa)

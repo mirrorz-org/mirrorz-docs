@@ -1,3 +1,5 @@
+**请注意：ROS1 已经不再更新。您可能需要参考 [ROS2 帮助](../ros2/)。**
+
 新建 `/etc/apt/sources.list.d/ros-latest.list`，内容为：
 
 <tmpl z-input="release" z-path="/etc/apt/sources.list.d/ros-latest.list">
