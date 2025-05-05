@@ -6,7 +6,7 @@ Julia 是一个全新的以科学计算为核心的通用编程语言，其二�
 {{endpoint}}/bin/
 </tmpl>
 
-这里仅镜像 [JuliaLang Downloads](https://julialang.org/downloads/) 中提供的稳定发行版以及 rc 版本。每日构建的测试版 (nightlies) 以及  [Juno](http://junolab.org/)/[Julia Pro](https://juliacomputing.com/products/juliapro)等 IDE 版本不包括在内。
+这里仅镜像 [JuliaLang Downloads](https://julialang.org/downloads/) 中提供的稳定发行版以及 rc 版本。每日构建的测试版 (nightlies) 不包括在内。
 
 尽管一些包管理工具（例如 `apt`, `pacman`, `conda`, `choco`) 中提供有 Julia，但是这些工具或多或少都存在一些由二进制 依赖导致的问题，因此官方推荐的方式是根据自己的使用平台下载相应的二进制程序，然后通过解压的方式进行手动安装。
 
