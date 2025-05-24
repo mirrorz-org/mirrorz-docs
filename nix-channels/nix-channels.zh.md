@@ -33,19 +33,19 @@ nix.settings.substituters = lib.mkForce [ "{{endpoint}}/store" ];
 在安装 NixOS 时临时使用：
 
 <tmpl z-lang="bash">
-nixos-install --option substituters "{{endpoint}}/store"
+nixos-install --option substituters "{{endpoint}}/store https://cache.nixos.org"
 </tmpl>
 
 在 NixOS 切换配置时临时使用：
 
 <tmpl z-lang="bash">
-nixos-rebuild --option substituters "{{endpoint}}/store"
+nixos-rebuild --option substituters "{{endpoint}}/store https://cache.nixos.org"
 </tmpl>
 
-临时关闭可以通过清空 substituters 实现：
+临时关闭可以通过还原 substituters 实现：
 
 <tmpl z-lang="bash">
-nixos-rebuild --option substituters ""
+nixos-rebuild --option substituters "https://cache.nixos.org"
 </tmpl>
 
 ### Nixpkgs channel
