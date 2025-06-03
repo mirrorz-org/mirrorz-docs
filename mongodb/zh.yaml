@@ -22,6 +22,10 @@ input:
         _: Debian 11 (bullseye)
         os: debian
         repo: main
+      noble:
+        _: Ubuntu 24.04 LTS (noble)
+        os: ubuntu
+        repo: multiverse
       jammy:
         _: Ubuntu 22.04 LTS (jammy)
         os: ubuntu
