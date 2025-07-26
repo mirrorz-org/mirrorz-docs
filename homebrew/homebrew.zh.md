@@ -86,17 +86,17 @@ export HOMEBREW_CORE_GIT_REMOTE="{{endpoint}}/homebrew-core.git"
 # 注：自 brew 4.0 起，大部分 Homebrew 用户无需设置 homebrew/core 和 homebrew/cask 镜像，只需设置 HOMEBREW_API_DOMAIN 即可。
 # 如果需要使用 Homebrew 的开发命令 (如 `brew cat <formula>`)，则仍然需要设置 homebrew/core 和 homebrew/cask 镜像。
 # 请按需执行如下两行命令：
-brew tap --custom-remote --force-auto-update homebrew/core {{endpoint}}/homebrew-core.git
-brew tap --custom-remote --force-auto-update homebrew/cask {{endpoint}}/homebrew-cask.git
+brew tap --custom-remote homebrew/core {{endpoint}}/homebrew-core.git
+brew tap --custom-remote homebrew/cask {{endpoint}}/homebrew-cask.git
 
 # 除 homebrew/core 和 homebrew/cask 仓库外的 tap 仓库仍然需要设置镜像
-brew tap --custom-remote --force-auto-update homebrew/command-not-found {{endpoint}}/homebrew-command-not-found.git
+brew tap --custom-remote homebrew/command-not-found {{endpoint}}/homebrew-command-not-found.git
 brew update
 
 # 或使用下面的几行命令自动设置
 export HOMEBREW_CORE_GIT_REMOTE="{{endpoint}}/homebrew-core.git"
 for tap in core cask command-not-found; do
-    brew tap --custom-remote --force-auto-update "homebrew/${tap}" "{{endpoint}}/homebrew-${tap}.git"
+    brew tap --custom-remote "homebrew/${tap}" "{{endpoint}}/homebrew-${tap}.git"
 done
 brew update
 </tmpl>
@@ -109,10 +109,10 @@ export HOMEBREW_CORE_GIT_REMOTE="{{endpoint}}/homebrew-core.git"
 # 注：自 brew 4.0 起，使用默认 prefix (即 "/home/linuxbrew/.linuxbrew") 的大部分 Homebrew 用户无需设置 homebrew/core 镜像，只需设置 HOMEBREW_API_DOMAIN 即可。
 # 如果不是默认 prefix 或者需要使用 Homebrew 的开发命令 (如 `brew cat <formula>`)，则仍然需要设置 homebrew/core 镜像。
 # 请按需执行如下命令：
-brew tap --custom-remote --force-auto-update homebrew/core {{endpoint}}/homebrew-core.git
+brew tap --custom-remote homebrew/core {{endpoint}}/homebrew-core.git
 
 # 除 homebrew/core 仓库外的 tap 仓库仍然需要设置镜像
-brew tap --custom-remote --force-auto-update homebrew/command-not-found {{endpoint}}/homebrew-command-not-found.git
+brew tap --custom-remote homebrew/command-not-found {{endpoint}}/homebrew-command-not-found.git
 brew update
 </tmpl>
 
