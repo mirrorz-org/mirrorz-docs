@@ -14,7 +14,7 @@ deb {{endpoint}}/ {{release}}-backports main
 更改完 `sources.list` 文件后请导入 deb-multimedia-keyring ，然后更新索引以生效。
 
 <tmpl z-lang="bash">
-wget {{endpoint}}/pool/main/d/deb-multimedia-keyring/deb-multimedia-keyring_2016.8.1_all.deb
+wget {{endpoint}}/pool/main/d/deb-multimedia-keyring/deb-multimedia-keyring_2024.9.1_all.deb
 {{sudo}}dpkg -i deb-multimedia-keyring_2016.8.1_all.deb
 {{sudo}}apt-get update
 </tmpl>
