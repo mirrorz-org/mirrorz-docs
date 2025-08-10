@@ -6,6 +6,8 @@ input:
   release:
     _: Debian 系统版本
     option:
+      trixie:
+        _: Debian 13 (trixie)
       bookworm:
         _: Debian 12 (bookworm)
       bullseye:

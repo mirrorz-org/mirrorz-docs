@@ -7,6 +7,10 @@ input:
   release:
     _: Debian 版本
     option:
+      trixie:
+        _: Debian 13 (trixie)
+        security: -security
+        nonfree: ' non-free non-free-firmware'
       bookworm:
         _: Debian 12 (bookworm)
         security: -security
@@ -24,6 +28,8 @@ input:
   release_deb822:
     _: Debian 版本
     option:
+      trixie:
+        _: Debian 13 (trixie)
       bookworm:
         _: Debian 12 (bookworm)
       testing:

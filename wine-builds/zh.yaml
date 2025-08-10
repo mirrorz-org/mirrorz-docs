@@ -5,6 +5,9 @@ input:
   release:
     _: 发行版
     option:
+      trixie:
+        _: Debian 13 (trixie)
+        os: debian
       bookworm:
         _: Debian 12 (bookworm)
         os: debian
