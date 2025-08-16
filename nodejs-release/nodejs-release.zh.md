@@ -59,3 +59,9 @@ nvm install <version>
 <tmpl z-lang="bash">
 nvs remote node {{endpoint}}/
 </tmpl>
+
+#### mise
+
+<tmpl z-lang="bash">
+mise settings node.mirror_url={{endpoint}}/
+</tmpl>
