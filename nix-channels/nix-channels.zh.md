@@ -7,7 +7,7 @@
 以优先选择镜像，备选源站为例，选择以下配置之一：
 
 - 单独安装的 Nix：编辑配置文件添加或修改如下项（多用户安装修改 `/etc/nix/nix.conf`，单用户安装修改 `~/.config/nix/nix.conf`）：
-    <tmpl>
+    <tmpl z-lang="conf">
 substituters = {{endpoint}}/store https://cache.nixos.org/
 </tmpl>
 
@@ -28,6 +28,20 @@ substituters = {{endpoint}}/store https://cache.nixos.org/
 nix.settings.substituters = lib.mkForce [ "{{endpoint}}/store" ];
 </tmpl>
 
+- Nix 2.4 及之后的版本可以在 substituter 链接参数中指定优先级 (1~100)：
+
+<tmpl z-lang="nix">
+nix.settings.substituters = [ "{{endpoint}}/store?priority=10" ];
+</tmpl>
+
+查询 substituter 默认优先级：
+
+<tmpl z-lang="bash">
+curl {{endpoint}}/store/nix-cache-info
+</tmpl>
+
+一般情况下，镜像的默认优先级为 40，与 cache.nixos.org 保持一致。
+
 #### 临时使用
 
 在安装 NixOS 时临时使用：
@@ -46,6 +60,12 @@ nixos-rebuild --option substituters "{{endpoint}}/store https://cache.nixos.org"
 
 <tmpl z-lang="bash">
 nixos-rebuild --option substituters "https://cache.nixos.org"
+</tmpl>
+
+指定 substituter 优先级：
+
+<tmpl z-lang="bash">
+nixos-rebuild --option substituters "{{endpoint}}/store?priority=10 https://cache.nixos.org"
 </tmpl>
 
 ### Nixpkgs channel
