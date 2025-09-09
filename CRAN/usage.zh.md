@@ -14,7 +14,7 @@ options("repos" = c(CRAN="{{endpoint}}/"))
 
 ### 临时使用
 
-在安装时指定 repo ，如安装 lattice ：
+在安装时指定 repo，如安装 lattice：
 
 <tmpl z-lang="r">
 install.packages("lattice", repos="{{endpoint}}/")

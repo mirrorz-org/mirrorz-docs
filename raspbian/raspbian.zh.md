@@ -1,6 +1,6 @@
 ### Raspbian 简介
 
-Raspbian 是专门用于 ARM 卡片式计算机 Raspberry Pi® “树莓派”的操作系统， 其基于 Debian 开发，针对 Raspberry Pi 硬件优化。
+Raspbian 是专门用于 ARM 卡片式计算机 Raspberry Pi® “树莓派”的操作系统，其基于 Debian 开发，针对 Raspberry Pi 硬件优化。
 
 Raspbian 并非由树莓派的开发与维护机构 The Raspberry Pi Foundation“树莓派基金会”官方支持。其维护者是一群 Raspberry Pi 硬件和 Debian 项目的爱好者。
 

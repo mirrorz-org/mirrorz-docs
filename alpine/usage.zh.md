@@ -20,7 +20,7 @@
 {{endpoint}}/latest-stable/community
 </tmpl>
 
-更改完 `/etc/apk/repositories` 文件后请更新索引以使更改生效:
+更改完 `/etc/apk/repositories` 文件后请更新索引以使更改生效：
 
 <tmpl z-lang="bash">
 {{sudo}}apk update

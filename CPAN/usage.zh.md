@@ -8,7 +8,7 @@
 
 <tmpl z-lang="bash">
 # 自动生成 MyConfig.pm
-## 对于 Perl 5.36 （或 CPAN 2.29）及以上，使用如下命令
+## 对于 Perl 5.36（或 CPAN 2.29）及以上，使用如下命令
 PERL_MM_USE_DEFAULT=1 perl -MCPAN -e 'CPAN::HandleConfig->edit("pushy_https", 0); CPAN::HandleConfig->edit("urllist", "unshift", "{{endpoint}}/"); mkmyconfig'
 ## 对于较久版本，使用如下命令
 PERL_MM_USE_DEFAULT=1 perl -MCPAN -e 'CPAN::HandleConfig->edit("urllist", "unshift", "{{endpoint}}/"); mkmyconfig'
