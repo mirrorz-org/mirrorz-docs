@@ -14,5 +14,6 @@ git clone {{endpoint}}/ports.git /usr/ports
 </tmpl>
 
 注：
-  1. 部分 ports 的源代码需要从 http://distcache.freebsd.org/ports-distfiles/ 以外的 master site 下载，本镜像不包含这些文件。
-  2. 本镜像仅包含 ports tree 中 HEAD branch 引用到的文件。季度分支（如 `2020Q4`）引用的文件有可能不包含在本镜像中。
+  1. 部分 ports 的源代码需要从 http://distcache.freebsd.org/ports-distfiles/ 以外的 master site 下载，本镜像未包含这些文件。
+  2. 本镜像仅包含 ports tree 中 HEAD branch 引用到的文件。季度分支（如 `2024Q4`）引用的文件有可能不包含在本镜像中。
+  3. FreeBSD 基本系统并未预置 git，需要自行安装 Port devel/git。

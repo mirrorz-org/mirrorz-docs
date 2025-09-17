@@ -2,20 +2,20 @@
 
 ### FreeBSD pkg
 
-FreeBSD pkg 包管理器的官方源配置是 `/etc/pkg/FreeBSD.conf` ，请先检查该文件内容。注意其中的 `url` 参数配置了官方仓库的地址，我们需要把它替换为镜像站的地址。
+为了避免可能出现的向后兼容问题，基本系统中未预置真实的 pkg(8) 工具，需要在线安装。参见 [man pkg(7)](https://man.freebsd.org/cgi/man.cgi?query=pkg)。安装方法为直接输入命令 `pkg` 根据提示进行确认安装。为了避免因网络问题造成安装失败，建议先按以下方法换源后再安装 pkg。
 
-该配置文件是 FreeBSD 基本系统的一部分，会随着 `freebsd-update` 更新，请不要直接修改，而是创建 `/usr/local/etc/pkg/repos/FreeBSD.conf` 覆盖配置，文件内容如下：
+FreeBSD pkg 包管理器的官方源的配置路径为 `/etc/pkg/FreeBSD.conf`。不建议直接修改此文件：该配置文件是 FreeBSD 基本系统的一部分，会随着基本系统的更新而变化。
+
+应创建路径及文件 `/usr/local/etc/pkg/repos/BSD.conf` 来覆盖配置，文件内容如下：
 
 <tmpl z-input="channel">
-FreeBSD: {
-  url: "{{endpoint}}/${ABI}/{{channel}}",
-  mirror_type: "none",
+BSD: {
+  url: "{{endpoint}}/${ABI}/quarterly"
 }
+FreeBSD: { enabled: no }
 </tmpl>
 
 修改配置后，运行 `pkg update -f` 更新索引。
-
-注：使用 HTTPS 可以有效避免国内运营商的缓存劫持，但需要事先安装 `security/ca_root_nss` 软件包。
 
 
 ### Ports Collection & Poudriere
@@ -30,8 +30,6 @@ FreeBSD: {
 # The branch will be appended to the URL:
 PACKAGE_FETCH_URL={{endpoint}}/\${ABI}
 </tmpl>
-
-同样，使用 HTTPS 需要 `security/ca_root_nss`。
 
 更改后，运行 `poudriere bulk` 时会报错：`No SRV record found for the repo`，此报错无害，不影响使用。
 
