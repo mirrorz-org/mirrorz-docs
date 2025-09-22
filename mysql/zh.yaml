@@ -5,33 +5,26 @@ input:
   deb_release:
     _: 发行版
     option:
+      trixie:
+        _: Debian 13
+        os: debian
       bookworm:
-        _: Debian 12 (bookworm)
+        _: Debian 12
         os: debian
-      bullseye:
-        _: Debian 11 (bullseye)
-        os: debian
+      noble:
+        _: Ubuntu 24.04 LTS
+        os: ubuntu
       jammy:
-        _: Ubuntu 22.04 LTS (jammy)
-        os: ubuntu
-      focal:
-        _: Ubuntu 20.04 LTS (focal)
-        os: ubuntu
-      bionic:
-        _: Ubuntu 18.04 LTS (bionic)
-        os: ubuntu
-      xenial:
-        _: Ubuntu 16.04 LTS (xenial) (EOL)
+        _: Ubuntu 22.04 LTS
         os: ubuntu
   version:
     _: MySQL 版本号
     option:
-      '8.0':
-      '5.7':
+      '8.4':
   rh_release:
     _: 发行版
     option:
-      el7:
-        _: CentOS/RHEL 7
-      el8:
-        _: CentOS/RHEL 8
+      el9:
+        _: RHEL 9
+      el10:
+        _: RHEL 10

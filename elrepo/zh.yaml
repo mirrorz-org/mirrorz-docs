@@ -5,9 +5,9 @@ input:
   release:
     _: 发行版
     option:
+      el10:
+        _: RHEL-10, SL-9
+        version: '10'
       el9:
-        _: RHEL-9, SL-9, CentOS-9
+        _: RHEL-9, SL-9
         version: '9'
-      el8:
-        _: RHEL-8, SL-8, CentOS-8
-        version: '8'
