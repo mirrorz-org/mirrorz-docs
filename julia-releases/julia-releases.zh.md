@@ -14,15 +14,15 @@ Julia 是一个全新的以科学计算为核心的通用编程语言，其二�
 
 [juliaup](https://github.com/JuliaLang/juliaup) 是现在 Julia 社区默认推荐的安装方式，通过设置环境变量 `JULIAUP_SERVER` 的地址为 <tmpl z-inline>{{endpoint}}</tmpl> 后，即可正常使用镜像站来下载 Julia 程序。
 
-以下是 juliaup 官方的标准安装方式
+以下是 juliaup 官方的标准安装方式：
 
-Windows：
+Windows:
 
 ```powershell
 winget install --name Julia --id 9NJNWW8PVKMN -e -s msstore
 ```
 
-Mac, Linux, and FreeBSD：
+Mac, Linux, and FreeBSD:
 
 ```shell
 curl -fsSL https://install.julialang.org | sh
