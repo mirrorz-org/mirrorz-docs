@@ -23,8 +23,8 @@ env RUSTUP_DIST_SERVER={{endpoint}} rustup install nightly-YYYY-mm-dd
 
 <tmpl z-lang="bash">
 # for bash
-echo 'export RUSTUP_UPDATE_ROOT={{endpoint}}/rustup' >> ~/.bash_profile
-echo 'export RUSTUP_DIST_SERVER={{endpoint}}' >> ~/.bash_profile
+echo 'export RUSTUP_UPDATE_ROOT={{endpoint}}/rustup' >> ~/.bashrc
+echo 'export RUSTUP_DIST_SERVER={{endpoint}}' >> ~/.bashrc
 # for fish
 echo 'set -x RUSTUP_UPDATE_ROOT {{endpoint}}/rustup' >> ~/.config/fish/config.fish
 echo 'set -x RUSTUP_DIST_SERVER {{endpoint}}' >> ~/.config/fish/config.fish

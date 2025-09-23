@@ -6,6 +6,8 @@
 
 **注：目前，`homebrew-cask-{drivers,versions,fonts}` 已被弃用，所有 cask 合并至 `homebrew-cask` 仓库。本帮助内已移除克隆这些仓库的命令。已克隆用户（`brew tap` 查看）可使用 `brew untap` 移除废弃的仓库。**
 
+**注：截止到 brew 4.6.12，`homebrew-{services,bundle,homebrew-command-not-found}` 均已被弃用，所有 tap 合并至 `brew` 仓库。本帮助内已移除克隆这些仓库的命令。已克隆用户（`brew tap` 查看）可使用 `brew untap` 移除废弃的仓库。**
+
 ### 首次安装 Homebrew / Linuxbrew
 
 首先，需要确保系统中安装了 bash、git 和 curl，对于 macOS 用户需额外要求安装 Command Line Tools (CLT) for Xcode。
@@ -89,13 +91,9 @@ export HOMEBREW_CORE_GIT_REMOTE="{{endpoint}}/homebrew-core.git"
 brew tap --custom-remote homebrew/core {{endpoint}}/homebrew-core.git
 brew tap --custom-remote homebrew/cask {{endpoint}}/homebrew-cask.git
 
-# 除 homebrew/core 和 homebrew/cask 仓库外的 tap 仓库仍然需要设置镜像
-brew tap --custom-remote homebrew/command-not-found {{endpoint}}/homebrew-command-not-found.git
-brew update
-
 # 或使用下面的几行命令自动设置
 export HOMEBREW_CORE_GIT_REMOTE="{{endpoint}}/homebrew-core.git"
-for tap in core cask command-not-found; do
+for tap in core cask; do
     brew tap --custom-remote "homebrew/${tap}" "{{endpoint}}/homebrew-${tap}.git"
 done
 brew update
@@ -110,10 +108,6 @@ export HOMEBREW_CORE_GIT_REMOTE="{{endpoint}}/homebrew-core.git"
 # 如果不是默认 prefix 或者需要使用 Homebrew 的开发命令 (如 `brew cat <formula>`)，则仍然需要设置 homebrew/core 镜像。
 # 请按需执行如下命令：
 brew tap --custom-remote homebrew/core {{endpoint}}/homebrew-core.git
-
-# 除 homebrew/core 仓库外的 tap 仓库仍然需要设置镜像
-brew tap --custom-remote homebrew/command-not-found {{endpoint}}/homebrew-command-not-found.git
-brew update
 </tmpl>
 
 **注：如果用户设置了环境变量 `HOMEBREW_BREW_GIT_REMOTE` 和 `HOMEBREW_CORE_GIT_REMOTE`，则每次执行 `brew update` 时，`brew` 程序本身和 Core Tap (`homebrew-core`) 的远程将被自动设置。推荐用户将这两个环境变量设置加入 shell 的 profile 设置中。**
@@ -145,7 +139,7 @@ git -C "$(brew --repo)" remote set-url origin https://github.com/Homebrew/brew
 # 以下针对 macOS 系统上的 Homebrew
 unset HOMEBREW_CORE_GIT_REMOTE
 BREW_TAPS="$(BREW_TAPS="$(brew tap 2>/dev/null)"; echo -n "${BREW_TAPS//$'\n'/:}")"
-for tap in core cask command-not-found; do
+for tap in core cask; do
     if [[ ":${BREW_TAPS}:" == *":homebrew/${tap}:"* ]]; then  # 只复原已安装的 Tap
         brew tap --custom-remote "homebrew/${tap}" "https://github.com/Homebrew/homebrew-${tap}"
     fi
@@ -166,7 +160,6 @@ git -C "$(brew --repo)" remote set-url origin https://github.com/Homebrew/brew
 unset HOMEBREW_API_DOMAIN
 unset HOMEBREW_CORE_GIT_REMOTE
 brew tap --custom-remote homebrew/core https://github.com/Homebrew/homebrew-core
-brew tap --custom-remote homebrew/command-not-found https://github.com/Homebrew/homebrew-command-not-found
 
 # 重新拉取远程
 brew update

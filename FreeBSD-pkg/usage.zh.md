@@ -17,6 +17,7 @@ FreeBSD: { enabled: no }
 
 修改配置后，运行 `pkg update -f` 更新索引。
 
+注：如未配置 [pkgbase](https://wiki.freebsd.org/pkgbase)，则 pkg 仅管理用户安装的第三方软件（Port），无法更新基本系统。基本系统与通过 pkg 安装的软件互不干涉。
 
 ### Ports Collection & Poudriere
 

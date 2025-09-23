@@ -6,24 +6,20 @@ input:
     _: Ubuntu 版本
     option:
       noble:
-        _: Ubuntu 24.04 LTS (noble)
+        _: Ubuntu 24.04 LTS
       plucky:
-        _: Ubuntu 25.04 (plucky)
+        _: Ubuntu 25.04
       oracular:
-        _: Ubuntu 24.10 (oracular)
-      jammy:
-        _: Ubuntu 22.04 LTS (jammy)
-      focal:
-        _: Ubuntu 20.04 LTS (focal)
-      bionic:
-        _: Ubuntu 18.04 LTS (bionic)
-      xenial:
-        _: Ubuntu 16.04 LTS (xenial) (EOL)
+        _: Ubuntu 24.10
   release_deb822:
     _: Ubuntu 版本
     option:
       noble:
-        _: Ubuntu 24.04 LTS (noble)
+        _: Ubuntu 24.04 LTS
+      plucky:
+        _: Ubuntu 25.04
+      oracular:
+        _: Ubuntu 24.10
   src:
     _: 启用源码源
     note: 源码源通常用于构建和调试，开启后影响更新速度

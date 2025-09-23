@@ -15,17 +15,11 @@ input:
       bullseye:
         _: Debian 11 (bullseye)
         os: debian
+      noble:
+        _: Ubuntu 24.04 LTS (noble)
+        os: ubuntu
       jammy:
         _: Ubuntu 22.04 LTS (jammy)
-        os: ubuntu
-      focal:
-        _: Ubuntu 20.04 LTS (focal)
-        os: ubuntu
-      bionic:
-        _: Ubuntu 18.04 LTS (bionic)
-        os: ubuntu
-      xenial:
-        _: Ubuntu 16.04 LTS (xenial) (EOL)
         os: ubuntu
   version:
     _: CRAN 版本
