@@ -1,6 +1,6 @@
-**注意：本镜像是 AOSP 镜像，Android SDK 因版权原因，我们不能提供镜像服务。**
+**注意：本镜像是 AOSP 镜像，Android SDK 因版权原因，不能提供镜像服务。**
 
-**可访问 https://cs.android.com 或 https://github.com/aosp-mirror 在线搜索及浏览 AOSP 源码。**
+**可访问 <https://cs.android.com> 在线搜索及浏览 AOSP 源码。**
 
 参考 Google 教程 <https://source.android.com/setup/build/downloading>，
 将 `https://android.googlesource.com/` 全部使用如下链接代替即可。
@@ -8,8 +8,6 @@
 <tmpl>
 {{endpoint}}/
 </tmpl>
-
-由于使用 HTTPS 协议更安全，并且更便于我们灵活处理，所以强烈推荐使用 HTTPS 协议同步 AOSP 镜像。
 
 **由于 AOSP 镜像造成 CPU/内存负载过重，我们限制了并发数量，因此建议：**
 1. sync 的时候并发数不宜太高，否则会出现 503 错误，即 `-j` 后面的数字不能太大，建议选择 4。
@@ -30,7 +28,7 @@ chmod a+x ~/bin/repo
 
 ### 使用每月更新的初始化包
 
-参考 [AOSP Monthly 镜像](../aosp-monthly/)
+参考 [AOSP Monthly 镜像](../aosp-monthly/)，此目录仅在部分镜像站存在。
 
 ### 传统初始化方法
 
@@ -114,51 +112,15 @@ url = {{endpoint}}/platform/manifest
 git config --global url.{{endpoint}}/.insteadof https://android.googlesource.com
 </tmpl>
 
-### 说明
+### 常见问题
 
-#### 通用
-
-1. 镜像的是什么？
-	- AOSP 的 git 仓库
-2. Android 版本列表：https://source.android.com/source/build-numbers.html#source-code-tags-and-builds 或 https://source.android.google.cn/source/build-numbers#source-code-tags-and-builds
-3. 镜像站 tags 列表（部分镜像站可浏览）
-   - <tmpl>{{endpoint}}/platform/manifest.git/refs/tags/</tmpl>
-4. 出现 `curl: (22) The requested URL returned error: 404 Not Found
-Server does not provide clone.bundle; ignoring.` 怎么办？
-	- 无视即可。
-	- 参见：https://github.com/tuna/issues/issues/936
-
-#### TUNA/BFSU
-
+1. 本仓库镜像的是 AOSP 的 git 仓库，不是系统镜像或者开发工具下载。
+1. Android 版本列表：<https://source.android.com/source/build-numbers.html#source-code-tags-and-builds> 或 <https://source.android.google.cn/source/build-numbers#source-code-tags-and-builds>。
+1. 出现 `curl: (22) The requested URL returned error: 404 Not Found Server does not provide clone.bundle; ignoring.` 怎么办？
+  - 无视即可，参见 <https://github.com/tuna/issues/issues/936>。
 1. 为何不能通过浏览器访问？
-	- 暂时没有 gitweb, 而且反正是 git bare 仓库，没有可以直接看到的内容。
-	- 建议访问 https://cs.android.com 或 https://github.com/aosp-mirror 在线搜索及浏览 AOSP 源码。
-
-#### USTC
-
-1. 由于硬盘 I/O 资源有限，Git 服务器每 IP 限制 5 个并发连接。
-   `repo sync` 命令默认使用 4 个并发连接，请勿使用 `-j`
-   参数增加并发连接数。
-
-### Brillo
-
-Brillo 项目的代码托管在 AOSP 项目中，镜像站镜像的是整个 AOSP
-项目，所以自然也能从本镜像下载 Brillo 项目代码。
-
-参考 Brillo 官方文档
-https://developers.google.com/brillo/docs/reference/downloads
-进行下载，将其中源码 manifest 地址 改为
-
-<tmpl>
-{{endpoint}}/brillo/manifest
-</tmpl>
-
-
-即 `repo init` 时，使用
-
-<tmpl z-lang="bash">
-repo init -u {{endpoint}}/brillo/manifest -b master
-</tmpl>
+  - 镜像站没有 gitweb, 并且提供的是 git bare 仓库，没有可以直接看到的内容。
+  - 建议访问 <https://cs.android.com> 或 <https://github.com/aosp-mirror> 在线搜索及浏览 AOSP 源码。
 
 ## LineageOS 中对于 AOSP 的替换
 
