@@ -117,10 +117,10 @@ git config --global url.{{endpoint}}/.insteadof https://android.googlesource.com
 1. 本仓库镜像的是 AOSP 的 git 仓库，不是系统镜像或者开发工具下载。
 1. Android 版本列表：<https://source.android.com/source/build-numbers.html#source-code-tags-and-builds> 或 <https://source.android.google.cn/source/build-numbers#source-code-tags-and-builds>。
 1. 出现 `curl: (22) The requested URL returned error: 404 Not Found Server does not provide clone.bundle; ignoring.` 怎么办？
-  - 无视即可，参见 <https://github.com/tuna/issues/issues/936>。
+    - 无视即可，参见 <https://github.com/tuna/issues/issues/936>。
 1. 为何不能通过浏览器访问？
-  - 镜像站没有 gitweb, 并且提供的是 git bare 仓库，没有可以直接看到的内容。
-  - 建议访问 <https://cs.android.com> 或 <https://github.com/aosp-mirror> 在线搜索及浏览 AOSP 源码。
+    - 镜像站没有 gitweb, 并且提供的是 git bare 仓库，没有可以直接看到的内容。
+    - 建议访问 <https://cs.android.com> 在线搜索及浏览 AOSP 源码。
 
 ## LineageOS 中对于 AOSP 的替换
 
