@@ -7,6 +7,8 @@ input:
   release:
     _: 操作系统版本
     option:
+      trixie:
+        _: Debian 13 (trixie)
       bookworm:
         _: Debian 12 (bookworm)
       bullseye:
@@ -15,9 +17,3 @@ input:
         _: Ubuntu 24.04 LTS (noble)
       jammy:
         _: Ubuntu 22.04 LTS (jammy)
-      focal:
-        _: Ubuntu 20.04 LTS (focal)
-      bionic:
-        _: Ubuntu 18.04 LTS (bionic)
-      xenial:
-        _: Ubuntu 16.04 LTS (xenial) (EOL)

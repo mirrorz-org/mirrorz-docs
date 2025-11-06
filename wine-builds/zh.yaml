@@ -6,20 +6,17 @@ input:
     _: 发行版
     option:
       trixie:
-        _: Debian 13 (trixie)
+        _: Debian 13
         os: debian
       bookworm:
-        _: Debian 12 (bookworm)
+        _: Debian 12
         os: debian
       bullseye:
-        _: Debian 11 (bullseye)
+        _: Debian 11
         os: debian
+      noble:
+        _: Ubuntu 24.04 LTS
+        os: ubuntu
       jammy:
-        _: Ubuntu 22.04 LTS (jammy)
-        os: ubuntu
-      focal:
-        _: Ubuntu 20.04 LTS (focal)
-        os: ubuntu
-      bionic:
-        _: Ubuntu 18.04 LTS (bionic)
+        _: Ubuntu 22.04 LTS
         os: ubuntu

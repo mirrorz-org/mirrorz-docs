@@ -16,10 +16,6 @@ deb {{endpoint}}/apt/{{os}} {{deb_release}} mysql-{{version}} mysql-tools
 
 新建 `/etc/yum.repos.d/mysql-community.repo`，内容如下：
 
-注：`mysql-8.0`, `mysql-connectors` 和 `mysql-tools` 在 RHEL 7/8 上还提供了 `aarch64` 版本。
-
-注：TUNA / BFSU 等镜像站不提供 CentOS 8 与 CentOS 6 版本
-
 <tmpl z-lang="ini" z-input="rh_release" z-path="/etc/yum.repos.d/mysql-community.repo">
 [mysql-connectors-community]
 name=MySQL Connectors Community
@@ -28,6 +24,7 @@ enabled=1
 gpgcheck=1
 gpgkey=https://repo.mysql.com/RPM-GPG-KEY-mysql
        https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+       https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
 
 [mysql-tools-community]
 name=MySQL Tools Community
@@ -36,6 +33,7 @@ enabled=1
 gpgcheck=1
 gpgkey=https://repo.mysql.com/RPM-GPG-KEY-mysql
        https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+       https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
 
 [mysql-{{version}}-community]
 name=MySQL {{version}} Community Server
@@ -44,6 +42,7 @@ enabled=1
 gpgcheck=1
 gpgkey=https://repo.mysql.com/RPM-GPG-KEY-mysql
        https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+       https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
 </tmpl>
 
 参考文档：https://dev.mysql.com/doc/mysql-yum-repo-quick-guide/en/

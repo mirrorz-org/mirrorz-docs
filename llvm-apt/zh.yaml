@@ -6,36 +6,29 @@ input:
     _: LLVM 版本
     option:
       '':
-        _: 默认
-      '15':
-      '14':
-      '13':
-      '12':
-      '11':
+        _: 最新
+      '21':
+      '20':
   release:
     _: 发行版
     option:
+      trixie:
+        _: Debian 13
       bookworm:
-        _: Debian 12 (bookworm)
+        _: Debian 12
       bullseye:
-        _: Debian 11 (bullseye)
+        _: Debian 11
+      noble:
+        _: Ubuntu 24.04 LTS
       jammy:
-        _: Ubuntu 22.04 LTS (jammy)
-      focal:
-        _: Ubuntu 20.04 LTS (focal)
-      bionic:
-        _: Ubuntu 18.04 LTS (bionic)
+        _: Ubuntu 22.04 LTS
   ver2:
     _: LLVM 版本
     option:
       '':
-        _: 默认
-      '16':
-      '15':
-      '14':
-      '13':
-      '12':
-      '11':
+        _: 最新
+      '21':
+      '20':
   src:
     _: 启用源码源
     note: 源码源通常用于构建和调试，开启后影响更新速度
