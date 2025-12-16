@@ -17,7 +17,7 @@ gem sources -l
 使用以下命令替换 bundler 默认源
 
 <tmpl z-lang="bash">
-bundle config mirror.https://rubygems.org {{endpoint}}
+bundle config set --global mirror.https://rubygems.org {{endpoint}}
 </tmpl>
 
-官方文档：http://bundler.io/v1.16/man/bundle-config.1.html#MIRRORS-OF-GEM-SOURCES
+官方文档：https://bundler.io/v2.7/man/bundle-config.1.html#MIRRORS-OF-GEM-SOURCES
