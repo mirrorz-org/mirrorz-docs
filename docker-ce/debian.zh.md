@@ -5,26 +5,29 @@
 如果你过去安装过 docker，先删掉：
 
 <tmpl z-lang="bash">
-for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do {{sudo}}apt-get remove $pkg; done
+{{sudo}}apt remove $(dpkg --get-selections docker.io docker-compose docker-doc podman-docker containerd runc | cut -f1)
 </tmpl>
 
 首先安装依赖：
 
 <tmpl z-lang="bash">
 {{sudo}}apt-get update
-{{sudo}}apt-get install ca-certificates curl gnupg
+{{sudo}}apt-get install ca-certificates curl
 </tmpl>
 
 信任 Docker 的 GPG 公钥并添加仓库：
 
 <tmpl z-lang="bash" z-input="deb_release">
 {{sudo}}install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/{{deb_release}}/gpg | {{sudo}}gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-sudo chmod a+r /etc/apt/keyrings/docker.gpg
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] {{endpoint}}/linux/{{deb_release}} \
-  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
-  {{sudo}}tee /etc/apt/sources.list.d/docker.list > /dev/null
+{{sudo}}curl -fsSL https://download.docker.com/linux/{{deb_release}}/gpg -o /etc/apt/keyrings/docker.asc
+{{sudo}}chmod a+r /etc/apt/keyrings/docker.asc
+{{sudo}}tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: {{endpoint}}/linux/{{deb_release}}
+Suites: $(. /etc/os-release && echo "$VERSION_CODENAME")
+Components: stable
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
 </tmpl>
 
 最后安装
