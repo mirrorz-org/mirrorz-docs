@@ -23,8 +23,6 @@ deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] {{endpoint}}/core:/
 
 <tmpl z-input="cri_o" z-lang="ini" z-path="/etc/yum.repos.d/kubernetes.repo">
 [kubernetes]
-name=kubernetes
-baseurl={{endpoint}}/yum/repos/kubernetes-el7-$basearch
 name=Kubernetes
 baseurl={{endpoint}}/core:/stable:/v1.28/rpm/
 enabled=1
