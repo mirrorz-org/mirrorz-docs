@@ -2,12 +2,24 @@
 
 参考 [Debian 帮助](../debian/) 修改 `/etc/apt/sources.list`。
 
-### 软件源
+### Proxmox 软件源
+
+#### 传统格式（`/etc/apt/sources.list.d/pve-no-subscription.list`）：
 
 新建 `/etc/apt/sources.list.d/pve-no-subscription.list`（如果选择的不是 pve，需要使用另一个文件名），内容为：
 
 <tmpl z-input="release service" z-path="/etc/apt/sources.list.d/pve-no-subscription.list">
 deb {{endpoint}}/debian/{{service}} {{release}} {{service}}-no-subscription
+</tmpl>
+
+#### DEB822 格式（`/etc/apt/sources.list.d/pve-no-subscription.sources`）：
+
+<tmpl z-input="release service" z-path="/etc/apt/sources.list.d/pve-no-subscription.sources">
+Types: deb
+URIs: {{endpoint}}/debian/{{service}}
+Suites: {{release}}
+Components: {{service}}-no-subscription
+Signed-By: /usr/share/keyrings/proxmox-archive-keyring.gpg
 </tmpl>
 
 注意快速配置中的文件名需要根据需求而修改。
