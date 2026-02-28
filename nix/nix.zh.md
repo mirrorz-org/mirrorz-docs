@@ -9,17 +9,17 @@
 细节内容，请参见 Nix 文档中的 [Installing a Binary Distribution](https://nixos.org/nix/manual/#ch-installing-binary) 一节。
 
 - 单用户安装
-    <tmpl z-lang="bash">
-sh <(curl -L {{endpoint}}/latest/install)
-</tmpl>
+  ```{ztmpl lang="bash"}
+  sh <(curl -L {{endpoint}}/latest/install)
+  ```
 
 - 多用户安装：
-    <tmpl z-lang="bash">
-sh <(curl -L {{endpoint}}/latest/install) --daemon
-</tmpl>
+  ```{ztmpl lang="bash"}
+  sh <(curl -L {{endpoint}}/latest/install) --daemon
+  ```
 
 如果需要，可以在文件列表中手动挑选需要的版本
 
-<tmpl>
+```{ztmpl}
 {{endpoint}}
-</tmpl>
+```

@@ -9,9 +9,9 @@
 注意，以下命令会安装并配置 GHCup 0.0.8 版本的元数据。
 可查看以下目录的内容，并选择需要安装的 GHCup 版本的 yaml 文件替换以下命令中的 URL。
 
-<tmpl>
+```{ztmpl}
 {{endpoint}}/ghcup-metadata/
-</tmpl>
+```
 
 
 **第一步（可选）** ：使用镜像源安装 GHCup 本体。如已经安装 GHCup，可跳到下一步。
@@ -19,23 +19,23 @@
 
 * Linux, FreeBSD, macOS 用户：在终端中运行如下命令
 
-<tmpl z-lang="bash">
-curl --proto '=https' --tlsv1.2 -LsSf https://{{host}}{{path}}/sh/bootstrap-haskell | BOOTSTRAP_HASKELL_YAML={{endpoint}}/ghcup-metadata/ghcup-0.0.8.yaml sh
-</tmpl>
+  ```{ztmpl lang="bash"}
+  curl --proto '=https' --tlsv1.2 -LsSf https://{{host}}{{path}}/sh/bootstrap-haskell | BOOTSTRAP_HASKELL_YAML={{endpoint}}/ghcup-metadata/ghcup-0.0.8.yaml sh
+  ```
 
 * Windows 用户：以非管理员身份在 PowerShell 中运行如下命令
 
-<tmpl z-lang="powershell">
-$env:BOOTSTRAP_HASKELL_YAML = '{{endpoint}}/ghcup-metadata/ghcup-0.0.8.yaml'
-Set-ExecutionPolicy Bypass -Scope Process -Force;[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;Invoke-Command -ScriptBlock ([ScriptBlock]::Create((Invoke-WebRequest {{endpoint}}/sh/bootstrap-haskell.ps1 -UseBasicParsing))) -ArgumentList $true
-</tmpl>
+  ```{ztmpl lang="powershell"}
+  $env:BOOTSTRAP_HASKELL_YAML = '{{endpoint}}/ghcup-metadata/ghcup-0.0.8.yaml'
+  Set-ExecutionPolicy Bypass -Scope Process -Force;[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;Invoke-Command -ScriptBlock ([ScriptBlock]::Create((Invoke-WebRequest {{endpoint}}/sh/bootstrap-haskell.ps1 -UseBasicParsing))) -ArgumentList $true
+  ```
 
 **第二步** ：配置 GHCup 使用科大源。编辑 `~/.ghcup/config.yaml` 增加如下配置：
 
-<tmpl z-lang="yaml">
+```{ztmpl lang="yaml"}
 url-source:
   OwnSource: {{endpoint}}/ghcup/ghcup-metadata/ghcup-0.0.7.yaml
-</tmpl>
+```
 
 **第三步（可选）** ：配置 Cabal 和 Stack 使用镜像源，请参考文档 [Hackage 帮助](../hackage/) 和 [Stackage 帮助](../stackage/) 。
 
@@ -45,12 +45,12 @@ url-source:
 
 使用预发布频道可以安装尚未正式发布的测试版本。要启用预发布源，将 `~/.ghcup/config.yaml` 文件中 `url-source` 一节修改如下：
 
-<tmpl z-lang="yaml">
+```{ztmpl lang="yaml"}
 url-source:
   OwnSource:
     - {{endpoint}}/ghcup-metadata/ghcup-0.0.7.yaml
     - {{endpoint}}/ghcup-metadata/ghcup-prereleases-0.0.7.yaml
-</tmpl>
+```
 
 ## SJTUG
 
@@ -60,24 +60,24 @@ url-source:
 
 创建 `~/.ghcup/config.yaml` 并输入以下内容：
 
-<tmpl z-lang="yaml">
+```{ztmpl lang="yaml"}
 url-source:
   OwnSource: {{endpoint}}/yaml/ghcup/data/ghcup-0.0.8.yaml
-</tmpl>
+```
 
 如果您尚未安装 ghcup，请在完成以上步骤后，于终端中执行以下指令（请不要以 root 用户执行），随后跟随屏幕上的指引完成安装。
 
 - 如果您运行的是 Linux, macOS (Intel), FreeBSD 或 WSL，请执行：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 curl --proto '=https' --tlsv1.2 -LsSf https://{{host}}{{path}}/script/install.sh | sh
-</tmpl>
+```
 
 - 如果您运行的是 macOS (Apple 芯片) 请执行：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 curl --proto '=https' --tlsv1.2 -LsSf https://{{host}}{{path}}/script/install.sh | arch -x86_64 /bin/bash
-</tmpl>
+```
 
 **故障排除**
 

@@ -8,9 +8,9 @@ Lineage OS 是全球最大的 Android 发行版之一，前身是 Cyanogenmod。
 
 但是如果你希望一定从所选择的镜像站下载 Lineage 的 ROM，可以直接访问以下链接
 
-<tmpl>
+```{ztmpl}
 {{endpoint}}/full/
-</tmpl>
+```
 
 选择设备代码及时间进行下载，或者在 [MirrorZ 主页](https://mirrorz.org/os/LineageOS) 找到最新的 ROM 进行下载。
 

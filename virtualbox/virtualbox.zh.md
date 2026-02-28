@@ -2,25 +2,25 @@
 
 ## Microsoft Windows
 
-<tmpl>
+```{ztmpl}
 # Windows 最新版
 {{endpoint}}/virtualbox-Win-latest.exe
-</tmpl>
+```
 
 ## Macintosh OS X
 
-<tmpl>
+```{ztmpl}
 # OS X 最新版
 {{endpoint}}/virtualbox-osx-latest.dmg
-</tmpl>
+```
 
 # Linux
 
 ## 通过编译好的二进制包安装
 
-<tmpl>
+```{ztmpl}
 {{endpoint}}
-</tmpl>
+```
 
 访问该镜像下最新的目录（例如`5.0.24`），找到名为 发行版名称~发行代号~架构 的文件。
 
@@ -45,47 +45,47 @@
 
 对于 Debian 8 和 Ubuntu 16.04 及以上：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | {{sudo}}apt-key add -
-</tmpl>
+```
 
 其他版本
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | {{sudo}}apt-key add -
-</tmpl>
+```
 
 再选择你的 Debian/Ubuntu 版本，将文本框中内容写进`/etc/apt/sources.list.d/virtualbox.list`
 
-<tmpl z-input="release" z-path="/etc/apt/sources.list.d/virtualbox.list">
+```{ztmpl input="release" path="/etc/apt/sources.list.d/virtualbox.list"}
 deb {{endpoint}}/apt/ {{release}} contrib
-</tmpl>
+```
 
 安装 VirtualBox:
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 {{sudo}}apt-get update
 {{sudo}}apt-get install virtualbox
 # 此时会列出具体可用版本，选择所需版本安装
-</tmpl>
+```
 
 ### RHEL/CentOS 用户
 
 
 新建 `/etc/yum.repos.d/virtualbox.repo`，内容为
 
-<tmpl z-lang="ini" z-path="/etc/yum.repos.d/virtualbox.repo">
+```{ztmpl lang="ini" path="/etc/yum.repos.d/virtualbox.repo"}
 [virtualbox]
 name=Virtualbox Repository
 baseurl={{endpoint}}/rpm/el$releasever/
 gpgcheck=0
 enabled=1
-</tmpl>
+```
 
 刷新缓存并安装 `virtualbox` 即可。
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 {{sudo}}yum makecache
 {{sudo}}yum search VirtualBox
 # 此时会列出具体可用版本，选择所需版本安装即可
-</tmpl>
+```

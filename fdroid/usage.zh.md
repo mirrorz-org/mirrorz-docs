@@ -2,17 +2,17 @@
 
 用 F-Droid 客户端打开此链接：
 
-<tmpl>
+```{ztmpl}
 {{endpoint}}/repo/?fingerprint=43238D512C1E5EB2D6569F4A3AFBF5523418B82E0A3ED1552770ABB9A9C9CCAB
-</tmpl>
+```
 
 或复制此链接后在客户端中添加存储库，可以将此镜像添加为用户镜像。
 
 如果需要添加 Archive 库，可以使用如下链接：
 
-<tmpl>
+```{ztmpl}
 {{endpoint}}/archive?fingerprint=43238D512C1E5EB2D6569F4A3AFBF5523418B82E0A3ED1552770ABB9A9C9CCAB
-</tmpl>
+```
 
 如果你尚未安装 F-Droid 客户端，你可以直接从 [f-droid.org](https://f-droid.org) 下载。
 <details>
@@ -28,14 +28,14 @@
 </ul>
 <p>还是不走运？你可以直接从此镜像下载最新版本：</p>
 
-<tmpl>
+```{ztmpl}
 {{endpoint}}/archive/org.fdroid.fdroid_1019052.apk
-</tmpl>
+```
 
 <p>如果你知道怎样验证 PGP 签名，你可以从这里下载它：</p>
 
-<tmpl>
+```{ztmpl}
 {{endpoint}}/archive/org.fdroid.fdroid_1019052.apk.asc
-</tmpl>
+```
 
 </details>

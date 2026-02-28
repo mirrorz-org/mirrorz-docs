@@ -4,7 +4,7 @@
 
 使用以下链接进行查找所需要的镜像
 
-<tmpl>
+```{ztmpl}
 {{endpoint}}/locator/
-</tmpl>
+```
 

@@ -18,7 +18,7 @@
 
 创建一个 remote 链接，指向镜像站即可，或替换掉默认的 images 链接。
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 incus remote add mirror-images {{endpoint}}/ --protocol=simplestreams --public
 incus image list mirror-images:
-</tmpl>
+```

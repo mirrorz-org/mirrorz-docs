@@ -4,7 +4,7 @@
 
 - 修改 `/etc/portage/repos.conf/gentoo.conf`
 	- 将 `sync-type` 改为 `git`
-	- 将 `sync-uri` 改为 <tmpl z-inline>{{endpoint}}</tmpl>
+	- 将 `sync-uri` 改为 {ztmpl}`{{endpoint}}`
 
 - 删除 `/var/db/repos/gentoo`
 - 执行 `emerge --sync`
@@ -12,10 +12,10 @@
 已经配置 `git` 同步的用户只需：
 
 - 修改 `/etc/portage/repos.conf/gentoo.conf`
-	- 将 `sync-uri` 改为 <tmpl z-inline>{{endpoint}}</tmpl>
+	- 将 `sync-uri` 改为 {ztmpl}`{{endpoint}}`
 
 - 于 `/var/db/repos/gentoo` 下，执行
-<tmpl>
-git remote set-url origin {{endpoint}}
-</tmpl>
+  ```{ztmpl}
+  git remote set-url origin {{endpoint}}
+  ```
 - 执行 `emerge --sync`

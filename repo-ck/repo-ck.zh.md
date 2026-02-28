@@ -4,15 +4,15 @@ repo-ck 是 [Arch](https://archlinux.org/) 的非官方仓库，内有包含 ck 
 
 在 `/etc/pacman.conf` 里添加
 
-<tmpl z-lang="ini">
+```{ztmpl lang="ini"}
 [repo-ck]
 Server = {{endpoint}}/$arch
-</tmpl>
+```
 
 再增加 GPG 信任：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 pacman-key -r 5EE46C4C && pacman-key --lsign-key 5EE46C4C
-</tmpl>
+```
 
 之后 `pacman -Sy` 即可。

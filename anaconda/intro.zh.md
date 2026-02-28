@@ -4,6 +4,6 @@ Anaconda 是一个用于科学计算的 Python 发行版，支持 Linux, Mac, Wi
 
 Anaconda 安装包可以到以下链接下载。
 
-<tmpl>
+```{ztmpl}
 {{endpoint}}/archive/
-</tmpl>
+```

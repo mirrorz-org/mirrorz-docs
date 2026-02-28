@@ -13,7 +13,7 @@
 
 使用方法如下：
 
-<tmpl z-lang="bash" z-input="checksum">
+```{ztmpl lang="bash" input="checksum"}
 # 包含断点续传
 curl -LOC - {{endpoint}}/aosp-latest.tar # 下载初始化包
 {{#checksum}}
@@ -25,6 +25,6 @@ cd AOSP   # 解压得到的 AOSP 工程目录
 # 这时 ls 的话什么也看不到，因为只有一个隐藏的 .repo 目录
 repo sync # 正常同步一遍即可得到完整目录
 # 或 repo sync -l 仅 checkout 代码
-</tmpl>
+```
 
 此后，每次只需运行 `repo sync` 即可保持同步。

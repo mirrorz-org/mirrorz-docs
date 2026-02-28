@@ -6,19 +6,19 @@ Windows Package Manager (aka. WinGet) 默认软件源。
 
 用以下命令替换 winget 源：
 
-<tmpl z-lang="powershell">
+```{ztmpl lang="powershell"}
 winget source remove winget
 winget source add winget {{endpoint}} --trust-level trusted
-</tmpl>
+```
 
 ### WinGet \<= 1.7
 
 用以下命令替换 winget 源：
 
-<tmpl z-lang="powershell">
+```{ztmpl lang="powershell"}
 winget source remove winget
 winget source add winget {{endpoint}}
-</tmpl>
+```
 
 若出现 0x80073d1b : smartscreen reputation check failed. 错误，请检查网络连接或暂时关闭 SmartScreen。
 

@@ -5,8 +5,8 @@
 
 修改 `~/.config/guix/channels.scm` 文件即可在 `guix pull` 时使用 Git 镜像：
 
-<tmpl z-lang="scheme" z-path="~/.config/guix/channels.scm">
+```{ztmpl lang="scheme" path="~/.config/guix/channels.scm"}
 (list (channel
        (inherit (car %default-channels))
        (url "{{endpoint}}/git/guix.git")))
-</tmpl>
+```

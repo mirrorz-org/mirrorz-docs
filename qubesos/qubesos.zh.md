@@ -17,4 +17,4 @@
 对于 `/etc/yum.repos.d` 下的 `qubes-*.repo`:
 
 1. 用`#`注释掉所有的 `metalink`
-2. 将 `baseurl` 中的 `https://yum.qubes-os.org/` 替换为 <tmpl z-inline>{{endpoint}}/repo/yum/</tmpl> 并取消这些 `baseurl` 的注释
+2. 将 `baseurl` 中的 `https://yum.qubes-os.org/` 替换为 {ztmpl}`{{endpoint}}/repo/yum/` 并取消这些 `baseurl` 的注释

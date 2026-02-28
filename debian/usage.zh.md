@@ -2,13 +2,13 @@
 
 Debian Buster 以上版本默认支持 HTTPS 源。如果遇到无法拉取 HTTPS 源的情况，请先使用 HTTP 源并安装：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 {{sudo}}apt install apt-transport-https ca-certificates
-</tmpl>
+```
 
 ### 传统格式（`/etc/apt/sources.list`）
 
-<tmpl z-input="release src nf mirror_security" z-path="/etc/apt/sources.list">
+```{ztmpl input="release src nf mirror_security" path="/etc/apt/sources.list"}
 # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
 {{#sid}}
 deb {{endpoint}}/ sid main contrib{{#nf}}{{nonfree}}{{/nf}}
@@ -34,11 +34,11 @@ deb https://security.debian.org/debian-security {{release}}{{security}} main con
 {{src}}deb-src https://security.debian.org/debian-security {{release}}{{security}} main contrib{{#nf}}{{nonfree}}{{/nf}}
 {{/mirror_security}}
 {{/sid}}
-</tmpl>
+```
 
 ### DEB822 格式（`/etc/apt/sources.list.d/debian.sources`）
 
-<tmpl z-input="release_deb822 src nf mirror_security" z-path="/etc/apt/sources.list.d/debian.sources">
+```{ztmpl input="release_deb822 src nf mirror_security" path="/etc/apt/sources.list.d/debian.sources"}
 {{#sid}}
 Types: deb
 URIs: {{endpoint}}
@@ -95,7 +95,7 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 {{src}}Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 {{/mirror_security}}
 {{/sid}}
-</tmpl>
+```
 
 为了方便快速配置，此处一并附上了 debian-security 的配置，一般来说，镜像站会同时提供 debian-security，为了更准确的信息您可以前往 [Debian Security 帮助](../debian-security/) 确认。
 

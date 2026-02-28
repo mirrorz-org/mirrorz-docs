@@ -4,15 +4,15 @@
 
 - 首次使用 opam（未运行过 `opam init`）：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 opam init default {{endpoint}}
-</tmpl>
+```
 
 - 从 `opam init` 配置的默认源切换至镜像源：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 opam repo set-url default {{endpoint}} --all --set-default
-</tmpl>
+```
 
 使用时如出现 "Duplicate field archive-mirrors" 警告，可根据错误信息手动删除重复配置。
 

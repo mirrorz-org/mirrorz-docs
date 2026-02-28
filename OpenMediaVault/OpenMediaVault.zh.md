@@ -6,7 +6,7 @@ Open Media Vault 是一款基于 Debian 的 NAS 操作系统。
 
 其中的非 OpenMediaVault 部分的镜像站需要分别在 [Debian 帮助](../debian/)，[Docker CE 帮助](../docker-ce/)，和 [Proxmox 帮助](../proxmox/) 中构造。
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 omv-env set OMV_APT_REPOSITORY_URL "{{endpoint}}/public"
 omv-env set OMV_APT_ALT_REPOSITORY_URL "{{endpoint}}/packages"
 # 前往其他帮助文档修改
@@ -18,7 +18,7 @@ omv-env set OMV_EXTRAS_APT_REPOSITORY_URL "{{endpoint}}/openmediavault-plugin-de
 #omv-env set OMV_PROXMOX_APT_REPOSITORY_URL "https://mirror/proxmox/debian"
 # 使得环境变量更改生效
 omv-salt stage run all
-</tmpl>
+```
 
 1. 由于 Open Media Vault 自带 kernel backports，因此在 `/etc/apt/source.list` 中配置 backports 源会造成冲突。
 2. 由于 Open Media Vault 的公钥分发通过源自己携带完成，因此本身存在被篡改的可能性，故在换源后用户需要通过其他渠道验证获取的公钥的正确性。
@@ -29,7 +29,7 @@ omv-salt stage run all
 
 我们仅对 **Add the package repositories** 段落做出如下调整
 
-<tmpl z-input="release proposed partner" z-path="/etc/apt/sources.list.d/openmediavault.list">
+```{ztmpl input="release proposed partner" path="/etc/apt/sources.list.d/openmediavault.list"}
 deb {{endpoint}}/public {{release}} main
 deb {{endpoint}}/packages {{release}} main
 ## Uncomment the following line to add software from the proposed repository.
@@ -39,4 +39,4 @@ deb {{endpoint}}/packages {{release}} main
 ## developers as a service to OpenMediaVault users.
 {{partner}}deb {{endpoint}}/public {{release}} partner
 {{partner}}deb {{endpoint}}/packages {{release}} partner
-</tmpl>
+```

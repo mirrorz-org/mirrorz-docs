@@ -1,14 +1,15 @@
 首先选择要安装的版本：
 
-<tmpl z-global z-input="version"></tmpl>
+```{ztmpl global="true" input="version"}
+```
 
 ### Debian/Ubuntu 用户
 
 再选择你的 Debian/Ubuntu 版本，文本框中内容写进 `/etc/apt/sources.list.d/mysql-community.list`
 
-<tmpl z-input="deb_release" z-path="/etc/apt/sources.list.d/mysql-community.list">
+```{ztmpl input="deb_release" path="/etc/apt/sources.list.d/mysql-community.list"}
 deb {{endpoint}}/apt/{{os}} {{deb_release}} mysql-{{version}} mysql-tools
-</tmpl>
+```
 
 参考文档：https://dev.mysql.com/doc/mysql-apt-repo-quick-guide/en/
 
@@ -16,7 +17,7 @@ deb {{endpoint}}/apt/{{os}} {{deb_release}} mysql-{{version}} mysql-tools
 
 新建 `/etc/yum.repos.d/mysql-community.repo`，内容如下：
 
-<tmpl z-lang="ini" z-input="rh_release" z-path="/etc/yum.repos.d/mysql-community.repo">
+```{ztmpl lang="ini" input="rh_release" path="/etc/yum.repos.d/mysql-community.repo"}
 [mysql-connectors-community]
 name=MySQL Connectors Community
 baseurl={{endpoint}}/yum/mysql-connectors-community-{{rh_release}}-$basearch/
@@ -43,6 +44,6 @@ gpgcheck=1
 gpgkey=https://repo.mysql.com/RPM-GPG-KEY-mysql
        https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
        https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
-</tmpl>
+```
 
 参考文档：https://dev.mysql.com/doc/mysql-yum-repo-quick-guide/en/

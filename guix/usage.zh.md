@@ -5,28 +5,28 @@
 
 * guix 命令支持使用 `--substitute-urls` 参数为单个命令的执行临时覆盖 substitute 服务器，例如：
 
-<tmpl z-lang="shell">
-guix package -i <package> --substitute-urls="{{endpoint}}/guix"
-</tmpl>
+  ```{ztmpl lang="shell"}
+  guix package -i <package> --substitute-urls="{{endpoint}}/guix"
+  ```
 
 * 如果您使用 Guix 管理整个操作系统，请修改操作系统配置文件，替换
   `substitute-urls` 参数。例如：
 
-<tmpl z-lang="scheme">
-(operating-system
-  (services (modify-services %desktop-services
-              (guix-service-type
-               config => (guix-configuration
-                          (inherit config)
-                          (substitute-urls '("{{endpoint}}/guix"
-                                             "https://ci.guix.gnu.org"))))))
-  ...
-  )
-</tmpl>
+  ```{ztmpl lang="scheme"}
+  (operating-system
+    (services (modify-services %desktop-services
+                (guix-service-type
+                config => (guix-configuration
+                            (inherit config)
+                            (substitute-urls '("{{endpoint}}/guix"
+                                              "https://ci.guix.gnu.org"))))))
+    ...
+    )
+  ```
 
 * 如果您在别的发行版上使用 Guix 包管理器，请修改 `guix-daemon` 的
   `--substitute-urls` 参数。比如修改 `guix-daemon.service` 的 `ExecStart` 为：
 
-<tmpl z-lang="conf">
-ExecStart=/var/guix/profiles/per-user/root/current-guix/bin/guix-daemon --build-users-group=guixbuild --substitute-urls="{{endpoint}}/guix"
-</tmpl>
+  ```{ztmpl lang="conf"}
+  ExecStart=/var/guix/profiles/per-user/root/current-guix/bin/guix-daemon --build-users-group=guixbuild --substitute-urls="{{endpoint}}/guix"
+  ```

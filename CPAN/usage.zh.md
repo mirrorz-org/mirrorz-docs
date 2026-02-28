@@ -6,7 +6,7 @@
 
 如果 `MyConfig.pm` 配置文件不存在，在命令行中执行：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 # 自动生成 MyConfig.pm
 ## 对于 Perl 5.36（或 CPAN 2.29）及以上，使用如下命令
 PERL_MM_USE_DEFAULT=1 perl -MCPAN -e 'CPAN::HandleConfig->edit("pushy_https", 0); CPAN::HandleConfig->edit("urllist", "unshift", "{{endpoint}}/"); mkmyconfig'
@@ -15,7 +15,7 @@ PERL_MM_USE_DEFAULT=1 perl -MCPAN -e 'CPAN::HandleConfig->edit("urllist", "unshi
 
 # 或不使用默认配置，手动确认各个配置选项
 perl -MCPAN -e 'mkmyconfig'
-</tmpl>
+```
 
 ### 已有配置
 
@@ -23,7 +23,7 @@ perl -MCPAN -e 'mkmyconfig'
 
 在命令行中执行 `cpan` 进入 cpan shell：
 
-<tmpl z-lang="console">
+```{ztmpl lang="console"}
 cpan shell -- CPAN exploration and modules installation
 Enter 'h' for help.
 
@@ -49,13 +49,13 @@ cpan[6]> o conf commit
 
 # 退出 cpan shell
 cpan[7]> quit
-</tmpl>
+```
 
 #### 在命令行中使用脚本设置
 
 在命令行中执行：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 # 若本站不在镜像列表中则将其加入列表首位
 if ! (
     perl -MCPAN -e 'CPAN::HandleConfig->load();' \
@@ -71,4 +71,4 @@ fi
 perl -MCPAN -e 'CPAN::HandleConfig->load();' \
     -e 'CPAN::HandleConfig->edit("pushy_https", 0);' \
     -e 'CPAN::HandleConfig->commit()'
-</tmpl>
+```

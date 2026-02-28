@@ -2,7 +2,7 @@
 
 编辑 `$CARGO_HOME/config.toml` 文件，添加以下内容：
 
-<tmpl z-lang="toml">
+```{ztmpl lang="toml"}
 [source.crates-io]
 replace-with = 'mirror'
 
@@ -11,7 +11,7 @@ registry = "sparse+{{endpoint}}/"
 
 [registries.mirror]
 index = "sparse+{{endpoint}}/"
-</tmpl>
+```
 
 注：`sparse+` 表示在使用稀疏索引，链接末尾的 `/` 不能缺少。
 
@@ -23,7 +23,7 @@ index = "sparse+{{endpoint}}/"
 
 在 Linux 环境可以使用下面的命令完成：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 mkdir -vp ${CARGO_HOME:-$HOME/.cargo}
 
 cat << EOF | tee -a ${CARGO_HOME:-$HOME/.cargo}/config.toml
@@ -36,7 +36,7 @@ registry = "sparse+{{endpoint}}/"
 [registries.mirror]
 index = "sparse+{{endpoint}}/"
 EOF
-</tmpl>
+```
 
 截至目前，可以通过 `cargo +nightly -Z sparse-registry update` 使用稀疏索引。
 

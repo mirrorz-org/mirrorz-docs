@@ -4,47 +4,47 @@
 
 移除所有已添加的软件仓库（sudo 似乎是没有被预装的，可以在稍后再安装使用）：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 su
 urpmi.removemedia -a
-</tmpl>
+```
 
 添加软件源
 
-<tmpl z-lang="bash" z-input="version arch">
+```{ztmpl lang="bash" input="version arch"}
 su
 urpmi.addmedia --distrib {{endpoint}}/distrib/{{version}}/{{arch}}
-</tmpl>
+```
 
 刷新缓存：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 su
 urpmi.update -a
-</tmpl>
+```
 
 ## dnf 配置方法
 
 dnf 在默认情况下已经被预装，如果你发现并没有，可以使用 urpmi 安装：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 su
 urpmi mageia-repos dnf
-</tmpl>
+```
 
 接下来编辑 `/etc/yum.repos.d/` 中的文件：
 
 将所有文件中的：
 
-<tmpl>
+```{ztmpl}
 #baseurl=https://mirrors.kernel.org/mageia/
-</tmpl>
+```
 
 替换为：
 
-<tmpl>
+```{ztmpl}
 baseurl={{endpoint}}/
-</tmpl>
+```
 
 注：为了让 dnf 能在镜像站软件源出现问题时，自动切换至其它后备软件源，我们不建议你注释掉 mirrorlist 行。
 
@@ -72,7 +72,7 @@ baseurl={{endpoint}}/
 
 刷新缓存：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 su
 dnf makecache
-</tmpl>
+```

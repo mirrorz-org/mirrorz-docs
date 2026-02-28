@@ -13,7 +13,7 @@
   * 如果您正在从某一镜像源切换到另一镜像源，请检查镜像源是否同步了您所需要的 repo，以及该 repo 是否支持您使用的平台 (e.g. linux-64)。
   * 为了保证以下配置在所有镜像站可用，配置中只加入了少量必须的第三方源，您可以在下方的列表中自行寻找并添加其他第三方源。
 
-<tmpl z-lang="yaml" z-path="~/.condarc">
+```{ztmpl lang="yaml" path="~/.condarc"}
 channels:
   - defaults
 show_channel_urls: true
@@ -24,13 +24,13 @@ default_channels:
 custom_channels:
   conda-forge: {{endpoint}}/cloud
   pytorch: {{endpoint}}/cloud
-</tmpl>
+```
 
 即可添加 Anaconda Python 免费仓库。
 
 使用下列命令清除索引缓存，并安装常用包测试一下。
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 conda clean -i
 conda create -n myenv numpy
-</tmpl>
+```

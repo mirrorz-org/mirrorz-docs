@@ -2,9 +2,9 @@ Linux Mint 也采用 apt 作为包管理器，与 Ubuntu 和 Debian 类似，你
 
 需要修改 `/etc/apt/sources.list.d/official-package-repositories.list`（注意备份），把 `packages.linuxmint.com` 替换为镜像源：
 
-<tmpl z-input="release">
+```{ztmpl input="release"}
 deb {{endpoint}}/ {{release}} main upstream import backport
-</tmpl>
+```
 
 然后运行 `apt update` 即可。
 

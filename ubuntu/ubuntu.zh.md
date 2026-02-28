@@ -4,13 +4,13 @@
 
 可以通过以下命令查看当前系统版本：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 cat /etc/os-release
-</tmpl>
+```
 
 例如在 Ubuntu 24.04 下，文件内容如下：
 
-<tmpl z-lang="conf" z-path="/etc/os-release">
+```{ztmpl lang="conf" path="/etc/os-release"}
 PRETTY_NAME="Ubuntu 24.04.1 LTS"
 NAME="Ubuntu"
 VERSION_ID="24.04"
@@ -24,7 +24,7 @@ BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
 PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
 UBUNTU_CODENAME=noble
 LOGO=ubuntu-logo
-</tmpl>
+```
 
 `VERSION_ID` 后面的版本号即为当前系统版本，`VERSION_CODENAME` 后面的是代号。代号在软件源配置文件中会被使用。**请注意在下面的配置中选择符合你的机器的版本号，在替换配置前确认代号一致，否则之后的更新操作可能导致系统出现问题。**
 
@@ -34,7 +34,7 @@ LOGO=ubuntu-logo
 
 ### 传统格式（`/etc/apt/sources.list`）
 
-<tmpl z-input="release src proposed mirror_security" z-path="/etc/apt/sources.list">
+```{ztmpl input="release src proposed mirror_security" path="/etc/apt/sources.list"}
 # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
 deb {{endpoint}}/ {{release}} main restricted universe multiverse
 {{src}}deb-src {{endpoint}}/ {{release}} main restricted universe multiverse
@@ -56,11 +56,11 @@ deb http://security.ubuntu.com/ubuntu/ {{release}}-security main restricted univ
 # 预发布软件源，不建议启用
 {{proposed}}deb {{endpoint}}/ {{release}}-proposed main restricted universe multiverse
 {{proposed}}{{src}}deb-src {{endpoint}}/ {{release}}-proposed main restricted universe multiverse
-</tmpl>
+```
 
 ### DEB822 格式（`/etc/apt/sources.list.d/ubuntu.sources`）
 
-<tmpl z-input="release_deb822 src proposed mirror_security" z-path="/etc/apt/sources.list.d/ubuntu.sources">
+```{ztmpl input="release_deb822 src proposed mirror_security" path="/etc/apt/sources.list.d/ubuntu.sources"}
 Types: deb
 URIs: {{endpoint}}
 Suites: {{release_deb822}} {{release_deb822}}-updates {{release_deb822}}-backports
@@ -115,6 +115,6 @@ Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
 {{proposed}}{{src}}Suites: {{release_deb822}}-proposed
 {{proposed}}{{src}}Components: main restricted universe multiverse
 {{proposed}}{{src}}Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
-</tmpl>
+```
 
 因镜像站同步有延迟，可能会导致生产环境系统不能及时检查、安装上最新的安全更新，不建议替换 security 源。

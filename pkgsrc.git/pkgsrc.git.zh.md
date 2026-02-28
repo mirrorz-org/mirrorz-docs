@@ -6,23 +6,23 @@
 
 拉取特定稳定版镜像分支
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 git clone -b pkgsrc-2021Q4 {{endpoint}}
-</tmpl>
+```
 
 拉取当前镜像分支
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 git clone {{endpoint}}
-</tmpl>
+```
 
 ### 源码更新
 
 对应[官方文档 uptodate-cvs](https://www.netbsd.org/docs/pkgsrc/pkgsrc.html#uptodate-cvs)，切换到 pkgsrc 目录，执行
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 git pull
-</tmpl>
+```
 
 #### 源码切换分支
 
@@ -30,12 +30,12 @@ git pull
 
 切换特定稳定版镜像分支
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 git checkout pkgsrc-2021Q4
-</tmpl>
+```
 
 切换当前镜像分支
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 git checkout trunk
-</tmpl>
+```

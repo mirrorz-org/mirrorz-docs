@@ -6,7 +6,7 @@
 
 修改`~/.stack/config.yaml`, 加上：
 
-<tmpl z-lang="yaml" z-path="~/.stack/config.yaml" z-append>
+```{ztmpl lang="yaml" path="~/.stack/config.yaml" append="true"}
 package-index:
   download-prefix: {{endpoint}}/
   hackage-security:
@@ -23,13 +23,13 @@ package-index:
     key-threshold: 3 # number of keys required
     # ignore expiration date, see https://github.com/commercialhaskell/stack/pull/4614
     ignore-expiry: no
-</tmpl>
+```
 
 ### stack 大于等于 v2.1.1
 
 修改 `~/.stack/config.yaml` , 加上：
 
-<tmpl z-lang="yaml" z-path="~/.stack/config.yaml" z-append>
+```{ztmpl lang="yaml" path="~/.stack/config.yaml" append="true"}
 package-indices:
   - download-prefix: {{endpoint}}/
     hackage-security:
@@ -47,15 +47,15 @@ package-indices:
 
         # ignore expiration date, see https://github.com/commercialhaskell/stack/pull/4614
         ignore-expiry: no
-</tmpl>
+```
 
 ### stack 小于 v2.1.1
 
 修改 `~/.stack/config.yaml` , 加上：
 
-<tmpl z-lang="yaml" z-path="~/.stack/config.yaml" z-append>
+```{ztmpl lang="yaml" path="~/.stack/config.yaml" append="true"}
 package-indices:
   - name: mirror
     download-prefix: {{endpoint}}/package/
     http: {{endpoint}}/00-index.tar.gz
-</tmpl>
+```
