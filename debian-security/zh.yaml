@@ -23,7 +23,7 @@ input:
         nonfree: ' non-free non-free-firmware'
   release_deb822:
     _: Debian 版本
-    options:
+    option:
       trixie:
         _: Debian 13 (trixie)
       bookworm:
