@@ -9,5 +9,4 @@
 (list (channel
        (inherit (car %default-channels))
        (url "{{endpoint}}/git/guix.git")))
-```
 </tmpl>
