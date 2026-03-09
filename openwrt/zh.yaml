@@ -1,3 +1,13 @@
 _: OpenWRT 软件仓库
 block:
 - openwrt
+input:
+  packagemanager:
+    _: 选择包管理器
+    option:
+      apk:
+        _: 'APK'
+        filepath: '/etc/apk/repositories.d/distfeeds.list'
+      opkg:
+        _: 'OPKG'
+        filepath: '/etc/opkg/distfeeds.conf'
