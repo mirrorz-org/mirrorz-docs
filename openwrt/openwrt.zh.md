@@ -18,7 +18,7 @@ sed -i 's_https\?://downloads.openwrt.org_{{endpoint}}_' {{filepath}}
 
 ### 手工替换
 
-登录到路由器，根据版本或包管理器选择编辑 `/etc/apk/repositories.d/distfeeds.list` 或 `/etc/opkg/distfeeds.conf` 文件，将其中的 `http://downloads.openwrt.org` 替换为
+登录到路由器，根据版本或包管理器选择编辑 `/etc/apk/repositories.d/distfeeds.list` 或 `/etc/opkg/distfeeds.conf` 文件，将其中的 `http://downloads.openwrt.org` 替换为：
 
 <tmpl>
 {{endpoint}}
