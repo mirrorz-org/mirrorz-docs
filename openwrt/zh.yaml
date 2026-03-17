@@ -1,5 +1,7 @@
 _: OpenWRT 软件仓库
 block:
+- intro
+- snapshot
 - openwrt
 input:
   packagemanager:
