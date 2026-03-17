@@ -9,7 +9,7 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 在已有 `flathub` 远程源的基础上：
 
 ```{ztmpl lang="bash"}
-{{sudo}}flatpak remote-modify flathub --url={{endpoint}}/flathub
+{{sudo}}flatpak remote-modify flathub --url={{endpoint}}
 ```
 
 恢复默认值：
@@ -49,7 +49,7 @@ OSTREE_DEBUG_HTTP=1 flatpak install com.github.tchx84.Flatseal
 如果出现 "Can't check signature: public key not found" 错误可尝试导入 GPG 密钥：
 
 ```{ztmpl lang="bash"}
-wget {{endpoint}}/flathub/flathub.gpg
+wget {{endpoint}}/flathub.gpg
 {{sudo}}flatpak remote-modify --gpg-import=flathub.gpg flathub
 ```
 
