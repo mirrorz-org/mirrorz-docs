@@ -8,8 +8,6 @@ This repository contains documentations for common mirroring projects, which are
 |-- <project>/                  Project Directory
 |   |-- <lang>.yaml             Config Files
 |   |-- <block>.<lang>.md       Content Files
-|-- compile.py                  Compiler
-|-- dom.py                      Form Generator
 ```
 
 Each directory in this repository is considered a mirroring project, while its name should be a canonical name assigned by MirrorZ Project, like `debian` or `linux.git`.
@@ -18,9 +16,8 @@ Each project can contain several YAML config files, named by any language code f
 
 Each config of a specific language should refer to some Markdown content blocks. The name is user-defined but better consistent with other projects, e.g. `usage.zh.md` or `intro.en.md`.
 
-The compiler will discover projects, build each language config into a whole Markdown/HTML document, but leave the `<tmpl>`s untouched.
-
-The form generator is a postprocessor for compiled HTML document, which could be invoked by passing `-C dom` to the compiler. It generates form controls and rendering containers for the `<tmpl>`s.
+The consumers of this project will discover necessary projects, build selected language config(s) into a whole Markdown/HTML document,
+with necessary postprocessing like generating form controls and dynamically rendering the templates with user input.
 
 ## Config Format
 
@@ -65,35 +62,47 @@ input:
 
 ## Template Format
 
-[Mustache](https://mustache.github.io/) syntax is used within `<tmpl>` blocks in pure Markdown.
+[Mustache](https://mustache.github.io/) syntax is used within `` ```{ztmpl} `` blocks in pure Markdown.
+The selected syntax for defining the properties of the templates is [MyST Directives](https://mystmd.org/guide/syntax-overview#syntax-directives)
+and [MyST Roles](https://mystmd.org/guide/syntax-overview#roles). Please note that
+only the syntax itself is adopted, but all the specific directives and roles that MyST
+provides are not supported, and only the ones described in this section are supported.
+
+For simplicity, to define a code block with template content, use the following syntax:
+
+````markdown
+```{ztmpl attr1="val1" attr2="val2" ...}
+template content with {{mustache}} syntax here
+```
+````
+
+To define an inline template, use the following syntax:
+
+````markdown
+{ztmpl attr1="val1" attr2="val2" ...}`template content with {{mustache}} syntax here`
+````
 
 The variables available for rendering should include:
-- Any variables set by inputs specified in `z-input` attribute
-- Any variables in global inputs denoted by `z-global` attribute
+- Any variables set by inputs specified in `input` attribute
+- Any variables in global inputs denoted by `global` attribute
 - `scheme`: currently `http` or `https`
 - `host`: the domain name of the mirror used, like `mirrors.jlu.edu.cn`
 - `path`: part after host for current project w/o trailing slash, like `/archlinux`
 - `endpoint`: shorthand for `{{scheme}}://{{host}}{{path}}`
 - `sudo`: choosed by user to use sudo or not, `sudo ` or empty
 
-The following `z-*` attributes on `<tmpl>` are supported:
+The following attributes are supported by the template blocks:
 
-- `z-global`: must be used with and only with `z-input`, creates a global form here effective through the whole document
-- `z-inline`: renders to an inline code element instead of a block one by default, will ignores `z-input` and `z-path`
-- `z-lang="c"`: specify the language of the content, preferably one from [highlight.js](https://highlightjs.readthedocs.io/en/latest/supported-languages.html)
-- `z-input="release ver"`: a space-separated list of inputs defined in the YAML config, should render in order above this code block
-- `z-path="/etc/..."`: file path that the content should be write to, enables visual prompt or quick config feature
-- `z-append`: content should append to the `z-path`, not overwrite
+- `global="true"`: must be used with and only with `input`.
+                   Creates a global form here effective through the whole document.
+                   The content of this block will be ignored.
+- `lang="c"`: specify the language of the content, preferably one from [highlight.js](https://highlightjs.readthedocs.io/en/latest/supported-languages.html)
+- `input="release ver"`: a space-separated list of inputs defined in the YAML config, should render in order above this code block
+- `path="/etc/..."`: file path that the content should be write to, enables visual prompt or quick config feature
+- `append="true"`: content should append to the `path`, not overwrite
 
-## Build
-
-```bash
-pip install markdown pyyaml
-pip install beautifulsoup4   # for using dom.py
-git clone git@github.com:mirrorz-org/mirrorz-docs.git global
-mkdir local/ dist/           # global + local => dist
-global/compile.py -C dom -v
-```
+The following attributes are supported by the inline template:
+- `lang="c"`: the same as above, but for inline code
 
 ## Contribute
 
