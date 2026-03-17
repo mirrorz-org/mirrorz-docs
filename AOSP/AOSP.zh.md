@@ -5,9 +5,9 @@
 参考 Google 教程 <https://source.android.com/setup/build/downloading>，
 将 `https://android.googlesource.com/` 全部使用如下链接代替即可。
 
-<tmpl>
+```{ztmpl}
 {{endpoint}}/
-</tmpl>
+```
 
 **由于 AOSP 镜像造成 CPU/内存负载过重，我们限制了并发数量，因此建议：**
 1. sync 的时候并发数不宜太高，否则会出现 503 错误，即 `-j` 后面的数字不能太大，建议选择 4。
@@ -17,12 +17,12 @@
 
 ### 下载 repo 工具
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 mkdir ~/bin
 PATH=~/bin:$PATH
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 chmod a+x ~/bin/repo
-</tmpl>
+```
 
 或者使用 [git-repo 镜像](../git-repo/)
 
@@ -34,30 +34,30 @@ chmod a+x ~/bin/repo
 
 建立工作目录：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 mkdir WORKING_DIRECTORY
 cd WORKING_DIRECTORY
-</tmpl>
+```
 
 初始化仓库：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 repo init -u {{endpoint}}/platform/manifest
-</tmpl>
+```
 
 **如果提示无法连接到 gerrit.googlesource.com，请参照 [git-repo 的帮助页面](../git-repo/)的更新一节。**
 
 如果需要某个特定的 Android 版本 (见「说明」中「Android 版本列表」部分)：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 repo init -u {{endpoint}}/platform/manifest -b android-4.0.1_r1
-</tmpl>
+```
 
 同步源码树（以后只需执行这条命令来同步）：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 repo sync
-</tmpl>
+```
 
 ### 建立次级镜像
 
@@ -71,21 +71,21 @@ repo sync
 
 初始化：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 repo init -u {{endpoint}}/mirror/manifest --mirror
-</tmpl>
+```
 
 最后同步源码树：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 repo sync
-</tmpl>
+```
 
 同步完成后，运行：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 git daemon --verbose --export-all --base-path=WORKING_DIR WORKING_DIR`
-</tmpl>
+```
 
 其中 `WORKING_DIR` 为代码树所在目录。
 
@@ -96,21 +96,21 @@ git daemon --verbose --export-all --base-path=WORKING_DIR WORKING_DIR`
 如果你之前已经通过某种途径获得了 AOSP 的源码 (或者你只是 init 这一步完成后)，
 你希望以后通过 TUNA 同步 AOSP 部分的代码，只需要修改 `.repo/manifests.git/config`，将
 
-<tmpl>
+```{ztmpl}
 url = https://android.googlesource.com/platform/manifest
-</tmpl>
+```
 
 更改为
 
-<tmpl>
+```{ztmpl}
 url = {{endpoint}}/platform/manifest
-</tmpl>
+```
 
 或者可以不修改文件，而执行
 
-<tmpl>
+```{ztmpl}
 git config --global url.{{endpoint}}/.insteadof https://android.googlesource.com
-</tmpl>
+```
 
 ### 常见问题
 
@@ -126,14 +126,14 @@ git config --global url.{{endpoint}}/.insteadof https://android.googlesource.com
 
 打开`.repo/manifests/default.xml`，将
 
-<tmpl z-lang="xml">
+```{ztmpl lang="xml"}
   <remote  name="aosp"
            fetch="https://android.googlesource.com"
-</tmpl>
+```
 
 改成
 
-<tmpl z-lang="xml">
+```{ztmpl lang="xml"}
   <remote  name="aosp"
            fetch="{{endpoint}}"
-</tmpl>
+```

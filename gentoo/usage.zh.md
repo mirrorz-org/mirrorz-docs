@@ -2,9 +2,9 @@
 
 在 `/etc/portage/make.conf` 中加入：
 
-<tmpl z-path="/etc/portage/make.conf" z-append>
+```{ztmpl path="/etc/portage/make.conf" append="true"}
 GENTOO_MIRRORS="{{endpoint}}"
-</tmpl>
+```
 
 关于 Portage 配置可以参考 [Gentoo Portage 镜像](../gentoo-portage/)。
 
@@ -14,11 +14,11 @@ GENTOO_MIRRORS="{{endpoint}}"
 
 在运行 Bootstrap 脚本之前，可通过设置以下环境变量选择 Bootstrap 过程中使用的镜像。
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 export GENTOO_MIRRORS="{{endpoint}}"
 export SNAPSHOT_URL="{{endpoint}}/snapshots"
 # export GNU_URL="http://mirror/gnu"
-</tmpl>
+```
 
 `GNU_URL` 的具体设置可以参考 [GNU 帮助](../gnu/)。
 

@@ -17,8 +17,8 @@ raspios 的默认用户是 pi，密码是 raspberry，root 默认关闭。
 
 需要安装 Raspberry Pi OS 时，一般下载 images 目录中的最新的即可，比如 arm64 的树莓派下载
 
-<tmpl>
+```{ztmpl}
 {{endpoint}}/raspios_lite_arm64/images/
-</tmpl>
+```
 
 中最新的 zip 压缩包即可，解压完 zip 压缩包后即可开始刻录。

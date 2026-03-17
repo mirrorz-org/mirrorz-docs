@@ -4,16 +4,16 @@
 
 以 bash 为例，临时使用镜像来安装依赖：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 export PUB_HOSTED_URL="{{endpoint}}"
 # pub: pub get
 # flutter: flutter packages get
-</tmpl>
+```
 
 若希望长期使用镜像：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 echo 'export PUB_HOSTED_URL="{{endpoint}}"' >> ~/.bashrc
-</tmpl>
+```
 
 Flutter 镜像使用方法参见 [Flutter 镜像安装帮助](../flutter/)。

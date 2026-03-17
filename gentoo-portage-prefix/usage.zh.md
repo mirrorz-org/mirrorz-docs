@@ -12,10 +12,10 @@
 
 在 `$EPREFIX/etc/portage` 目录下创建名为 `repos.conf` 的目录，在 `$EPREFIX/etc/portage/repos.conf/gentoo.conf` 中加入如下内容：
 
-<tmpl z-path="$EPREFIX/etc/portage/repos.conf/gentoo.conf" z-append>
+```{ztmpl path="$EPREFIX/etc/portage/repos.conf/gentoo.conf" append="true"}
 [gentoo_prefix]
 sync-uri = rsync://{{host}}{{path}}
-</tmpl>
+```
 
 注意在使用前需要检查所选镜像站提供的 rsync 是否可以访问，MirrorZ 并未记录该元数据。
 

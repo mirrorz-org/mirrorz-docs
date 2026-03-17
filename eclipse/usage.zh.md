@@ -2,9 +2,9 @@
 
 以 Luna 为例，点击 `Help` → `Install New Software...` → `Available Software Sites` 可以看到所有的更新源，将其中的 `https://download.eclipse.org` 全部替换成以下链接即可。
 
-<tmpl>
+```{ztmpl}
 {{endpoint}}
-</tmpl>
+```
 
 ### 基本配置
 

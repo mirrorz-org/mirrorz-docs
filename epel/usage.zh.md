@@ -4,23 +4,23 @@
 
 首先从 Extras 里安装 epel-release：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 {{sudo}}dnf install epel-release
-</tmpl>
+```
 
 用如下命令自动替换：（修改自 [https://github.com/tuna/issues/issues/687](https://github.com/tuna/issues/issues/687)）
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 {{sudo}}sed -e 's!^metalink=!#metalink=!g' \
     -e 's!^#baseurl=!baseurl=!g' \
     -e 's!https\?://download\.fedoraproject\.org/pub/epel!{{endpoint}}!g' \
     -e 's!https\?://download\.example/pub/epel!{{endpoint}}!g' \
     -i /etc/yum.repos.d/epel{,-testing}.repo
-</tmpl>
+```
 
 `epel.repo` 的修改结果如下：（仅供参考，不同版本可能不同）
 
-<tmpl z-lang="ini">
+```{ztmpl lang="ini"}
 [epel]
 name=Extra Packages for Enterprise Linux $releasever - $basearch
 # It is much more secure to use the metalink, but if you wish to use a local mirror
@@ -51,7 +51,7 @@ baseurl={{endpoint}}/$releasever/Everything/source/tree/
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$releasever
 gpgcheck=1
-</tmpl>
+```
 
 由于无法同步，镜像站不包含 EPEL Cisco OpenH264 仓库（`epel-cisco-openh264.repo`），如果不需要可手动将其改为 `enabled=0`。
 

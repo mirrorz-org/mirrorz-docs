@@ -4,15 +4,15 @@
 
 然后以如下 map 格式添加源：
 
-<tmpl z-lang="clojure">
+```{ztmpl lang="clojure"}
 :mirrors {"clojars" {:name "mirror"
                      :url "{{endpoint}}/"}}
-</tmpl>
+```
 
 
 ### 极简示例
 
-<tmpl z-lang="clojure">
+```{ztmpl lang="clojure"}
 (defproject myapp "1.0.0"
    :description "My Application"
    :dependencies [[enlive "1.0.1"]
@@ -21,7 +21,7 @@
    :mirrors {"clojars" {:name "mirror"
                         :url "{{endpoint}}/"}}
    :main leiningen.web)
-</tmpl>
+```
 
 配置好后，在项目的根目录下运行 `lein run`，从输出中可以看到一些包是从镜像站下载的。
 
@@ -33,10 +33,10 @@
 
 在 `~/.lein/projfiles.clj` 中添加：
 
-<tmpl z-lang="clojure">
+```{ztmpl lang="clojure"}
 :user {:repositories [["clojars" {:url "{{endpoint}}/"}]]
        ;; other :user profile settings...
        }
-</tmpl>
+```
 
 leiningen 会提示说 `:repositories` 写在了 `:user` 中，不过不影响使用。

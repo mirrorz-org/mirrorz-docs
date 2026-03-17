@@ -4,16 +4,16 @@ tlpretest 是 TeX Live 在官方镜像之外发布的测试版本，详情可见
 
 在命令行中执行：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 tlmgr option repository {{endpoint}}
-</tmpl>
+```
 
 即可永久更改镜像源。
 
 如果只需要临时切换，可以用如下命令：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 tlmgr update --all --repository {{endpoint}}
-</tmpl>
+```
 
 其中的 `update --all` 指令可根据需要修改。

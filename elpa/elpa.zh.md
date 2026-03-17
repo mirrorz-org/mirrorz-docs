@@ -2,12 +2,12 @@
 
 根据你的需求，设置 package-archives，比如用 GNU ELPA 和 MELPA：
 
-<tmpl>
+```{ztmpl}
 (setq package-archives '(("gnu"    . "{{endpoint}}/gnu/")
                          ("nongnu" . "{{endpoint}}/nongnu/")
                          ("melpa"  . "{{endpoint}}/melpa/")))
 (package-initialize) ;; You might already have this line
-</tmpl>
+```
 
 Spacemacs 用户
 --------------
@@ -16,33 +16,33 @@ Spacemacs 用户
 
 添加下面的代码到`.spacemacs`的`dotspacemacs/user-init()`
 
-<tmpl>
+```{ztmpl}
 (setq configuration-layer--elpa-archives
     '(("melpa-cn" . "{{endpoint}}/melpa/")
       ("org-cn"   . "{{endpoint}}/org/")
       ("gnu-cn"   . "{{endpoint}}/gnu/")))
-</tmpl>
+```
 
 ### develop 分支
 
 使用 `configuration-layer-elpa-archives` 代替原来的 `configuration-layer--elpa-archives` （ `--` 换成 `-` ）
 
-<tmpl>
+```{ztmpl}
 (setq configuration-layer-elpa-archives
     '(("melpa-cn" . "{{endpoint}}/melpa/")
       ("org-cn"   . "{{endpoint}}/org/")
       ("gnu-cn"   . "{{endpoint}}/gnu/")))
-</tmpl>
+```
 
 Cask 用户
 ---------
 
 [Cask](https://github.com/cask/cask) 是一个 Emacs Lisp 的项目管理工具。这里还是以 GNU ELPA 和 MELPA 为例，在添加下面的代码到 Cask
 
-<tmpl>
+```{ztmpl}
 (source "gnu"   "{{endpoint}}/gnu/")
 (source "melpa" "{{endpoint}}/melpa/")
-</tmpl>
+```
 
 关于 ELPA 的选择
 ----------------
@@ -71,14 +71,14 @@ URL Bug
 
 事实上，末尾没有`/`的话，emacs 会去尝试取以下链接：
 
-<tmpl>
+```{ztmpl}
 {{endpoint}}/melpaarchive-contents
-</tmpl>
+```
 
 而正常的链接应该是
 
-<tmpl>
+```{ztmpl}
 {{endpoint}}/melpa/archive-contents
-</tmpl>
+```
 
 这个是 emacs 自己的 bug。在 https://github.com/melpa/melpa/issues/2139 中有描述。

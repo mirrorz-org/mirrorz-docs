@@ -8,36 +8,36 @@
 
 修改 `~/.cabal/config` ，加入
 
-<tmpl z-path="~/.cabal/config" z-append>
+```{ztmpl path="~/.cabal/config" append="true"}
 repository mirror
   url: {{endpoint}}
   secure: True
-</tmpl>
+```
 
 为了访问速度，可以选择把官方仓库注释掉：
 
-<tmpl>
+```{ztmpl}
 repository hackage.haskell.org
   url: http://hackage.haskell.org/
   -- secure: False
   -- root-keys:
   -- key-threshold:
-</tmpl>
+```
 
 ### Cabal 小于 1.2.4
 
 修改`~/.cabal/config`, 将此行
 
-<tmpl>
+```{ztmpl}
 remote-repo: hackage.haskell.org:http://hackage.haskell.org/packages/archive
-</tmpl>
+```
 
 注释掉，改为
 
-<tmpl>
+```{ztmpl}
 remote-repo: mirror:{{endpoint}}
 -- remote-repo: hackage.haskell.org:http://hackage.haskell.org/packages/archive
-</tmpl>
+```
 
 注意，此处的注释是两条短线 `--` .
 

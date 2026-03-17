@@ -8,7 +8,7 @@ CentOS Stream 9 中源被整合入两个文件 `centos.repo` 和 `centos-addons.
 
 将这段代码保存为一个文件，例如 `update_mirror.pl`。
 
-<tmpl z-lang="perl" z-path="./update_mirror.pl">
+```{ztmpl lang="perl" path="./update_mirror.pl"}
 #!/usr/bin/perl
 
 use strict;
@@ -46,13 +46,13 @@ while (my $filename = shift @ARGV) {
         print $output $_;
     }
 }
-</tmpl>
+```
 
 然后，在命令行中使用以下命令来执行它：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 {{sudo}}perl ./update_mirror.pl /etc/yum.repos.d/centos*.repo
-</tmpl>
+```
 
 注意将 `./update_mirror.pl` 替换为脚本实际保存的路径。其中的 `*` 通配符，如果只需要替换一些文件中的源，请自行增删。
 
@@ -60,23 +60,23 @@ while (my $filename = shift @ARGV) {
 
 对于大部分 CentOS Stream 9 镜像，应该已经包含了 Perl 解释器，如果你的镜像没有包含，你可以使用以下命令简单的安装：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 # 使用 dnf
 {{sudo}}dnf install perl
 
 # 使用 yum
 {{sudo}}yum install perl
-</tmpl>
+```
 
 最后，更新软件包缓存
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 # 使用 dnf
 {{sudo}}dnf clean all && {{sudo}}dnf makecache
 
 # 使用 yum
 {{sudo}}yum clean all && {{sudo}}yum makecache
-</tmpl>
+```
 
 注意，如果需要启用其中一些 repo，需要将其中的 `enabled=0` 改为 `enabled=1`。
 
@@ -88,7 +88,7 @@ while (my $filename = shift @ARGV) {
 
 `centos.repo`:
 
-<tmpl z-lang="ini" z-path="/etc/yum.repos.d/centos.repo">
+```{ztmpl lang="ini" path="/etc/yum.repos.d/centos.repo"}
 [baseos]
 name=CentOS Stream $releasever - BaseOS
 baseurl={{endpoint}}/$releasever-stream/BaseOS/$basearch/os
@@ -181,11 +181,11 @@ gpgcheck=1
 repo_gpgcheck=0
 metadata_expire=6h
 enabled=0
-</tmpl>
+```
 
 `centos-addons.repo`:
 
-<tmpl z-lang="ini" z-path="/etc/yum.repos.d/centos-addons.repo">
+```{ztmpl lang="ini" path="/etc/yum.repos.d/centos-addons.repo"}
 [highavailability]
 name=CentOS Stream $releasever - HighAvailability
 baseurl={{endpoint}}/$releasever-stream/HighAvailability/$basearch/os
@@ -330,4 +330,4 @@ gpgcheck=1
 repo_gpgcheck=0
 metadata_expire=6h
 enabled=0
-</tmpl>
+```

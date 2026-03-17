@@ -6,13 +6,13 @@
 
 使用方法：在 `/etc/pacman.conf` 文件末尾添加以下两行：
 
-<tmpl z-lang="ini" z-path="/etc/pacman.conf" z-append>
+```{ztmpl lang="ini" path="/etc/pacman.conf" append="true"}
 [archlinuxcn]
 Server = {{endpoint}}/$arch
-</tmpl>
+```
 
 之后通过以下命令安装 `archlinuxcn-keyring` 包导入 GPG key。
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 {{sudo}}pacman -Sy archlinuxcn-keyring
-</tmpl>
+```

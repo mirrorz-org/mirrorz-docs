@@ -2,21 +2,21 @@
 
 如果之前从未使用过 Flathub，那么首先需要添加 Flathub 远程源：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-</tmpl>
+```
 
 在已有 `flathub` 远程源的基础上：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 {{sudo}}flatpak remote-modify flathub --url={{endpoint}}/flathub
-</tmpl>
+```
 
 恢复默认值：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 {{sudo}}flatpak remote-modify flathub --url=https://dl.flathub.org/repo
-</tmpl>
+```
 
 ## 同步方法
 
@@ -42,16 +42,16 @@ Flathub 的 blob 数据（`objects/`）与增量更新数据（`deltas/`, `delta
 
 如果怀疑网络问题，请添加 `OSTREE_DEBUG_HTTP=1` 环境变量后再次运行 `flatpak` 命令以获取 libcurl 的详细输出，例如：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 OSTREE_DEBUG_HTTP=1 flatpak install com.github.tchx84.Flatseal
-</tmpl>
+```
 
 如果出现 "Can't check signature: public key not found" 错误可尝试导入 GPG 密钥：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 wget {{endpoint}}/flathub/flathub.gpg
 {{sudo}}flatpak remote-modify --gpg-import=flathub.gpg flathub
-</tmpl>
+```
 
 Flathub 中部分软件由于重分发授权问题，需要从官方服务器下载，无法使用镜像站加速。比如 NVIDIA 驱动、JetBrains 系列软件等。如果您的使用体验不佳，请及时通过 GitHub 或邮件向镜像站反馈。
 

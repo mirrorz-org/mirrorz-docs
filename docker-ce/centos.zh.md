@@ -4,7 +4,7 @@
 
 如果你之前安装过 docker，请先删掉
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 {{sudo}}dnf remove docker \
                   docker-client \
                   docker-client-latest \
@@ -13,18 +13,18 @@
                   docker-latest-logrotate \
                   docker-logrotate \
                   docker-engine
-</tmpl>
+```
 
 安装依赖，下载 repo 文件，并把软件仓库地址替换为镜像站：
 
-<tmpl z-lang="bash" z-input="rh_release">
+```{ztmpl lang="bash" input="rh_release"}
 {{sudo}}dnf -y install dnf-plugins-core
 {{sudo}}dnf config-manager --add-repo https://download.docker.com/linux/{{rh_release}}/docker-ce.repo
 {{sudo}}sed -i 's+https://download.docker.com+{{endpoint}}+' /etc/yum.repos.d/docker-ce.repo
-</tmpl>
+```
 
 最后安装：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 {{sudo}}yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-</tmpl>
+```

@@ -6,9 +6,9 @@
 
 在文末添加如下语句：
 
-<tmpl z-lang="r" z-path="~/.Rprofile" z-append>
+```{ztmpl lang="r" path="~/.Rprofile" append="true"}
 options("repos" = c(CRAN="{{endpoint}}/"))
-</tmpl>
+```
 
 打开 R 即可使用该 CRAN 镜像源安装 R 软件包。
 
@@ -16,7 +16,7 @@ options("repos" = c(CRAN="{{endpoint}}/"))
 
 在安装时指定 repo，如安装 lattice：
 
-<tmpl z-lang="r">
+```{ztmpl lang="r"}
 install.packages("lattice", repos="{{endpoint}}/")
-</tmpl>
+```
 

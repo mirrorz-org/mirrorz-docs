@@ -6,9 +6,9 @@
 
 执行如下命令自动替换：
 
-<tmpl z-lang="bash" z-input="packagemanager">
+```{ztmpl lang="bash" input="packagemanager"}
 sed -i 's_https\?://downloads.openwrt.org_{{endpoint}}_' {{filepath}}
-</tmpl>
+```
 
 注：使用 HTTPS 可以有效避免国内运营商的缓存劫持，但需要另行安装 `libustream-openssl ca-bundle ca-certificates`。
 
@@ -16,8 +16,8 @@ sed -i 's_https\?://downloads.openwrt.org_{{endpoint}}_' {{filepath}}
 
 登录到路由器，根据版本或包管理器选择编辑 `/etc/apk/repositories.d/distfeeds.list` 或 `/etc/opkg/distfeeds.conf` 文件，将其中的 `http://downloads.openwrt.org` 替换为：
 
-<tmpl>
+```{ztmpl}
 {{endpoint}}
-</tmpl>
+```
 
 即可。

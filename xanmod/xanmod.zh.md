@@ -6,19 +6,19 @@
 
 首先添加上游公钥：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 wget -qO - https://dl.xanmod.org/archive.key | {{sudo}}gpg --dearmor -vo /usr/share/keyrings/xanmod-archive-keyring.gpg
-</tmpl>
+```
 
 新增 APT 源配置：
 
-<tmpl z-path="/etc/apt/sources.list.d/xanmod-release.list">
+```{ztmpl path="/etc/apt/sources.list.d/xanmod-release.list"}
 deb [signed-by=/usr/share/keyrings/xanmod-archive-keyring.gpg] {{endpoint}} releases main
-</tmpl>
+```
 
 更新缓存并安装 XanMod 内核（根据自身需要选择不同包名，详见官网）：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 {{sudo}}apt update
 {{sudo}}apt install --install-recommends linux-xanmod-x64v3
-</tmpl>
+```

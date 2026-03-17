@@ -2,7 +2,7 @@ nixpkgs 镜像，同步源为 [https://github.com/NixOS/nixpkgs](https://github.
 
 ### 克隆仓库
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 git clone {{endpoint}}/
-</tmpl>
+```
 

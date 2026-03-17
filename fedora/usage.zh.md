@@ -15,19 +15,19 @@ Fedora 的软件源配置文件可以有多个，其中：
 
 用以下命令替换 `/etc/yum.repos.d` 下的文件
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 {{sudo}}sed -e 's|^metalink=|#metalink=|g' \
     -e 's|^#baseurl=http://download.example/pub/fedora/linux|baseurl={{endpoint}}|g' \
     -i.bak \
     /etc/yum.repos.d/fedora.repo \
     /etc/yum.repos.d/fedora-updates.repo
-</tmpl>
+```
 
 ### 手动替换
 
 **`fedora` 仓库 (/etc/yum.repos.d/fedora.repo)**
 
-<tmpl z-lang="ini">
+```{ztmpl lang="ini"}
 [fedora]
 name=Fedora $releasever - $basearch
 baseurl={{endpoint}}/releases/$releasever/Everything/$basearch/os/
@@ -40,11 +40,11 @@ type=rpm
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
 skip_if_unavailable=False
-</tmpl>
+```
 
 **`updates` 仓库 (/etc/yum.repos.d/fedora-updates.repo)**
 
-<tmpl z-lang="ini">
+```{ztmpl lang="ini"}
 [updates]
 name=Fedora $releasever - $basearch - Updates
 baseurl={{endpoint}}/updates/$releasever/Everything/$basearch/
@@ -57,4 +57,4 @@ gpgcheck=1
 metadata_expire=6h
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
 skip_if_unavailable=False
-</tmpl>
+```

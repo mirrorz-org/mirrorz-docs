@@ -2,6 +2,6 @@ Linux Lite 是一个基于 Ubuntu 长期支持版本（LTS）的 Linux 发行版
 
 Linux Lite 的软件源配置文件是 `/etc/apt/sources.list`。将系统自带的该文件做个备份，将该文件替换为下面内容，即可使用选择的软件源镜像。
 
-<tmpl z-input="release" z-path="/etc/apt/sources.list">
+```{ztmpl input="release" path="/etc/apt/sources.list"}
 deb {{endpoint}}/ {{release}} main
-</tmpl>
+```

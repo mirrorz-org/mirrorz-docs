@@ -7,20 +7,20 @@
 
 生成可用中国镜像站列表：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 {{sudo}}pacman-mirrors -i -c China -m rank
-</tmpl>
+```
         
 勾选
 
-<tmpl>
+```{ztmpl}
 {{endpoint}}/
-</tmpl>
+```
 
 然后按 ``OK`` 键两次。
         
 最后刷新缓存：
 
-<tmpl z-lang="bash">
+```{ztmpl lang="bash"}
 {{sudo}}pacman -Syy
-</tmpl>
+```

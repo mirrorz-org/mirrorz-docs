@@ -2,6 +2,6 @@
 
 编辑 `/etc/apt/sources.list.d/raspi.list` 文件。
 
-<tmpl z-input="release" z-path="/etc/apt/sources.list.d/raspi.list">
+```{ztmpl input="release" path="/etc/apt/sources.list.d/raspi.list"}
 deb {{endpoint}}/ {{release}} main
-</tmpl>
+```

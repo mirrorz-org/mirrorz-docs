@@ -5,26 +5,26 @@
 
 新建 `/etc/apt/sources.list.d/MariaDB.list`，填入工具生成的配置内容，并将其中的地址部分，例如：
 
-<tmpl>
+```{ztmpl}
 https://apt.mariadb.org/mariadb/repo
-</tmpl>
+```
 
 换为
 
-<tmpl>
+```{ztmpl}
 {{endpoint}}/repo
-</tmpl>
+```
 
 ### RHEL/CentOS 等基于 yum 的系统
 
 新建 `/etc/yum.repos.d/MariaDB.repo`，填入工具生成的配置内容，并将`baseurl=`后的地址部分，例如：
 
-<tmpl>
+```{ztmpl}
 http://yum.mariadb.org
-</tmpl>
+```
 
 换为
 
-<tmpl>
+```{ztmpl}
 {{endpoint}}/yum
-</tmpl>
+```

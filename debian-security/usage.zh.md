@@ -6,15 +6,15 @@
 
 ### 传统格式（`/etc/apt/sources.list`）
 
-<tmpl z-input="release src nf">
+```{ztmpl input="release src nf"}
 # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
 deb {{endpoint}} {{release}}{{security}} main contrib{{#nf}}{{nonfree}}{{/nf}}
 {{src}}deb-src {{endpoint}} {{release}}{{security}} main contrib{{#nf}}{{nonfree}}{{/nf}}
-</tmpl>
+```
 
 ### DEB822 格式（`/etc/apt/sources.list.d/debian.sources`）
 
-<tmpl z-input="release_deb822 src nf">
+```{ztmpl input="release_deb822 src nf"}
 Types: deb
 URIs: {{endpoint}}
 Suites: {{release_deb822}}-security
@@ -26,4 +26,4 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 {{src}}Suites: {{release_deb822}}-security
 {{src}}Components: main contrib{{#nf}} non-free non-free-firmware{{/nf}}
 {{src}}Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
-</tmpl>
+```

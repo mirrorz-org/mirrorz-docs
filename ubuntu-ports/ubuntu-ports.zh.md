@@ -6,7 +6,7 @@
 
 ### 传统格式（`/etc/apt/sources.list`）
 
-<tmpl z-input="release src proposed mirror_security" z-path="/etc/apt/sources.list">
+```{ztmpl input="release src proposed mirror_security" path="/etc/apt/sources.list"}
 # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
 deb {{endpoint}}/ {{release}} main restricted universe multiverse
 {{src}}deb-src {{endpoint}}/ {{release}} main restricted universe multiverse
@@ -28,11 +28,11 @@ deb http://ports.ubuntu.com/ubuntu-ports/ {{release}}-security main restricted u
 # 预发布软件源，不建议启用
 {{proposed}}deb {{endpoint}}/ {{release}}-proposed main restricted universe multiverse
 {{proposed}}{{src}}deb-src {{endpoint}}/ {{release}}-proposed main restricted universe multiverse
-</tmpl>
+```
 
 ### DEB822 格式（`/etc/apt/sources.list.d/ubuntu.sources`）
 
-<tmpl z-input="release_deb822 src proposed mirror_security" z-path="/etc/apt/sources.list.d/ubuntu.sources">
+```{ztmpl input="release_deb822 src proposed mirror_security" path="/etc/apt/sources.list.d/ubuntu.sources"}
 Types: deb
 URIs: {{endpoint}}
 Suites: {{release_deb822}} {{release_deb822}}-updates {{release_deb822}}-backports
@@ -87,6 +87,6 @@ Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
 {{proposed}}{{src}}Suites: {{release_deb822}}-proposed
 {{proposed}}{{src}}Components: main restricted universe multiverse
 {{proposed}}{{src}}Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
-</tmpl>
+```
 
 因镜像站同步有延迟，可能会导致生产环境系统不能及时检查、安装上最新的安全更新，不建议替换 security 源。
