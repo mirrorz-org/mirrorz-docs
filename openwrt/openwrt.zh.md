@@ -1,7 +1,3 @@
-OpenWRT（曾用名 LEDE）是一款广泛应用于路由器的嵌入式操作系统。本站提供 OpenWRT 的包管理器 `opkg` 的 release 部分镜像。
-
-部分镜像站（例如 TUNA/BFSU）并不包含 snapshots 镜像，USTC 提供了对 snapshots 的反代，请在替换之前确认各镜像站的情况。
-
 从 OpenWrt 25.12 开始，包管理器由 `opkg` 改为 `apk` (Alpine Package Keeper)，默认软件源的配置文件路径由 `/etc/opkg/distfeeds.conf` 改为 `/etc/apk/repositories.d/distfeeds.list`。
 
 ### 自动替换
