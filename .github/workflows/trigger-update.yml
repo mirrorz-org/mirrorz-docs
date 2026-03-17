@@ -1,0 +1,27 @@
+name: Trigger Update
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  trigger-update:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Trigger mirror-web update
+      uses: actions/github-script@v6
+      env:
+        NEW_COMMIT: ${{ github.sha }}
+      with:
+        github-token: ${{ secrets.TRIGGER_MIRRORZ_HELP_PAT }}
+        script: |
+          github.rest.actions.createWorkflowDispatch({
+            owner: context.repo.owner,
+            repo: 'mirrorz-help',
+            workflow_id: 'sync-helpz.yml',
+            ref: 'master',
+            inputs: {
+              'new_commit': process.env.NEW_COMMIT,
+            },
+          });
