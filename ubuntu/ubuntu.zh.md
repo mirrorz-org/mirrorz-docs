@@ -10,7 +10,7 @@ cat /etc/os-release
 
 例如在 Ubuntu 24.04 下，文件内容如下：
 
-```{ztmpl lang="conf" path="/etc/os-release"}
+```{ztmpl lang="conf"}
 PRETTY_NAME="Ubuntu 24.04.1 LTS"
 NAME="Ubuntu"
 VERSION_ID="24.04"
