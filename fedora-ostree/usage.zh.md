@@ -4,7 +4,7 @@
 
 ```{ztmpl lang="conf"}
 [remote "fedora"]
-url={{endpoint}}/fedora-ostree
+url={{endpoint}}
 gpg-verify=true
 gpgkeypath=/etc/pki/rpm-gpg/
 # contenturl=mirrorlist=https://ostree.fedoraproject.org/mirrorlist
