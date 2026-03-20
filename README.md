@@ -104,6 +104,12 @@ The following attributes are supported by the template blocks:
 The following attributes are supported by the inline template:
 - `lang="c"`: the same as above, but for inline code
 
+## Writing Style
+
+Please refer to [中文文案排版指北](https://github.com/sparanoid/chinese-copywriting-guidelines) for recommended writing style.
+
+Also note that we use [autocorrect](https://github.com/huacnlee/autocorrect) for automatic checking. Failed PRs **would not be merged**.
+
 ## Contribute
 
 Pull Requests are super welcomed! By opening a pull request, you agree to contribute your content under the following licenses.
