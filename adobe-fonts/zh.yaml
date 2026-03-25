@@ -1,0 +1,110 @@
+_: Adobe 公司的开源字体
+block:
+- intro
+- source-han-sans
+- source-han-serif
+input:
+  # MirrorZ 目前机制不太适合字体，这里 hack 了一下。
+  # 1. 字体发行方式复杂，各个 input 的可行域相互关联。为简单，这里先列出直和，再在 markdown 中的模板提示某些组合不可行。
+  # 2. mustache 是 logic-less templates，不支持 if/else 分支。为绕开限制，这里定义若干形如 x=y 的变量，让模板能利用 mustache 的 {{#section}} 和 {{^inverted_section}} 实现分支。
+  stroke_width:
+    _: 字重范围
+    default: static
+    note: Note
+    option:
+      static:
+        _: 静态
+        stroke_width=static: true
+        # 思源黑体、宋体都是七种字重，但并不一致——黑体多 Normal，宋体多 SemiBold，具体数值也不对应
+        # 考虑到以下因素，在此处按宋体定义 serif_weights，在 ascii_glyph 按黑体定义 weights
+        # - 黑体需选择 ascii_glyph，其中半宽版本只支持两种字重
+        # - 宋体无需选择 ascii_glyph，因为只有比例版本
+        # - 无论哪种字体，只有 stroke_width=static 时才需遍历字重
+        serif_weights:
+          - ExtraLight
+          - Light
+          - Regular
+          - Medium
+          - SemiBold
+          - Bold
+          - Heavy
+      variable:
+        _: 可变
+  kind:
+    _: 字形覆盖范围
+    default: OTF
+    option:
+      SubsetOTF:
+        _: SubsetOTF 特定地区的子集
+        kind=SubsetOTF: true
+      OTF:
+        _: OTF 特定语言
+        kind=OTF: true
+      OTC:
+        _: OTC 所有语言
+        kind=OTC: true
+      SuperOTC:
+        _: SuperOTC 所有语言、字重
+        kind=SuperOTC: true
+  locale:
+    _: 地区/语言
+    default: CN-SC
+    option:
+      CN-SC:
+        _: CN/SC 简体中文
+        region: CN
+        lang: SC
+        lang_compact: SC
+        lang_long: SimplifiedChinese
+        lang_human: 简体中文
+      TW-TC:
+        _: TW/TC 繁體中文—臺灣
+        region: TW
+        lang: TC
+        lang_compact: TC
+        lang_long: TraditionalChinese
+        lang_human: 繁體中文—臺灣
+      HK-HC:
+        _: HK/HC 繁體中文—香港
+        region: HK
+        lang: HC
+        lang_compact: HC
+        lang_long: TraditionalChineseHK
+        lang_human: 繁體中文—香港
+      JP-J:
+        _: JP/J 日本語
+        region: JP
+        lang: J
+        lang_compact: ""
+        # `lang_compact = lang == J ? "" : lang`
+        # https://github.com/adobe-fonts/source-han-sans/blob/0b99371/build/buildVFs.py#L42-L43
+        lang_long: Japanese
+        lang_human: 日本語
+      KR-K:
+        _: KR/K 한국어
+        region: KR
+        lang: K
+        lang_compact: K
+        lang_long: Korean
+        lang_human: 한국어
+  ascii_glyph:
+    _: ASCII 字符默认宽度
+    default: proportional
+    option:
+      proportional:
+        _: 比例
+        HW: ""
+        weights:
+          - ExtraLight
+          - Light
+          - Normal
+          - Regular
+          - Medium
+          - Bold
+          - Heavy
+      half_width:
+        _: 半宽
+        HW: HW
+        weights:
+          - Regular
+          - Bold
