@@ -60,7 +60,11 @@ input:
     _: This Will be a Text Box
 ```
 
-## Template Format
+## Markdown Format
+
+The consumers of this project needs to support following extensions of standard Markdown:
+
+### Template
 
 [Mustache](https://mustache.github.io/) syntax is used within `` ```{ztmpl} `` blocks in pure Markdown.
 The selected syntax for defining the properties of the templates is [MyST Directives](https://mystmd.org/guide/syntax-overview#syntax-directives)
@@ -103,6 +107,22 @@ The following attributes are supported by the template blocks:
 
 The following attributes are supported by the inline template:
 - `lang="c"`: the same as above, but for inline code
+
+### Custom Heading ID
+
+The format looks like this:
+
+```markdown
+### heading {#id}
+```
+
+When building into HTML document, `{#id}` sets the `id` attribute of the heading element:
+
+```html
+<h3 id="id">heading</h3>
+```
+
+Consumers can choose to implement this, or ignore and just strip ` #{id}` part from the heading in output.
 
 ## Writing Style
 
