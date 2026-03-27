@@ -1,6 +1,6 @@
 ## 思源黑体 (Source Han Sans) {#source-han-sans}
 
-思源黑体是一款泛中日韩无衬线黑体，支持多种字重，于2014年首次发布，近年仍在积极维护。
+思源黑体是一款泛中日韩无衬线黑体，支持多种字重，于 2014 年首次发布，近年仍在积极维护。
 
 **名称**：思源黑体的文件嵌入了多种本地化名称，安装后可能显示为 Source Han Sans、思源黑体、思源黑體、源ノ角ゴシック、본고딕。此外，字体名称还可能后缀地区或语言代码（例：CN/SC）以及其它代号，具体取决于发行版本。
 
@@ -157,7 +157,7 @@
 
     思源黑体由 Adobe 和 Google 合作开发。两家公司分别按自己品牌包装为 Source Han Sans 和 Noto Sans CJK，不过实际字体几乎完全相同，只有名称、版权等存在差异。名称的主要差异如下表，其中<u>划线</u>处两家公司不同。
 
-    另外，Adobe 于2025年6月发布了黑体 2.005，但 [Google 自2022年1月发布黑体 2.004 后未再发布新版黑体](https://github.com/notofonts/noto-cjk/issues/314)。
+    另外，Adobe 于 2025 年 6 月发布了黑体 2.005，但 [Google 自 2022 年 1 月发布黑体 2.004 后未再发布新版黑体](https://github.com/notofonts/noto-cjk/issues/314)。
 
     <table>
       <caption>Adobe 与 Google 包装的思源字体的名称区别</caption>
@@ -194,7 +194,7 @@
         <tr>
           <th scope="rowgroup" rowspan="2">语言特定<br/>OTF</th>
           <th scope="row">文件名后缀</th>
-          <td>SC/TC/<u>HC</u>/J/<u>K</u><br/>（其中J会被<u>省略</u>）</td>
+          <td>SC/TC/<u>HC</u>/J/<u>K</u><br/>（其中 J 会被<u>省略</u>）</td>
           <td>同 SubsetOTF<br/>（但改为<u>小写</u>）</td>
         </tr>
         <tr>
@@ -217,7 +217,7 @@
     思源黑体的西文部分源于 [Source Sans](https://github.com/adobe-fonts/source-sans)，半宽版本则源于 [Source Code Pro](https://github.com/adobe-fonts/source-code-pro)，但都专门适配过汉字。
 
     - Source Han Sans 与 Source Sans 尽管名称和设计相近，西文部分的粗细、大小并不一致。
-    - Source Han Sans 的半宽版本与 Source Code Pro 尽管都是无衬线等宽字体，但西文部分的粗细、宽度、字形并不一致。具体而言，Source Code Pro 并非严格“半”宽（其实是60%宽），而且对源代码易混字符（如数字0与字母O）有特殊处理。
+    - Source Han Sans 的半宽版本与 Source Code Pro 尽管都是无衬线等宽字体，但西文部分的粗细、宽度、字形并不一致。具体而言，Source Code Pro 并非严格“半”宽（其实是 60% 宽），而且对源代码易混字符（如数字 0 与字母 O）有特殊处理。
 
   </details>
 
