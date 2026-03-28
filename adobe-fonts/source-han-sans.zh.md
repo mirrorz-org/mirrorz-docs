@@ -170,6 +170,17 @@
       </thead>
       <tbody>
         <tr>
+          <th scope="rowgroup" rowspan="2">本地化字体名</th>
+          <th scope="row">黑体</th>
+          <td><u>Source Han</u> Sans、<u>思源黑体</u>、<u>源ノ角ゴシック</u>等</td>
+          <td>提供数据表，但全部为 <u>Noto</u> Sans <u>CJK</u></td>
+        </tr>
+        <tr>
+          <th scope="row">宋体</th>
+          <td><u>Source Han</u> Serif、<u>思源宋体</u>、<u>源ノ明朝</u>等</td>
+          <td>提供数据表，但全部为 <u>Noto</u> Serif <u>CJK</u></td>
+        </tr>
+        <tr>
           <th scope="rowgroup" rowspan="2">字重名称</th>
           <th scope="row">黑体</th>
           <td><u>ExtraLight</u>, Light, <u>Normal</u>, Regular, Medium, Bold, <u>Heavy</u></td>
@@ -187,7 +198,7 @@
           <td><u>SC</u>/<u>TC</u>/HK/JP/KR</td>
         </tr>
         <tr>
-          <th scope="row">字体名</th>
+          <th scope="row">英文字体名</th>
           <td><u>Source Han</u> Sans + 文件名后缀</td>
           <td><u>Noto</u> Sans + 文件名后缀</td>
         </tr>
@@ -198,7 +209,7 @@
           <td>同 SubsetOTF<br/>（但改为<u>小写</u>）</td>
         </tr>
         <tr>
-          <th scope="row">字体名</th>
+          <th scope="row">英文字体名</th>
           <td><u>Source Han</u> Sans + 文件名后缀</td>
           <td><u>Noto</u> Sans <u>CJK</u> + 文件名后缀（大写）</td>
         </tr>
