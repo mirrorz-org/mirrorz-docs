@@ -88,7 +88,7 @@
 <ul>
   <li>
     <details>
-      <summary>Noto Sans CJK</summary>
+      <summary>Noto Serif CJK</summary>
       <p>思源宋体由 Adobe 和 Google 合作开发。两家公司分别按自己品牌包装为 Source Han Serif 和 Noto Serif CJK，不过实际字体几乎完全相同，只有名称、版权等存在差异。具体差异见<a href="#compare-noto-cjk">之前黑体的比较</a>。</p>
     </details>
   </li>
@@ -105,7 +105,7 @@
 - 镜像站资源
   - [Source Han Serif ReadMe (PDF)](https://mirrors.cernet.edu.cn/adobe-fonts/source-han-serif/SourceHanSerifReadMe.pdf) (2024-07-30)
   - [Source Han Serif Design Guide (PDF)](https://mirrors.cernet.edu.cn/adobe-fonts/source-han-serif/SourceHanSerifDesignGuide.pdf) (2021-10-25)
-  - [如何从 GitHub 下载 Pan-CJK 字体（PDF)](https://mirrors.cernet.edu.cn/adobe-fonts/source-han-serif/download-guide-source-han.pdf) (2017-04-10)
+  - [如何从 GitHub 下载 Pan-CJK 字体（PDF）](https://mirrors.cernet.edu.cn/adobe-fonts/source-han-serif/download-guide-source-han.pdf) (2017-04-10)
 - 外部资源
   - [Source Han Serif - Pan-CJK Simplified Chinese | Adobe Fonts](https://fonts.adobe.com/fonts/source-han-serif-simplified-chinese#about-section) 以及「关于」部分的[使用指导 PDF](https://assets.fonts.adobe.com/ts6tz2sbyu9znj4zzzqu35wfzpvc "How to choose a Source Han Serif font") (2025-12-11)
   - [关于思源宋体的问答 | The Type](https://www.thetype.com/2017/04/11961/) (2017-04-21)
