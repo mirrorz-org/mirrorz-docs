@@ -93,7 +93,7 @@ The variables available for rendering should include:
 - `host`: the domain name of the mirror used, like `mirrors.jlu.edu.cn`
 - `path`: part after host for current project w/o trailing slash, like `/archlinux`
 - `endpoint`: shorthand for `{{scheme}}://{{host}}{{path}}`
-- `sudo`: choosed by user to use sudo or not, `sudo ` or empty
+- `sudo`: chosen by user to use sudo or not, `sudo ` or empty
 
 The following attributes are supported by the template blocks:
 
