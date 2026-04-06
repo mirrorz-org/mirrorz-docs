@@ -6,7 +6,7 @@
 * guix 命令支持使用 `--substitute-urls` 参数为单个命令的执行临时覆盖 substitute 服务器，例如：
 
   ```{ztmpl lang="shell"}
-  guix package -i <package> --substitute-urls="{{endpoint}}/guix"
+  guix package -i <package> --substitute-urls="{{endpoint}}"
   ```
 
 * 如果您使用 Guix 管理整个操作系统，请修改操作系统配置文件，替换
@@ -18,7 +18,7 @@
                 (guix-service-type
                 config => (guix-configuration
                             (inherit config)
-                            (substitute-urls '("{{endpoint}}/guix"
+                            (substitute-urls '("{{endpoint}}"
                                               "https://ci.guix.gnu.org"))))))
     ...
     )

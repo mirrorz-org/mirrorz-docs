@@ -43,12 +43,13 @@ deb {{endpoint}}/ {{release}}-updates main restricted universe multiverse
 deb {{endpoint}}/ {{release}}-backports main restricted universe multiverse
 {{src}}deb-src {{endpoint}}/ {{release}}-backports main restricted universe multiverse
 
-# 以下安全更新软件源包含了官方源与镜像站配置，如有需要可自行修改注释切换
 {{#mirror_security}}
+# 以下安全更新软件源为镜像站配置
 deb {{endpoint}}/ {{release}}-security main restricted universe multiverse
 {{src}}deb-src {{endpoint}}/ {{release}}-security main restricted universe multiverse
 {{/mirror_security}}
 {{^mirror_security}}
+# 以下安全更新软件源为官方源配置
 deb http://security.ubuntu.com/ubuntu/ {{release}}-security main restricted universe multiverse
 {{src}}deb-src http://security.ubuntu.com/ubuntu/ {{release}}-security main restricted universe multiverse
 {{/mirror_security}}
