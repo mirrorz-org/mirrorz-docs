@@ -19,6 +19,14 @@ RUSTUP_DIST_SERVER={{endpoint}} rustup install nightly-YYYY-mm-dd
 env RUSTUP_DIST_SERVER={{endpoint}} rustup install nightly-YYYY-mm-dd
 ```
 
+```{ztmpl lang="powershell"}
+# for powershell
+$env:RUSTUP_DIST_SERVER="{{endpoint}}"
+rustup install stable # for stable
+rustup install nightly # for nightly
+rustup install nightly-YYYY-mm-dd
+```
+
 若要长期启用镜像源，执行：
 
 ```{ztmpl lang="bash"}
@@ -28,6 +36,12 @@ echo 'export RUSTUP_DIST_SERVER={{endpoint}}' >> ~/.bashrc
 # for fish
 echo 'set -x RUSTUP_UPDATE_ROOT {{endpoint}}/rustup' >> ~/.config/fish/config.fish
 echo 'set -x RUSTUP_DIST_SERVER {{endpoint}}' >> ~/.config/fish/config.fish
+```
+
+```{ztmpl lang="powershell"}
+# for powershell
+echo '$env:RUSTUP_UPDATE_ROOT="{{endpoint}}/rustup"' >> $profile
+echo '$env:RUSTUP_DIST_SERVER="{{endpoint}}"' >> $profile
 ```
 
 注：rustup 在判断是否需要更新时依赖于 toml 的 sha256，由于 toml 内容中相关链接被替换为镜像源，第一次切换到镜像源时各个 channel 会被认为需要更新。
