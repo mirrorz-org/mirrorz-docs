@@ -7,6 +7,10 @@ input:
   release:
     _: Ubuntu 版本
     option:
+      resolute:
+        _: Ubuntu 26.04 LTS
+      questing:
+        _: Ubuntu 25.10
       noble:
         _: Ubuntu 24.04 LTS
       plucky:
@@ -18,6 +22,10 @@ input:
   release_deb822:
     _: Ubuntu 版本
     option:
+      resolute:
+        _: Ubuntu 26.04 LTS
+      questing:
+        _: Ubuntu 25.10
       noble:
         _: Ubuntu 24.04 LTS
       plucky:
