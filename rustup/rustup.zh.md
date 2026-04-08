@@ -40,8 +40,8 @@ echo 'set -x RUSTUP_DIST_SERVER {{endpoint}}' >> ~/.config/fish/config.fish
 
 ```{ztmpl lang="powershell"}
 # for powershell
-echo '$env:RUSTUP_UPDATE_ROOT="{{endpoint}}/rustup"' >> $profile
-echo '$env:RUSTUP_DIST_SERVER="{{endpoint}}"' >> $profile
+'$env:RUSTUP_UPDATE_ROOT="{{endpoint}}/rustup"' >> $profile
+'$env:RUSTUP_DIST_SERVER="{{endpoint}}"' >> $profile
 ```
 
 注：rustup 在判断是否需要更新时依赖于 toml 的 sha256，由于 toml 内容中相关链接被替换为镜像源，第一次切换到镜像源时各个 channel 会被认为需要更新。
