@@ -4,6 +4,8 @@
 
 使用 rustup 安装 rust 时，若要启用镜像源，执行：
 
+- 对 Linux/macOS 用户：
+
 ```{ztmpl lang="bash"}
 # for bash
 RUSTUP_DIST_SERVER={{endpoint}} rustup install stable # for stable
@@ -19,6 +21,8 @@ RUSTUP_DIST_SERVER={{endpoint}} rustup install nightly-YYYY-mm-dd
 env RUSTUP_DIST_SERVER={{endpoint}} rustup install nightly-YYYY-mm-dd
 ```
 
+- 对 Windows，PowerShell 下：
+
 ```{ztmpl lang="powershell"}
 # for powershell
 $env:RUSTUP_DIST_SERVER="{{endpoint}}"
@@ -29,6 +33,8 @@ rustup install nightly-YYYY-mm-dd
 
 若要长期启用镜像源，执行：
 
+- 对 Linux/macOS 用户：
+
 ```{ztmpl lang="bash"}
 # for bash
 echo 'export RUSTUP_UPDATE_ROOT={{endpoint}}/rustup' >> ~/.bashrc
@@ -37,6 +43,8 @@ echo 'export RUSTUP_DIST_SERVER={{endpoint}}' >> ~/.bashrc
 echo 'set -x RUSTUP_UPDATE_ROOT {{endpoint}}/rustup' >> ~/.config/fish/config.fish
 echo 'set -x RUSTUP_DIST_SERVER {{endpoint}}' >> ~/.config/fish/config.fish
 ```
+
+- 对 Windows，PowerShell 下：
 
 ```{ztmpl lang="powershell"}
 # for powershell
