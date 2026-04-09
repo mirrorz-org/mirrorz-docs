@@ -1,2 +1,9 @@
 __pycache__/
 .mypy_cache/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
