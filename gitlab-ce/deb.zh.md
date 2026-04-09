@@ -8,7 +8,7 @@ curl -fsSL https://packages.gitlab.com/gpg.key | {{sudo}}gpg --dearmor -o /usr/s
 
 再选择你的 Debian/Ubuntu 版本，将下方内容写入 `/etc/apt/sources.list.d/gitlab-ce.list`
 
-```{ztmpl input="release" path="/etc/apt/sources.list.d/gitlab-ce.list"}
+```{ztmpl lang="properties" input="release" path="/etc/apt/sources.list.d/gitlab-ce.list"}
 deb [signed-by=/usr/share/keyrings/gitlab_gitlab-ce-archive-keyring.gpg] {{endpoint}}/{{os}}/{{release}} {{release}} main
 ```
 

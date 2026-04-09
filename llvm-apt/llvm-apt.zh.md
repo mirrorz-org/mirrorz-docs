@@ -17,7 +17,7 @@ wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | {{sudo}}gpg -o /etc/apt/k
 
 新增 `/etc/apt/sources.list.d/llvm-apt.list`，内容为
 
-```{ztmpl input="release ver2 src" path="/etc/apt/sources.list.d/llvm-apt.list"}
+```{ztmpl lang="properties" input="release ver2 src" path="/etc/apt/sources.list.d/llvm-apt.list"}
 # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
 deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg] {{endpoint}}/{{release}}/ llvm-toolchain-{{release}}{{#ver2}}-{{ver2}}{{/ver2}} main
 {{src}}deb-src [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg] {{endpoint}}/{{release}}/ llvm-toolchain-{{release}}{{#ver2}}-{{ver2}}{{/ver2}} main

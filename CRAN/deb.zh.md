@@ -11,7 +11,7 @@
 
 编辑 `/etc/apt/sources.list.d/r-mirror.list`
 
-```{ztmpl path="/etc/apt/sources.list.d/r-mirror.list" input="release version"}
+```{ztmpl lang="properties" path="/etc/apt/sources.list.d/r-mirror.list" input="release version"}
 deb {{endpoint}}/bin/linux/{{os}} {{release}}-{{version}}/
 ```
 

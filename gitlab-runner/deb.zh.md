@@ -8,7 +8,7 @@ curl -L https://packages.gitlab.com/runner/gitlab-runner/gpgkey | {{sudo}}gpg --
 
 再选择你的 Debian/Ubuntu 版本，将下方内容写入 `/etc/apt/sources.list.d/gitlab-runner.list`
 
-```{ztmpl input="release" path="/etc/apt/sources.list.d/gitlab-runner.list"}
+```{ztmpl lang="properties" input="release" path="/etc/apt/sources.list.d/gitlab-runner.list"}
 deb [signed-by=/usr/share/keyrings/gitlab-runner.gpg] {{endpoint}}/{{os}} {{release}} main
 ```
 

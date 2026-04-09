@@ -6,7 +6,7 @@
 
 ### 传统格式（`/etc/apt/sources.list`）
 
-```{ztmpl input="release src nf"}
+```{ztmpl lang="properties" input="release src nf"}
 # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
 deb {{endpoint}} {{release}}{{security}} main contrib{{#nf}}{{nonfree}}{{/nf}}
 {{src}}deb-src {{endpoint}} {{release}}{{security}} main contrib{{#nf}}{{nonfree}}{{/nf}}
@@ -14,7 +14,7 @@ deb {{endpoint}} {{release}}{{security}} main contrib{{#nf}}{{nonfree}}{{/nf}}
 
 ### DEB822 格式（`/etc/apt/sources.list.d/debian.sources`）
 
-```{ztmpl input="release_deb822 src nf"}
+```{ztmpl lang="yaml" input="release_deb822 src nf"}
 Types: deb
 URIs: {{endpoint}}
 Suites: {{release_deb822}}-security

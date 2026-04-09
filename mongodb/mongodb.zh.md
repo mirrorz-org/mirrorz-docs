@@ -17,7 +17,7 @@ wget -qO - https://www.mongodb.org/static/pgp/server-{{version}}.asc | {{sudo}}g
 
 再选择你的 Debian / Ubuntu 版本，文本框中内容写进 `/etc/apt/sources.list.d/mongodb.list`
 
-```{ztmpl input="release" path="/etc/apt/sources.list.d/mongodb.list"}
+```{ztmpl lang="properties" input="release" path="/etc/apt/sources.list.d/mongodb.list"}
 deb [signed-by=/etc/apt/keyrings/mongodb-server-{{version}}.gpg] {{endpoint}}/apt/{{os}} {{release}}/mongodb-org/{{version}} {{repo}}
 ```
 

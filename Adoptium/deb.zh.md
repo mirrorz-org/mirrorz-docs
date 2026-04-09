@@ -14,7 +14,7 @@ wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | {{sudo}
 
 随后将下列内容添加到 `/etc/apt/sources.list.d/adoptium.list` ：
 
-```{ztmpl input="release" path="/etc/apt/sources.list.d/adoptium.list"}
+```{ztmpl lang="properties" input="release" path="/etc/apt/sources.list.d/adoptium.list"}
 deb [signed-by=/etc/apt/keyrings/adoptium.asc] {{endpoint}}/deb {{release}} main
 ```
 

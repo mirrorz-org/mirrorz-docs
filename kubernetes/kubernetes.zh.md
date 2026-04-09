@@ -12,7 +12,7 @@ curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | {{sudo}}gpg
 
 新建 `/etc/apt/sources.list.d/kubernetes.list`，内容为
 
-```{ztmpl input="cri_o" path="/etc/apt/sources.list.d/kubernetes.list"}
+```{ztmpl lang="properties" input="cri_o" path="/etc/apt/sources.list.d/kubernetes.list"}
 deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] {{endpoint}}/core:/stable:/v1.28/deb/ /
 {{cri_o}}deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] {{endpoint}}/addons:/cri-o:/stable:/v1.28/deb/ /
 ```

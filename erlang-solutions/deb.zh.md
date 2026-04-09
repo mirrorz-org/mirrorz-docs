@@ -32,7 +32,7 @@ curl -s https://binaries2.erlang-solutions.com/GPG-KEY-pmanager.asc | {{sudo}}gp
 
 新建 `/etc/apt/sources.list.d/erlang-solutions.list`，填入下列内容（可根据需要选择）：
 
-```{ztmpl path="/etc/apt/sources.list.d/erlang-solutions.list"}
+```{ztmpl lang="properties" path="/etc/apt/sources.list.d/erlang-solutions.list"}
 deb [signed-by=/etc/apt/keyrings/erlang-solutions-archive_compat.gpg] {{endpoint}}/{{os}} {{release}}-esl-erlang-{{erlang-version}} contrib
 deb [signed-by=/etc/apt/keyrings/erlang-solutions-archive_compat.gpg] {{endpoint}}/{{os}} {{release}}-elixir-{{elixir-version}} contrib
 deb [signed-by=/etc/apt/keyrings/erlang-solutions-archive_compat.gpg] {{endpoint}}/{{os}} {{release}}-mongooseim-{{mongooseim-version}} contrib
