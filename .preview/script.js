@@ -63,12 +63,38 @@ function normalizeDirName(href) {
   if (href.startsWith(".")) return "";
   if (href.startsWith("../")) return "";
   const name = href.slice(0, -1);
-  if (!name || name === "preview") return "";
+  if (!name || name === "preview" || name === ".preview") return "";
   return name;
+}
+
+function loadProjectsFromManifest(text) {
+  const data = JSON.parse(text);
+  if (!data || typeof data !== "object") return false;
+  const projects = Array.isArray(data.projects) ? data.projects : [];
+  const langsByProject =
+    data.langsByProject && typeof data.langsByProject === "object"
+      ? data.langsByProject
+      : {};
+  if (!projects.length) return false;
+  state.projects = projects;
+  state.langsByProject = langsByProject;
+  return true;
 }
 
 async function loadProjects() {
   setStatus("Discovering projects...");
+
+  const manifest = await fetchTextOrNull("./projects.json");
+  if (manifest) {
+    try {
+      if (loadProjectsFromManifest(manifest)) {
+        return;
+      }
+    } catch (_error) {
+      // Fall back to directory listing when manifest is invalid.
+    }
+  }
+
   const root = await fetchTextOrNull("../");
   if (!root) throw new Error("Cannot read repo root directory listing.");
 
