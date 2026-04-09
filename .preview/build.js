@@ -63,7 +63,11 @@ async function main() {
     "",
   ].join("\n");
 
-  await fs.writeFile(path.resolve(repoRoot, "index.html"), redirectHtml, "utf8");
+  await fs.writeFile(
+    path.resolve(repoRoot, "index.html"),
+    redirectHtml,
+    "utf8",
+  );
 
   process.stdout.write(
     `Generated .preview/projects.json with ${projects.length} projects and repo index redirect.\n`,
