@@ -146,7 +146,7 @@
 - `*.otf.woff2`
 - `*.ttf`, `*.ttf.ttc`, `*.ttf.woff2`
 
-一般使用推荐`*.otf`或其打包成的`*.otf.ttc`，网页使用推荐`*.otf.woff2`（但不推荐将镜像站直接用于网页）。至于`*.ttf*`，官方提供该版本[只是为了规避早年 Windows 系统的缺陷](https://github.com/adobe-fonts/source-han-sans/issues/558#issuecomment-3363129394)，现在基本不需要了。因此，本页的下载链接生成器只支持第一种。
+一般使用推荐 `*.otf` 或其打包成的 `*.otf.ttc`，网页使用推荐下载 `*.otf.woff2` 部署。至于 `*.ttf*`，官方提供该版本[只是为了规避早年 Windows 系统的缺陷](https://github.com/adobe-fonts/source-han-sans/issues/558#issuecomment-3363129394)，现在基本不需要了。因此，本页的下载链接生成器只支持第一种。
 
 ### 补充信息 {#source-han-sans-see-also}
 
