@@ -1,2 +1,4 @@
 __pycache__/
 .mypy_cache/
+/index.html
+/.preview/projects.json

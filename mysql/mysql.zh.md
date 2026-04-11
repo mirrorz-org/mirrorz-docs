@@ -7,7 +7,7 @@
 
 再选择你的 Debian/Ubuntu 版本，文本框中内容写进 `/etc/apt/sources.list.d/mysql-community.list`
 
-```{ztmpl input="deb_release" path="/etc/apt/sources.list.d/mysql-community.list"}
+```{ztmpl lang="properties" input="deb_release" path="/etc/apt/sources.list.d/mysql-community.list"}
 deb {{endpoint}}/apt/{{os}} {{deb_release}} mysql-{{version}} mysql-tools
 ```
 

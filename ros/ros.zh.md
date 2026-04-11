@@ -2,7 +2,7 @@
 
 新建 `/etc/apt/sources.list.d/ros-latest.list`，内容为：
 
-```{ztmpl input="release" path="/etc/apt/sources.list.d/ros-latest.list"}
+```{ztmpl lang="properties" input="release" path="/etc/apt/sources.list.d/ros-latest.list"}
 deb {{endpoint}}/ubuntu/ {{release}} main
 ```
 

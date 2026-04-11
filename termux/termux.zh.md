@@ -67,14 +67,14 @@ deb {{endpoint}}/apt/termux-main stable main
 
 x11-repo
 
-```{ztmpl path="$PREFIX/etc/apt/sources.list.d/x11.list"}
+```{ztmpl lang="properties" path="$PREFIX/etc/apt/sources.list.d/x11.list"}
 # The termux repository mirror
 deb {{endpoint}}/apt/termux-x11 x11 main
 ```
 
 root-repo
 
-```{ztmpl path="$PREFIX/etc/apt/sources.list.d/root.list"}
+```{ztmpl lang="properties" path="$PREFIX/etc/apt/sources.list.d/root.list"}
 # The termux repository mirror
 deb {{endpoint}}/apt/termux-root root stable
 ```

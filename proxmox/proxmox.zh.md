@@ -8,13 +8,13 @@
 
 新建 `/etc/apt/sources.list.d/pve-no-subscription.list`（如果选择的不是 pve，需要使用另一个文件名），内容为：
 
-```{ztmpl input="release service" path="/etc/apt/sources.list.d/pve-no-subscription.list"}
+```{ztmpl lang="properties" input="release service" path="/etc/apt/sources.list.d/pve-no-subscription.list"}
 deb {{endpoint}}/debian/{{service}} {{release}} {{service}}-no-subscription
 ```
 
 #### DEB822 格式（`/etc/apt/sources.list.d/pve-no-subscription.sources`）：
 
-```{ztmpl input="release service" path="/etc/apt/sources.list.d/pve-no-subscription.sources"}
+```{ztmpl lang="yaml" input="release service" path="/etc/apt/sources.list.d/pve-no-subscription.sources"}
 Types: deb
 URIs: {{endpoint}}/debian/{{service}}
 Suites: {{release}}

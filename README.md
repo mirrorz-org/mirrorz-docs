@@ -134,6 +134,8 @@ Also note that we use [autocorrect](https://github.com/huacnlee/autocorrect) for
 
 Pull Requests are super welcomed! By opening a pull request, you agree to contribute your content under the following licenses.
 
+If you want to see how mirrorz-docs renders, an experimental preview webpage is under [.preview](.preview/README.md).
+
 ## License
 
 The contents of the documentations, in human- or machine-readable format, are licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](./LICENSE-CC), visit [Creative Commons Website](https://creativecommons.org/licenses/by-nc-sa/4.0/) for explanation.

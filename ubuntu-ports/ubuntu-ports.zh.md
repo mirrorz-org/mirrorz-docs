@@ -6,7 +6,7 @@
 
 ### 传统格式（`/etc/apt/sources.list`）
 
-```{ztmpl input="release src proposed mirror_security" path="/etc/apt/sources.list"}
+```{ztmpl lang="properties" input="release src proposed mirror_security" path="/etc/apt/sources.list"}
 # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
 deb {{endpoint}}/ {{release}} main restricted universe multiverse
 {{src}}deb-src {{endpoint}}/ {{release}} main restricted universe multiverse
@@ -15,12 +15,13 @@ deb {{endpoint}}/ {{release}}-updates main restricted universe multiverse
 deb {{endpoint}}/ {{release}}-backports main restricted universe multiverse
 {{src}}deb-src {{endpoint}}/ {{release}}-backports main restricted universe multiverse
 
-# 以下安全更新软件源包含了官方源与镜像站配置，如有需要可自行修改注释切换
 {{#mirror_security}}
+# 以下安全更新软件源为镜像站配置
 deb {{endpoint}}/ {{release}}-security main restricted universe multiverse
 {{src}}deb-src {{endpoint}}/ {{release}}-security main restricted universe multiverse
 {{/mirror_security}}
 {{^mirror_security}}
+# 以下安全更新软件源为官方源配置
 deb http://ports.ubuntu.com/ubuntu-ports/ {{release}}-security main restricted universe multiverse
 {{src}}deb-src http://ports.ubuntu.com/ubuntu-ports/ {{release}}-security main restricted universe multiverse
 {{/mirror_security}}
@@ -32,7 +33,7 @@ deb http://ports.ubuntu.com/ubuntu-ports/ {{release}}-security main restricted u
 
 ### DEB822 格式（`/etc/apt/sources.list.d/ubuntu.sources`）
 
-```{ztmpl input="release_deb822 src proposed mirror_security" path="/etc/apt/sources.list.d/ubuntu.sources"}
+```{ztmpl lang="yaml" input="release_deb822 src proposed mirror_security" path="/etc/apt/sources.list.d/ubuntu.sources"}
 Types: deb
 URIs: {{endpoint}}
 Suites: {{release_deb822}} {{release_deb822}}-updates {{release_deb822}}-backports
@@ -46,8 +47,8 @@ Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
 {{src}}Components: main restricted universe multiverse
 {{src}}Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
 
-# 以下安全更新软件源包含了官方源与镜像站配置，如有需要可自行修改注释切换
 {{#mirror_security}}
+# 以下安全更新软件源为镜像站配置
 Types: deb
 URIs: {{endpoint}}
 Suites: {{release_deb822}}-security
@@ -61,6 +62,7 @@ Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
 {{src}}Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
 {{/mirror_security}}
 {{^mirror_security}}
+# 以下安全更新软件源为官方源配置
 Types: deb
 URIs: http://ports.ubuntu.com/ubuntu-ports/
 Suites: {{release_deb822}}-security

@@ -14,8 +14,7 @@
 
 新增 `/etc/apt/sources.list.d/winehq.list`，内容为
 
-```{ztmpl input="release" path="/etc/apt/sources.list.d/winehq.list"}
-
+```{ztmpl lang="properties" input="release" path="/etc/apt/sources.list.d/winehq.list"}
 deb [arch=amd64,i386 signed-by=/usr/share/keyrings/winehq-archive.key] {{endpoint}}/{{os}}/ {{release}} main
 ```
 

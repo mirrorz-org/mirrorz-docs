@@ -7,7 +7,7 @@
 
 选择你的 Debian/Ubuntu 版本，文本框中内容写进 `/etc/apt/sources.list.d/rudder.list`
 
-```{ztmpl input="release" path="/etc/apt/sources.list.d/rudder.list"}
+```{ztmpl lang="properties" input="release" path="/etc/apt/sources.list.d/rudder.list"}
 deb {{endpoint}}/apt/{{version}} {{release}} main
 ```
 

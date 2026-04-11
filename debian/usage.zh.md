@@ -8,7 +8,7 @@ Debian Buster 以上版本默认支持 HTTPS 源。如果遇到无法拉取 HTTP
 
 ### 传统格式（`/etc/apt/sources.list`）
 
-```{ztmpl input="release src nf mirror_security" path="/etc/apt/sources.list"}
+```{ztmpl lang="properties" input="release src nf mirror_security" path="/etc/apt/sources.list"}
 # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
 {{#sid}}
 deb {{endpoint}}/ sid main contrib{{#nf}}{{nonfree}}{{/nf}}
@@ -24,12 +24,13 @@ deb {{endpoint}}/ {{release}}-updates main contrib{{#nf}}{{nonfree}}{{/nf}}
 deb {{endpoint}}/ {{release}}-backports main contrib{{#nf}}{{nonfree}}{{/nf}}
 {{src}}deb-src {{endpoint}}/ {{release}}-backports main contrib{{#nf}}{{nonfree}}{{/nf}}
 
-# 以下安全更新软件源包含了官方源与镜像站配置，如有需要可自行修改注释切换
 {{#mirror_security}}
+# 以下安全更新软件源为镜像站配置
 deb {{endpoint}}-security {{release}}{{security}} main contrib{{#nf}}{{nonfree}}{{/nf}}
 {{src}}deb-src {{endpoint}}-security {{release}}{{security}} main contrib{{#nf}}{{nonfree}}{{/nf}}
 {{/mirror_security}}
 {{^mirror_security}}
+# 以下安全更新软件源为官方源配置
 deb https://security.debian.org/debian-security {{release}}{{security}} main contrib{{#nf}}{{nonfree}}{{/nf}}
 {{src}}deb-src https://security.debian.org/debian-security {{release}}{{security}} main contrib{{#nf}}{{nonfree}}{{/nf}}
 {{/mirror_security}}
@@ -38,7 +39,7 @@ deb https://security.debian.org/debian-security {{release}}{{security}} main con
 
 ### DEB822 格式（`/etc/apt/sources.list.d/debian.sources`）
 
-```{ztmpl input="release_deb822 src nf mirror_security" path="/etc/apt/sources.list.d/debian.sources"}
+```{ztmpl lang="yaml" input="release_deb822 src nf mirror_security" path="/etc/apt/sources.list.d/debian.sources"}
 {{#sid}}
 Types: deb
 URIs: {{endpoint}}
@@ -67,8 +68,8 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 {{src}}Components: main contrib{{#nf}} non-free non-free-firmware{{/nf}}
 {{src}}Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 
-# 以下安全更新软件源包含了官方源与镜像站配置，如有需要可自行修改注释切换
 {{#mirror_security}}
+# 以下安全更新软件源为镜像站配置
 Types: deb
 URIs: {{endpoint}}-security
 Suites: {{release_deb822}}-security
@@ -82,6 +83,7 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 {{src}}Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 {{/mirror_security}}
 {{^mirror_security}}
+# 以下安全更新软件源为官方源配置
 Types: deb
 URIs: https://security.debian.org/debian-security
 Suites: {{release_deb822}}-security

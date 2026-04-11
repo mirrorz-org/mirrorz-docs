@@ -14,7 +14,7 @@
 
 选择你希望安装的 Grafana 版本（与你的系统版本无关），将下方内容写入 `/etc/apt/sources.list.d/grafana.list`
 
-```{ztmpl input="version" path="/etc/apt/sources.list.d/grafana.list"}
+```{ztmpl lang="properties" input="version" path="/etc/apt/sources.list.d/grafana.list"}
 deb [signed-by=/usr/share/keyrings/grafana.key] {{endpoint}}/apt/ {{version}} main
 ```
 

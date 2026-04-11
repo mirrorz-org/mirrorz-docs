@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MirrorZ Docs Preview</title>
+    <style>
+      :root {
+        --bg: #f4f7fb;
+        --panel: #ffffff;
+        --text: #1b2430;
+        --muted: #637083;
+        --line: #d8e0ec;
+        --accent: #0d6a87;
+        --accent-soft: #e8f3f7;
+        --code-bg: #111827;
+        --code-text: #eef2ff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--text);
+        background: radial-gradient(
+          circle at top right,
+          #dde8f5 0%,
+          var(--bg) 38%
+        );
+        font-family: "IBM Plex Sans", "Noto Sans", "Segoe UI", sans-serif;
+      }
+
+      .shell {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 320px 1fr;
+      }
+
+      .sidebar {
+        border-right: 1px solid var(--line);
+        background: var(--panel);
+        padding: 18px;
+        overflow: auto;
+      }
+
+      .content {
+        padding: 18px;
+        overflow: auto;
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        font-family: "IBM Plex Serif", "Noto Serif", serif;
+        font-size: 24px;
+      }
+
+      .desc {
+        color: var(--muted);
+        margin: 0 0 18px;
+        line-height: 1.4;
+      }
+
+      .group {
+        margin-bottom: 14px;
+      }
+
+      .group label {
+        display: block;
+        font-size: 12px;
+        color: var(--muted);
+        margin-bottom: 6px;
+        letter-spacing: 0.02em;
+      }
+
+      .group input,
+      .group select,
+      .group button,
+      .group textarea {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--text);
+        padding: 8px 10px;
+        font-family: inherit;
+        font-size: 14px;
+      }
+
+      .group button {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .group button:hover {
+        filter: brightness(0.95);
+      }
+
+      .inline {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+      }
+
+      .switch {
+        display: flex;
+        gap: 8px;
+      }
+
+      .switch button {
+        border: 1px solid var(--line);
+        background: #fff;
+        color: var(--text);
+        border-radius: 999px;
+        padding: 6px 12px;
+        cursor: pointer;
+      }
+
+      .switch button.active {
+        border-color: var(--accent);
+        background: var(--accent-soft);
+        color: #08384a;
+      }
+
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 18px;
+      }
+
+      .panel h2 {
+        margin: 0 0 12px;
+        font-size: 16px;
+      }
+
+      .panel pre {
+        margin: 0;
+        white-space: pre-wrap;
+      }
+
+      #rendered h1,
+      #rendered h2,
+      #rendered h3,
+      #rendered h4,
+      #rendered h5,
+      #rendered h6 {
+        scroll-margin-top: 20px;
+      }
+
+      #rendered pre,
+      .ztmpl pre {
+        background: var(--code-bg);
+        color: var(--code-text);
+        border-radius: 10px;
+        padding: 12px;
+        overflow: auto;
+      }
+
+      #rendered code {
+        font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+      }
+
+      .ztmpl {
+        border: 1px dashed #94a5c0;
+        background: #f8fbff;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 12px 0;
+      }
+
+      .ztmpl-meta {
+        font-size: 12px;
+        color: var(--muted);
+        margin-bottom: 8px;
+      }
+
+      .ztmpl-inputs {
+        border: 1px solid var(--line);
+        background: #fff;
+        border-radius: 8px;
+        padding: 10px;
+        margin-bottom: 8px;
+      }
+
+      .ztmpl-inputs-title {
+        font-size: 12px;
+        font-weight: 700;
+        margin: 0 0 8px;
+      }
+
+      .ztmpl-inputs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 8px;
+      }
+
+      .vars {
+        margin-top: 12px;
+      }
+
+      .vars pre {
+        max-height: 220px;
+        overflow: auto;
+        background: #0b1021;
+        color: #bde3ff;
+        border-radius: 10px;
+        padding: 12px;
+      }
+
+      .status {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      @media (max-width: 980px) {
+        .shell {
+          grid-template-columns: 1fr;
+        }
+        .sidebar {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <h1>MirrorZ Preview</h1>
+        <p class="desc">Debug YAML + Markdown + ztmpl rendering in one page.</p>
+
+        <div class="group">
+          <label for="project">Project</label>
+          <select id="project"></select>
+        </div>
+
+        <div class="inline">
+          <div class="group">
+            <label for="lang">Language</label>
+            <select id="lang"></select>
+          </div>
+          <div class="group">
+            <label for="host">Host</label>
+            <input id="host" value="mirrors.example.com" />
+          </div>
+        </div>
+
+        <div class="inline">
+          <div class="group">
+            <label for="scheme">Scheme</label>
+            <select id="scheme">
+              <option value="https" selected>https</option>
+              <option value="http">http</option>
+            </select>
+          </div>
+          <div class="group">
+            <label for="path">Path</label>
+            <input id="path" value="" />
+          </div>
+        </div>
+
+        <div class="group">
+          <label for="sudo">sudo value</label>
+          <input id="sudo" value="sudo " />
+        </div>
+
+        <div class="group">
+          <button id="reload">Reload Preview</button>
+        </div>
+
+        <div class="group">
+          <label for="yamlDump">Parsed YAML</label>
+          <textarea id="yamlDump" rows="10" readonly></textarea>
+        </div>
+      </aside>
+
+      <main class="content">
+        <div class="topbar">
+          <div class="status" id="status">Initializing...</div>
+          <div class="switch">
+            <button id="showRendered" class="active">Rendered</button>
+            <button id="showSource">Merged Markdown</button>
+          </div>
+        </div>
+
+        <section id="rendered" class="panel"></section>
+        <section id="source" class="panel" hidden>
+          <h2>Merged Markdown</h2>
+          <pre id="sourceText"></pre>
+        </section>
+
+        <section class="panel vars">
+          <h2>Active Variables</h2>
+          <pre id="vars"></pre>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mustache@4.2.0/mustache.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/styles/default.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.11.1/languages/properties.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

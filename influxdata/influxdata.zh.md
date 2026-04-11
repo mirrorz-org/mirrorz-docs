@@ -13,7 +13,7 @@ cat influxdata-archive_compat.key | {{sudo}}gpg --dearmor -o /etc/apt/trusted.gp
 
 将下方文本框中的内容写入 `/etc/apt/sources.list.d/influxdata.list`
 
-```{ztmpl path="/etc/apt/sources.list.d/influxdata.list"}
+```{ztmpl lang="properties" path="/etc/apt/sources.list.d/influxdata.list"}
 deb {{endpoint}}/debian/ stable main
 ```
 
