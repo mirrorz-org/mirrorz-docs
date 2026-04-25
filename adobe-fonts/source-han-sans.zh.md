@@ -127,7 +127,7 @@
 
    如果您只用单一语言，不需要其它地区的字符及字形，那推荐选 SubsetOTF（选其它亦可，只不过文件更大）。例如中国大陆用户若不需要「가ᇰ」「𰻞」字符和「氺」字形的「雨」，那么选择 SubsetOTF 的 CN 版即可。
 
-   如果您需要多种语言，请选 OTF/OTC/SuperOTC，默认用主要语言的字形，必要时利用 OpenType `locl` (Localized Forms) 特性切换其它字形。OTC 与 OTF 相比，无需多份文件就支持通过切换字体来切换默认字形，而且文件体积仅略大于单个 OTF 文件；但它依赖 2011 年提出的 OpenType Collection 技术，某些平台尚不完全兼容（例如 [matplotlib 3.10.9 (2026-04-24) 和更早版本只能使用 OTC 中的第一个字体，即日本語 J](https://github.com/matplotlib/matplotlib/issues/3135#issuecomment-1169518870)）。SuperOTC 与 OTC 相比，只是把所有字重打包为单个文件，管理更方便。SuperOTC 只有静态版本，因为可变字体字重可调，没有相应概念。
+   如果您需要多种语言，请选 OTF/OTC/SuperOTC，默认用主要语言的字形，必要时利用 OpenType `locl` (Localized Forms) 特性切换其它字形。OTC 与 OTF 相比，无需多份文件就支持通过切换字体来切换默认字形，而且文件体积仅略大于单个 OTF 文件；但它依赖 2011 年提出的 OpenType Collection 技术，某些平台尚不完全兼容（例如 [matplotlib 早于 3.11.0rc1 (2026-04-25) 的版本只能使用 OTC 中的第一个字体，即日本語 J](https://github.com/matplotlib/matplotlib/issues/3135#issuecomment-1169518870)）。SuperOTC 与 OTC 相比，只是把所有字重打包为单个文件，管理更方便。SuperOTC 只有静态版本，因为可变字体字重可调，没有相应概念。
 
 3. **ASCII 字符默认宽度**
 
