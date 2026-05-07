@@ -10,14 +10,14 @@
 
 ```{ztmpl lang="bash"}
 {{sudo}}install -d -m 0755 /etc/apt/keyrings
-wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | {{sudo}}tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
-gpg -n -q --import --import-options import-show /etc/apt/keyrings/packages.mozilla.org.asc | awk '/pub/{getline; gsub(/^ +| +$/,""); if($0 == "35BAA0B33E9EB396F59CA838C0BA5CE6DC6315A3") print "\nThe key fingerprint matches ("$0").\n"; else print "\nVerification failed: the fingerprint ("$0") does not match the expected one.\n"}'
+wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | {{sudo}}gpg --dearmor -o /etc/apt/keyrings/packages.mozilla.org.gpg
+gpg -n -q --import --import-options import-show /etc/apt/keyrings/packages.mozilla.org.gpg | awk '/pub/{getline; gsub(/^ +| +$/,""); if($0 == "35BAA0B33E9EB396F59CA838C0BA5CE6DC6315A3") print "\nThe key fingerprint matches ("$0").\n"; else print "\nVerification failed: the fingerprint ("$0") does not match the expected one.\n"}'
 ```
 
 然后添加 APT 源：
 
 ```{ztmpl lang="properties" input="arch" path="/etc/apt/sources.list.d/mozilla.list"}
-deb [arch={{arch}} signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] {{endpoint}}/apt mozilla main
+deb [arch={{arch}} signed-by=/etc/apt/keyrings/packages.mozilla.org.gpg] {{endpoint}}/apt mozilla main
 ```
 
 如有需要，配置 APT 优先级：

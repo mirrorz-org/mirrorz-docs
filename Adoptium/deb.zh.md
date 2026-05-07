@@ -9,13 +9,13 @@
 然后信任 GPG 公钥：
 
 ```{ztmpl lang="bash"}
-wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | {{sudo}}tee /etc/apt/keyrings/adoptium.asc
+wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | {{sudo}}gpg --dearmor -o /etc/apt/keyrings/adoptium.gpg
 ```
 
 随后将下列内容添加到 `/etc/apt/sources.list.d/adoptium.list` ：
 
 ```{ztmpl lang="properties" input="release" path="/etc/apt/sources.list.d/adoptium.list"}
-deb [signed-by=/etc/apt/keyrings/adoptium.asc] {{endpoint}}/deb {{release}} main
+deb [signed-by=/etc/apt/keyrings/adoptium.gpg] {{endpoint}}/deb {{release}} main
 ```
 
 再执行
