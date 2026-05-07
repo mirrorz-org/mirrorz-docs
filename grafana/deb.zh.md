@@ -3,7 +3,7 @@
 首先信任 https://apt.grafana.com/ 的 GPG 公钥：
 
 ```{ztmpl lang="bash"}
-{{sudo}}wget -q -O /usr/share/keyrings/grafana.key https://apt.grafana.com/gpg.key
+wget -q -O- https://apt.grafana.com/gpg.key | {{sudo}}gpg --dearmor -o /usr/share/keyrings/grafana.gpg
 ```
 
 确保你的 apt 支持 HTTPS:
@@ -15,7 +15,7 @@
 选择你希望安装的 Grafana 版本（与你的系统版本无关），将下方内容写入 `/etc/apt/sources.list.d/grafana.list`
 
 ```{ztmpl lang="properties" input="version" path="/etc/apt/sources.list.d/grafana.list"}
-deb [signed-by=/usr/share/keyrings/grafana.key] {{endpoint}}/apt/ {{version}} main
+deb [signed-by=/usr/share/keyrings/grafana.gpg] {{endpoint}}/apt/ {{version}} main
 ```
 
 安装 Grafana

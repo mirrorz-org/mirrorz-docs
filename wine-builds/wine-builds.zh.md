@@ -9,13 +9,13 @@
 之后信任来自 https://dl.winehq.org/ 的公钥
 
 ```{ztmpl lang="bash"}
-{{sudo}}wget -nc -O /usr/share/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
+wget -nc -O- https://dl.winehq.org/wine-builds/winehq.key | {{sudo}}gpg --dearmor -o /usr/share/keyrings/winehq-archive.gpg
 ```
 
 新增 `/etc/apt/sources.list.d/winehq.list`，内容为
 
 ```{ztmpl lang="properties" input="release" path="/etc/apt/sources.list.d/winehq.list"}
-deb [arch=amd64,i386 signed-by=/usr/share/keyrings/winehq-archive.key] {{endpoint}}/{{os}}/ {{release}} main
+deb [arch=amd64,i386 signed-by=/usr/share/keyrings/winehq-archive.gpg] {{endpoint}}/{{os}}/ {{release}} main
 ```
 
 通过以下命令安装 winehq

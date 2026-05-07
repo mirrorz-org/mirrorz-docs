@@ -2,7 +2,7 @@
 
 ```{ztmpl lang="bash"}
 {{sudo}}apt install curl gnupg2
-{{sudo}}curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key  -o /usr/share/keyrings/ros-archive-keyring.gpg
+curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key | {{sudo}}gpg --dearmor -o /usr/share/keyrings/ros-archive-keyring.gpg
 ```
 
 ```{ztmpl lang="bash" input="release"}

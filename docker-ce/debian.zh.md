@@ -19,14 +19,14 @@
 
 ```{ztmpl lang="bash" input="deb_release"}
 {{sudo}}install -m 0755 -d /etc/apt/keyrings
-{{sudo}}curl -fsSL https://download.docker.com/linux/{{deb_release}}/gpg -o /etc/apt/keyrings/docker.asc
-{{sudo}}chmod a+r /etc/apt/keyrings/docker.asc
+curl -fsSL https://download.docker.com/linux/{{deb_release}}/gpg | {{sudo}}gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+{{sudo}}chmod a+r /etc/apt/keyrings/docker.gpg
 {{sudo}}tee /etc/apt/sources.list.d/docker.sources <<EOF
 Types: deb
 URIs: {{endpoint}}/linux/{{deb_release}}
 Suites: $(. /etc/os-release && echo "$VERSION_CODENAME")
 Components: stable
-Signed-By: /etc/apt/keyrings/docker.asc
+Signed-By: /etc/apt/keyrings/docker.gpg
 EOF
 ```
 
