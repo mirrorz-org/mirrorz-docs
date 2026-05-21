@@ -81,7 +81,7 @@ poetry config experimental.new-installer false
 
 ```{ztmpl lang="toml"}
 [[index]]
-url = "{{endpoint}}/web/simple/"
+url = "{{endpoint}}/web/simple"
 default = true
 ```
 
