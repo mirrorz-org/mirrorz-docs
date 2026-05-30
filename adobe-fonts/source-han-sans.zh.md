@@ -57,8 +57,7 @@
 {{!    }}{{/weights}}
 {{!  }}{{/stroke_width=static}}
 {{!  }}{{^stroke_width=static}}
-{{!    }}# 🎚️ 可变 OTC 字重连续可调，包含多种字体，每种字体是针对特定语言的 OTF{{#HW}}
-{{!    }}# 由于将比例和半宽字体一起打包，没有单独的半宽字体可下载{{/HW}}
+{{!    }}# 🎚️ 可变 OTC 字重连续可调，包含多种字体，每种字体是针对特定语言的 OTF
 {{!    }}{{endpoint}}/source-han-sans/Variable/{{kind}}/SourceHanSans{{HW}}-VF.otf.ttc
 {{!  }}{{/stroke_width=static}}
 {{/kind=OTC}}
@@ -112,7 +111,7 @@
 
    可变（variable）版本更灵活，文件总体积也更小（例如 OTF SC 版覆盖七种字重，可变版本只需单个 ~50 MB 文件，而静态版本需要七个 ~20 MB 文件）；但它依赖 2016 年发布的 OpenType 可变字体技术，某些平台尚不兼容（例如[很多办公软件和视频编辑软件不完全支持](https://v-fonts.com/support/)，TeX 引擎中[只有 LuaTeX 支持](https://github.com/latex3/fontspec/blob/70970a5/fontspec-doc-featset.tex#L686)而 [XeTeX 尚不支持](https://sourceforge.net/p/xetex/feature-requests/28/)，[Typst 导出 SVG 时目前只能加载最细字重](https://github.com/typst/typst/issues/185)）。
 
-   静态版本的字重包括 ExtraLight—0, Light—160, Normal—320, Regular—420, Medium—560, Bold—780, Heavy—1000，其中最常用的是 Regular 和 Bold。每种字重可以单独下载，只下载部分字重亦可使用。
+   静态版本的字重包括 ExtraLight—0, Light—160, Normal—320, Regular—390 ([一说 420](https://github.com/adobe-fonts/source-han-sans/issues/600)), Medium—560, Bold—780, Heavy—1000，其中最常用的是 Regular 和 Bold。每种字重可以单独下载，只下载部分字重亦可使用。中间五种字重采用[多母版技术](https://glyphsapp.com/zh/learn/multiple-masters-part-1-setting-up-masters)从最细与最粗字重插值而来，这里所标数值即插值系数；最终发行字体中的[字重标称数值](https://learn.microsoft.com/en-us/typography/opentype/spec/os2#usweightclass)则是 50 的整倍数，与此并不相同，详见 [designspace 源文件](https://github.com/adobe-fonts/source-han-sans/blob/master/Masters/designspaces/SourceHanSansSC-VF.designspace)。
 
 2. **字形覆盖范围**
 
@@ -125,7 +124,7 @@
 
    各地汉字字形略有不同。例如「雨」字四点，简体均向右下，繁体则似「氺」状，但两种字形在 Unicode 是相同字符。
 
-   如果您只用单一语言，不需要其它地区的字符及字形，那推荐选 SubsetOTF（选其它亦可，只不过文件更大）。例如中国大陆用户若不需要「가ᇰ」「𰻞」字符和「氺」字形的「雨」，那么选择 SubsetOTF 的 CN 版即可。
+   如果您只用单一语言，不需要其它地区的字符及字形，那推荐选 SubsetOTF（选其它亦可，只不过文件更大）。例如中国大陆用户若不需要「가ᇰ」「𰻝」字符和「氺」字形的「雨」，那么选择 SubsetOTF 的 CN 版即可。
 
    如果您需要多种语言，请选 OTF/OTC/SuperOTC，默认用主要语言的字形，必要时利用 OpenType `locl` (Localized Forms) 特性切换其它字形。OTC 与 OTF 相比，无需多份文件就支持通过切换字体来切换默认字形，而且文件体积仅略大于单个 OTF 文件；但它依赖 2011 年提出的 OpenType Collection 技术，某些平台尚不完全兼容（例如 [matplotlib 早于 3.11.0rc1 (2026-04-25) 的版本只能使用 OTC 中的第一个字体，即日本語 J](https://github.com/matplotlib/matplotlib/issues/3135#issuecomment-1169518870)）。SuperOTC 与 OTC 相比，只是把所有字重打包为单个文件，管理更方便。SuperOTC 只有静态版本，因为可变字体字重可调，没有相应概念。
 
@@ -173,12 +172,12 @@
           <th scope="rowgroup" rowspan="2">本地化字体名</th>
           <th scope="row">黑体</th>
           <td><u>Source Han</u> Sans、<u>思源黑体</u>、<u>源ノ角ゴシック</u>等</td>
-          <td>提供数据表，但全部为 <u>Noto</u> Sans <u>CJK</u></td>
+          <td>提供数据表，但内容均为 <u>Noto</u> Sans <u>CJK</u></td>
         </tr>
         <tr>
           <th scope="row">宋体</th>
           <td><u>Source Han</u> Serif、<u>思源宋体</u>、<u>源ノ明朝</u>等</td>
-          <td>提供数据表，但全部为 <u>Noto</u> Serif <u>CJK</u></td>
+          <td>提供数据表，但内容均为 <u>Noto</u> Serif <u>CJK</u></td>
         </tr>
         <tr>
           <th scope="rowgroup" rowspan="2">字重名称</th>
@@ -199,8 +198,8 @@
         </tr>
         <tr>
           <th scope="row">英文字体名</th>
-          <td><u>Source Han</u> Sans + 文件名后缀</td>
-          <td><u>Noto</u> Sans + 文件名后缀</td>
+          <td><u>Source Han</u> Sans/Serif + 文件名后缀</td>
+          <td><u>Noto</u> Sans/Serif + 文件名后缀</td>
         </tr>
         <tr>
           <th scope="rowgroup" rowspan="2">语言特定<br/>OTF</th>
@@ -210,8 +209,8 @@
         </tr>
         <tr>
           <th scope="row">英文字体名</th>
-          <td><u>Source Han</u> Sans + 文件名后缀</td>
-          <td><u>Noto</u> Sans <u>CJK</u> + 文件名后缀（大写）</td>
+          <td><u>Source Han</u> Sans/Serif + 文件名后缀</td>
+          <td><u>Noto</u> Sans/Serif <u>CJK</u> + 文件名后缀（大写）</td>
         </tr>
         <tr>
           <th scope="row" colspan="2">半宽代号<br/>（文件名、字体名通用）</th>

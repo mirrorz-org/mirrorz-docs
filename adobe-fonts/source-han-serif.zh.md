@@ -75,7 +75,7 @@
 
 思源宋体的发行方式与[思源黑体](#source-han-sans-versions)十分类似，但有如下区别。
 
-- 静态版本的**字重范围**是 ExtraLight—0, Light—95, Regular—210, Medium—360, SemiBold—510, Bold—730, Heavy—1000，比思源黑体少 Normal、多 SemiBold，其余字重的数值也不与思源黑体对应。
+- 静态版本的**字重范围**是 ExtraLight—0, Light—95, Regular—210, Medium—360, SemiBold—510, Bold—730, Heavy—1000，比思源黑体少 Normal、多 SemiBold，其余字重的插值系数也不与思源黑体对应。
 
 - **SuperOTC** 版本只在 [GitHub Releases](https://github.com/adobe-fonts/source-han-serif/releases) 提供，而未存储于 git 仓库，所以目前未做镜像。
 
