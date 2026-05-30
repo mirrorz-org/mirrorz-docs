@@ -2,7 +2,7 @@
 
 ### 自动替换
 
-对于 OpenWrt 25.12 及以上版本，需选择 `APK`；对于 OpenWrt 24.10 及以下版本，需选择 `OPKG`。
+对于 ImmortalWrt 25.12 及以上版本，需选择 `APK`；对于 ImmortalWrt 24.10 及以下版本，需选择 `OPKG`。
 
 执行如下命令自动替换：
 
