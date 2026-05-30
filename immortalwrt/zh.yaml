@@ -1,5 +1,6 @@
 _: ImmortalWrt 软件仓库
 block:
+- intro
 - immortalwrt
 input:
   packagemanager:

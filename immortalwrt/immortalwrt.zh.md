@@ -1,5 +1,3 @@
-ImmortalWrt 是 OpenWrt 的一个第三方分支，主要针对国人用户开发，提供更多的本地化软件包和设备支持。
-
 与 OpenWrt 相同，从 ImmortalWrt 25.12 开始，包管理器由 `opkg` 改为 `apk` (Alpine Package Keeper)，默认软件源的配置文件路径由 `/etc/opkg/distfeeds.conf` 改为 `/etc/apk/repositories.d/distfeeds.list`。
 
 ### 自动替换
