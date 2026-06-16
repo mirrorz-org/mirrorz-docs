@@ -109,7 +109,7 @@
    - **可变**——笔画可从粗到细任意连续调节
    - **静态**——最多只有七种字重可选
 
-   可变（variable）版本更灵活，文件总体积也更小（例如 OTF SC 版覆盖七种字重，可变版本只需单个 ~50 MB 文件，而静态版本需要七个 ~20 MB 文件）；但它依赖 2016 年发布的 OpenType 可变字体技术，某些平台尚不兼容（例如[很多办公软件和视频编辑软件不完全支持](https://v-fonts.com/support/)，TeX 引擎中[只有 LuaTeX 支持](https://github.com/latex3/fontspec/blob/70970a5/fontspec-doc-featset.tex#L686)而 [XeTeX 尚不支持](https://sourceforge.net/p/xetex/feature-requests/28/)，[Typst 导出 SVG 时目前只能加载最细字重](https://github.com/typst/typst/issues/185)）。
+   可变（variable）版本更灵活，文件总体积也更小（例如 OTF SC 版覆盖七种字重，可变版本只需单个 ~30 MB 文件，而静态版本需要七个 ~16 MB 文件）；但它依赖 2016 年发布的 OpenType 可变字体技术，某些平台尚不兼容（例如[很多办公软件和视频编辑软件不完全支持](https://v-fonts.com/support/)，TeX 引擎中[只有 LuaTeX 支持](https://github.com/latex3/fontspec/blob/70970a5/fontspec-doc-featset.tex#L686)而 [XeTeX 尚不支持](https://sourceforge.net/p/xetex/feature-requests/28/)，[Typst 早于 v0.15.0-rc.1 (2026-06-10) 的版本亦不支持](https://github.com/typst/typst/issues/185)）。
 
    静态版本的字重包括 ExtraLight—0, Light—160, Normal—320, Regular—390 ([一说 420](https://github.com/adobe-fonts/source-han-sans/issues/600)), Medium—560, Bold—780, Heavy—1000，其中最常用的是 Regular 和 Bold。每种字重可以单独下载，只下载部分字重亦可使用。中间五种字重采用[多母版技术](https://glyphsapp.com/zh/learn/multiple-masters-part-1-setting-up-masters)从最细与最粗字重插值而来，这里所标数值即插值系数；最终发行字体中的[字重标称数值](https://learn.microsoft.com/en-us/typography/opentype/spec/os2#usweightclass)则是 50 的整倍数，与此并不相同，详见 [designspace 源文件](https://github.com/adobe-fonts/source-han-sans/blob/master/Masters/designspaces/SourceHanSansSC-VF.designspace)。
 
