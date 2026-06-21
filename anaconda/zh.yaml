@@ -4,6 +4,7 @@ block:
 - usage
 - customs
 - miniconda
+- pixi
 input:
   channel:
     _: 第三方源
