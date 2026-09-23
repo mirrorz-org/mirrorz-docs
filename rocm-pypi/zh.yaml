@@ -1,0 +1,28 @@
+_: AMD ROCm PyPI 软件仓库
+block:
+- rocm-pypi
+filter:
+  scheme: https
+input:
+  target:
+    _: GPU 架构通道
+    default: gfx1151
+    option:
+      gfx1151:
+        _: gfx1151（Strix Point，Ryzen AI 300 核显）
+      gfx1150:
+        _: gfx1150（Strix Halo，Ryzen AI Max 核显）
+      gfx110X-dgpu:
+        _: gfx110X（RDNA 3 独显，RX 7900 系列等）
+      gfx120X-all:
+        _: gfx120X（RDNA 4，RX 9070 系列等）
+      gfx103X-all:
+        _: gfx103X（RDNA 2，RX 6000 系列等）
+      gfx94X-dcgpu:
+        _: gfx94X（Instinct MI300 系列）
+      gfx950-dcgpu:
+        _: gfx950（Instinct MI350 系列）
+      gfx908:
+        _: gfx908（Instinct MI100）
+      gfx90a:
+        _: gfx90a（Instinct MI200 系列）
