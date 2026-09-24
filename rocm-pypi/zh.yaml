@@ -23,6 +23,6 @@ input:
       gfx950-dcgpu:
         _: gfx950（Instinct MI350 系列）
       gfx908:
-        _: gfx908（Instinct MI100）
+        _: gfx908 (Instinct MI100)
       gfx90a:
         _: gfx90a（Instinct MI200 系列）
