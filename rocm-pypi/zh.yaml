@@ -9,9 +9,9 @@ input:
     default: gfx1151
     option:
       gfx1151:
-        _: gfx1151（Strix Point，Ryzen AI 300 核显）
+        _: gfx1151（Strix Halo，Ryzen AI Max 核显）
       gfx1150:
-        _: gfx1150（Strix Halo，Ryzen AI Max 核显）
+        _: gfx1150（Strix Point，Ryzen AI 300 核显）
       gfx110X-dgpu:
         _: gfx110X（RDNA 3 独显，RX 7900 系列等）
       gfx120X-all:
