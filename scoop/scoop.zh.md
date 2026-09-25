@@ -20,7 +20,6 @@ iwr -useb get.scoop.sh | iex
 
 ```{ztmpl lang="powershell"}
 scoop config SCOOP_REPO "{{endpoint}}/scoop.git"
-scoop update
 ```
 
 ### 将 bucket 切换至镜像
@@ -53,4 +52,10 @@ scoop bucket rm java
 scoop bucket add java "{{endpoint}}/java.git"
 scoop bucket rm games
 scoop bucket add games "{{endpoint}}/scoop-games.git"
+```
+
+全部切换完成后，执行更新（`scoop update` 会同时更新 Scoop 本体和全部 bucket，因此须在切换完成后再运行）：
+
+```{ztmpl lang="powershell"}
+scoop update
 ```
