@@ -6,13 +6,15 @@
 - `main.git`、`extras.git`、`versions.git`、`nirsoft.git`、`php.git`、`nonportable.git`、`java.git`
 - `scoop-nerd-fonts.git`、`scoop-games.git`、`scoop-sysinternals.git`（这三个官方 bucket 上游托管在个人账号下，目录名跟随上游仓库名）
 
-### 安装 Scoop 时使用镜像
+### 首次安装 Scoop
 
-```{ztmpl lang="powershell"}
-# 下载安装脚本，指定 Scoop 本体仓库为镜像
-iwr -useb get.scoop.sh -outfile install.ps1
-.\install.ps1 -ScoopRepo "{{endpoint}}/scoop.git"
+上游安装脚本硬编码了 GitHub 仓库地址，不支持通过参数或环境变量指定镜像，因此首次安装请使用官方安装程序（安装过程需要能够访问 GitHub）：
+
+```powershell
+iwr -useb get.scoop.sh | iex
 ```
+
+安装完成后，再按下一节将 Scoop 本体切换至镜像。
 
 ### 已安装 Scoop，切换至镜像
 
@@ -33,13 +35,22 @@ scoop bucket add main "{{endpoint}}/main.git"
 其他官方 bucket 同理：
 
 ```{ztmpl lang="powershell"}
+scoop bucket rm extras
 scoop bucket add extras "{{endpoint}}/extras.git"
+scoop bucket rm versions
 scoop bucket add versions "{{endpoint}}/versions.git"
+scoop bucket rm nirsoft
 scoop bucket add nirsoft "{{endpoint}}/nirsoft.git"
+scoop bucket rm sysinternals
 scoop bucket add sysinternals "{{endpoint}}/scoop-sysinternals.git"
+scoop bucket rm php
 scoop bucket add php "{{endpoint}}/php.git"
+scoop bucket rm nerd-fonts
 scoop bucket add nerd-fonts "{{endpoint}}/scoop-nerd-fonts.git"
+scoop bucket rm nonportable
 scoop bucket add nonportable "{{endpoint}}/nonportable.git"
+scoop bucket rm java
 scoop bucket add java "{{endpoint}}/java.git"
+scoop bucket rm games
 scoop bucket add games "{{endpoint}}/scoop-games.git"
 ```
