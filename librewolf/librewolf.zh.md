@@ -5,7 +5,7 @@ LibreWolf 是基于 Firefox 的开源桌面浏览器，注重隐私、安全与�
 导入 GPG 公钥：
 
 ```{ztmpl lang="bash"}
-wget -qO- {{endpoint}}/keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/librewolf.gpg
+wget -qO- {{endpoint}}/keyring.gpg | sudo tee /usr/share/keyrings/librewolf.gpg > /dev/null
 ```
 
 将以下内容写入 `/etc/apt/sources.list.d/librewolf.list`：
