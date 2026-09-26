@@ -2,7 +2,16 @@
 
 ### 命令替换
 
-用以下命令替换 `/etc/yum.repos.d` 下的文件
+在 Fedora 44 及更新版本中，用以下命令覆写默认的仓库配置项。
+
+```{ztmpl lang="bash"}
+{{sudo}}dnf config-manager setopt fedora.baseurl='{{endpoint}}/releases/$releasever/Everything/$basearch/os/'
+{{sudo}}dnf config-manager setopt fedora.metalink=
+{{sudo}}dnf config-manager setopt updates.baseurl='{{endpoint}}/updates/$releasever/Everything/$basearch/'
+{{sudo}}dnf config-manager setopt updates.metalink=
+```
+
+在 Fedora 43 及更旧版本中，用以下命令替换 `/etc/yum.repos.d` 下的文件。
 
 ```{ztmpl lang="bash"}
 {{sudo}}sed -e 's|^metalink=|#metalink=|g' \
@@ -14,7 +23,17 @@
 
 ### 手动替换
 
-**`fedora` 仓库 (/etc/yum.repos.d/fedora.repo)**
+**`fedora` 仓库**
+
+在 Fedora 45 及更新版本中，在 `/etc/dnf/repos.override.d` 下新建覆写文件 `fedora-override.repo`，将其内容修改如下。
+
+```{ztmpl lang="ini"}
+[fedora]
+baseurl={{endpoint}}/releases/$releasever/Everything/$basearch/os/
+metalink=
+```
+
+在 Fedora 44 及更旧版本中，将 `/etc/yum.repos.d/fedora.repo` 文件内容修改如下。
 
 ```{ztmpl lang="ini"}
 [fedora]
@@ -31,7 +50,17 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
 skip_if_unavailable=False
 ```
 
-**`updates` 仓库 (/etc/yum.repos.d/fedora-updates.repo)**
+**`updates` 仓库**
+
+在 Fedora 45 及更新版本中，在 `/etc/dnf/repos.override.d` 下新建覆写文件 `fedora-updates-override.repo`，将其内容修改如下。
+
+```{ztmpl lang="ini"}
+[updates]
+baseurl={{endpoint}}/updates/$releasever/Everything/$basearch/
+metalink=
+```
+
+在 Fedora 44 及更旧版本中，将 `/etc/yum.repos.d/fedora-updates.repo` 文件内容修改如下。
 
 ```{ztmpl lang="ini"}
 [updates]
