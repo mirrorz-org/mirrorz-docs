@@ -46,12 +46,10 @@ torchvision = { index = "pytorch-{{target}}" }
 [[tool.uv.index]]
 name = "pytorch-{{target}}"
 url = "{{endpoint}}/whl/{{target}}"
-explicit = true
 ```
 
-`explicit = true` 表示该索引**仅**用于在 `[tool.uv.sources]` 中显式指定到它的包，其余依赖（如 `numpy`）仍从 PyPI（或所配置的 PyPI 镜像）获取。
 
-也可以使用 `uv add` 自动写入上述配置（不会自动添加 `explicit = true`，建议手动加上）：
+也可以使用 `uv add` 自动写入上述配置：
 
 ```{ztmpl lang="bash"}
 uv add torch torchvision --index pytorch-{{target}}={{endpoint}}/whl/{{target}}
@@ -82,7 +80,7 @@ name = "pytorch-{{target}}"
 url = "{{endpoint}}/whl/{{target}}"
 ```
 
-注意：`[tool.uv.sources]` 只能写在 `pyproject.toml` 中，因此在 `uv.toml` 中**不要**设置 `explicit = true`，否则没有任何包能从该索引安装。详情参考[官方配置文件文档](https://docs.astral.sh/uv/concepts/configuration-files/)。
+注意：`[tool.uv.sources]` 只能写在 `pyproject.toml` 中。详情参考[官方配置文件文档](https://docs.astral.sh/uv/concepts/configuration-files/)。
 
 ### GPU 扩展包
 

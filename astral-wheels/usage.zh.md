@@ -61,7 +61,6 @@ flash-attn = { index = "astral-{{target}}" }
 [[tool.uv.index]]
 name = "pytorch-{{target}}"
 url = "https://download.pytorch.org/whl/{{target}}"  # 或替换为镜像站的 PyTorch 索引地址
-explicit = true
 
 [[tool.uv.index]]
 name = "astral-{{target}}"
@@ -106,7 +105,7 @@ url = "{{endpoint}}/{{target}}/"
 
 uv 默认使用 `first-index` 策略：按定义顺序查找索引，一旦某个包在某个索引中存在，就**只**使用该索引中的版本，以防范依赖混淆攻击。对本索引而言：
 
-- 本索引中不存在的包（如 `torch`、`numpy`）会继续从后续索引（如 PyPI）获取，不受影响；
+- 本索引中不存在的包（如 `torch`、`numpy`）会继续从后续索引（如 PyPI、PyTorch 索引）获取，不受影响；
 - 本索引中存在的包（如 `vllm`、`deepspeed`）以非 explicit 方式配置时只会从本索引获取。若所需版本不在本索引中，解析会直接失败，而不会回退到 PyPI。
 
 遇到这种情况，推荐在 `pyproject.toml` 中使用 `explicit = true` 配合 `[tool.uv.sources]`，只让需要的包使用本索引；也可以使用 `--index-strategy unsafe-best-match` 在所有索引中选择最佳版本，但这会带来依赖混淆风险。
