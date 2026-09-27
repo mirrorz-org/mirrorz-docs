@@ -1,3 +1,7 @@
 _: Scoop
 block:
-- scoop
+- intro
+- install
+- core
+- buckets
+- update
