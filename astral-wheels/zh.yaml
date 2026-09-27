@@ -1,0 +1,28 @@
+_: Astral GPU indexes
+block:
+- usage
+filter:
+  scheme: https
+input:
+  target:
+    _: CUDA 版本通道
+    default: cu128
+    option:
+      cpu:
+        _: CPU（无 GPU 环境）
+      cu118:
+        _: CUDA 11.8
+      cu121:
+        _: CUDA 12.1
+      cu124:
+        _: CUDA 12.4
+      cu126:
+        _: CUDA 12.6
+      cu128:
+        _: CUDA 12.8
+      cu129:
+        _: CUDA 12.9
+      cu130:
+        _: CUDA 13.0
+      cu132:
+        _: CUDA 13.2
