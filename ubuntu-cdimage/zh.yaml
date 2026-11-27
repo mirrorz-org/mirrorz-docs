@@ -1,0 +1,5 @@
+_: Ubuntu CDImage 安装镜像
+block:
+- intro
+- cover
+- usage

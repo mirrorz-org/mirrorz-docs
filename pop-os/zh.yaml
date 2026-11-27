@@ -1,0 +1,21 @@
+_: Pop!_OS 软件仓库
+block:
+- intro
+- usage
+input:
+  release:
+    _: Pop!_OS 版本
+    default: noble
+    option:
+      resolute:
+        _: Pop!_OS 26.04 LTS (resolute)
+      noble:
+        _: Pop!_OS 24.04 LTS (noble)
+      jammy:
+        _: Pop!_OS 22.04 LTS (jammy)
+  src:
+    _: 启用源码源
+    note: 源码源通常用于构建和调试，开启后影响更新速度
+    default: false
+    true: ' deb-src'
+    false: ''
