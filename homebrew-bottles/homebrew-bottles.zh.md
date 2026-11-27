@@ -1,6 +1,6 @@
-**注：该镜像是 Homebrew 二进制预编译包的镜像。镜像站同时提供 Homebrew 的 formula 索引的镜像（即 `brew update` 时所更新内容），请参考 [Homebrew 镜像使用帮助](../homebrew/)。**
+本镜像提供 Homebrew 二进制预编译包（Bottles）及 JSON API 镜像。Homebrew 本体与安装脚本镜像请参考 [Homebrew 帮助](../homebrew/)。
 
-TUNA/USTC 以及以 TUNA/USTC 为上游的镜像站均提供了 `HOMEBREW_API_DOMAIN` 的接口；SJTUG 暂未提供该接口。
+注：大多数镜像站同时提供 {ztmpl}`{{endpoint}}/api` 作为 `HOMEBREW_API_DOMAIN`；若所选镜像站未提供 `/api` 接口，仅设置 `HOMEBREW_BOTTLE_DOMAIN` 即可。
 
 ### 临时替换
 
@@ -28,5 +28,3 @@ echo 'export HOMEBREW_BOTTLE_DOMAIN="{{endpoint}}"' >> ~/.zprofile
 export HOMEBREW_API_DOMAIN="{{endpoint}}/api"
 export HOMEBREW_BOTTLE_DOMAIN="{{endpoint}}"
 ```
-
-**注：Linuxbrew 核心仓库（`linuxbrew-core`）自 2021 年 10 月 25 日（`brew` 版本 3.3.0 起）被弃用，Linuxbrew 用户应迁移至 `homebrew-core`。Linuxbrew 用户请依本镜像说明重新设置镜像。**
