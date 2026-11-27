@@ -1,0 +1,19 @@
+_: ALHP 软件仓库
+block:
+- intro
+- usage
+input:
+  level:
+    _: x86-64 特性级别
+    default: x86-64-v3
+    option:
+      x86-64-v2:
+        _: x86-64-v2
+      x86-64-v3:
+        _: x86-64-v3
+      x86-64-v4:
+        _: x86-64-v4
+  multilib:
+    _: 启用 multilib
+    default: false
+    true: true
