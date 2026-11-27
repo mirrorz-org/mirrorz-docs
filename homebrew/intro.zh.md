@@ -1,4 +1,4 @@
-本镜像提供 Homebrew 程序本体（`brew.git`）与安装脚本（`install.git`）的 Git 仓库镜像。
+本镜像提供 Homebrew 程序本体（`brew.git`）。部分镜像站也提供安装脚本仓库（`install.git`）。
 
 二进制预编译包与 JSON API 镜像请配合 [Homebrew Bottles 帮助](../homebrew-bottles/) 配置。
 

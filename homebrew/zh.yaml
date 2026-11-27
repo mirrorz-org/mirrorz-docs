@@ -2,5 +2,7 @@ _: Homebrew 软件仓库
 block:
 - intro
 - install
+- install-script
+- post-install
 - usage
 - reset
