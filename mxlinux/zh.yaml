@@ -1,0 +1,22 @@
+_: MX Linux 软件仓库
+block:
+- intro
+- usage
+input:
+  release:
+    _: MX Linux 版本
+    default: trixie
+    option:
+      trixie:
+        _: MX-25 (Debian 13 trixie)
+      bookworm:
+        _: MX-23 (Debian 12 bookworm)
+  ahs:
+    _: 启用 AHS（Advanced Hardware Support，仅 x86_64）
+    default: false
+    true: true
+  testrepo:
+    _: 启用测试源 (testrepo)
+    default: false
+    true: ''
+    false: '# '

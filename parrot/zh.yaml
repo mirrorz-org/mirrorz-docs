@@ -1,0 +1,23 @@
+_: Parrot OS 软件仓库
+block:
+- intro
+- usage
+input:
+  release:
+    _: Parrot OS 版本
+    default: echo
+    option:
+      echo:
+        _: Parrot 7 (echo)
+      lory:
+        _: Parrot 6 (lory)
+  backports:
+    _: 启用 backports
+    default: true
+    true: ''
+    false: '# '
+  src:
+    _: 启用源码源
+    note: 源码源通常用于构建和调试，开启后影响更新速度
+    true: ''
+    false: '# '

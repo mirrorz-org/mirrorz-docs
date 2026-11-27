@@ -1,0 +1,10 @@
+_: Debian Ports 软件仓库
+block:
+- intro
+- usage
+input:
+  nf:
+    _: 启用非自由软件源
+    default: true
+    true: ' contrib non-free non-free-firmware'
+    false: ''

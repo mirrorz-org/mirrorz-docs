@@ -1,0 +1,19 @@
+_: leopard.sh / tiger.sh 软件仓库
+block:
+- intro
+- usage
+input:
+  os:
+    _: 系统版本
+    default: leopard
+    option:
+      leopard:
+        _: Mac OS X Leopard (10.5)
+        script: leopard.sh
+        subdir: leopardsh
+        env_prefix: LEOPARDSH
+      tiger:
+        _: Mac OS X Tiger (10.4)
+        script: tiger.sh
+        subdir: tigersh
+        env_prefix: TIGERSH
