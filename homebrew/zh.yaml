@@ -1,3 +1,6 @@
 _: Homebrew 软件仓库
 block:
-- homebrew
+- intro
+- install
+- usage
+- reset
