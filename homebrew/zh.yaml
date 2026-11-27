@@ -2,7 +2,7 @@ _: Homebrew 软件仓库
 block:
 - intro
 - install
-- install-script
+- install-script-mirror
 - post-install
 - usage
 - reset
